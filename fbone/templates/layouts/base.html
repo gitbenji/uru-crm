@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>{% block title %}{{ page_title|default(_('Project')) }}{% endblock %}</title>
+    <meta name="description" content="Fbone (Flask bone) is a Flask (Python microframework) template/bootstrap/boilerplate application.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="Shortcut Icon" href="{{ url_for('static', filename='img/favicon.png') }}" type="image/x-icon">
+    {% block css %}
+        {% assets "css_all" -%}
+            <link rel="stylesheet" href="{{ ASSET_URL }}">
+        {%- endassets %}
+    {% endblock %}
+
+    {% block css_style %}
+    {% endblock %}
+
+    {% block js_top %}
+        <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+        <script type="text/javascript">
+          var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+        </script>
+    {% endblock %}
+</head>
+
+<body>
+    {% include "macros/_ask_user_to_update_ie.html" %}
+
+    {% block topbar %}
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{{ url_for('frontend.index') }}">Manekineko</a>
+        </div>
+        {% if current_user.is_authenticated() %}
+        <form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+                <input type='text' class="form-control" name='keywords' value='{{ keywords|default('') }}' placeholder='Search' />
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+        <div class="navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                {% if current_user.is_admin() %}
+                <li><a href="{{ url_for('admin.index') }}">{{ current_user.name }}</a></li>
+                {% else %}
+                <li><a href="{{ url_for('user.index') }}">{{ current_user.name }}</a></li>
+                {% endif %}
+                <li><a href="{{ url_for('settings.profile') }}">{{_('Settings')}}</a></li>
+                <li><a href="{{ url_for('frontend.logout') }}">{{_('Log out')}}</a></li>
+            </ul>
+        </div>
+        {% else %}
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="{{ url_for('frontend.signup') }}">{{_('Sign up')}}</a></li>
+            <li><a href="{{ url_for('frontend.login') }}">{{_('Sign in')}}</a></li>            
+          </ul>
+        </div><!--/.nav-collapse -->
+        {% endif %}
+      </div>
+    </nav>
+    {% endblock %}
+
+    {% block container %}
+    <div class="container">
+        <div class="page-header">
+            {% block body %}
+            {% endblock %}
+        </div>
+    </div>
+    {% endblock %}
+
+    <footer class="footer">
+        <ul class="footer-links">
+            <li>{{_('&copy;')}}</li>
+            <li><a href='https://github.com/frankV/manekineko'>{{_('About')}}</a></li>
+            <li class="muted">&middot;</li>
+            <li><a href='{{ url_for('frontend.help') }}'>{{_('Help')}}</a></li>
+            <li class="muted">&middot;</li>
+            <li><a href='#'>{{_('Terms')}}</a></li>
+        </ul>
+    </footer>
+
+
+    {% block js_btm %}
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        {% assets "js_vendor" -%}
+            <script src="{{ ASSET_URL }}"></script>
+        {% endassets %}
+    {% endblock %}
+
+    {% block extra_js %}
+    {% endblock %}
+
+    {% block ga %}
+        {% include "macros/_google_analytics.html" %}
+    {% endblock %}
+</body>
+</html>

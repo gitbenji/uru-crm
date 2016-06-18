@@ -1,0 +1,17 @@
+{% from "macros/_form.html" import render_form %}
+
+{% set page_title = user.name %}
+
+{% extends "layouts/base.html" %}
+
+
+{% block body %}
+
+
+<h2> {{_('Hello')}}, {{ user.name }}!</h2>
+
+
+{% endblock %}
+
+{% block extra_js %}
+{% endblock %}
