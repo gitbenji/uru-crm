@@ -9,8 +9,8 @@
 from factory import Sequence
 from factory.alchemy import SQLAlchemyModelFactory
 
-from fbone.modules.user import User
-from fbone.extensions import db
+from uru_crm.modules.user import User
+from uru_crm.extensions import db
 
 
 class BaseFactory(SQLAlchemyModelFactory):

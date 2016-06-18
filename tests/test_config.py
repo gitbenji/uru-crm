@@ -6,8 +6,8 @@
     test application configuration
 """
 
-from fbone.factory import create_app
-from fbone.config import TestConfig
+from uru_crm.factory import create_app
+from uru_crm.config import TestConfig
 
 
 def test_default_config():

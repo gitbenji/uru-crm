@@ -2,8 +2,8 @@
 
 from werkzeug.urls import url_quote
 
-from fbone.modules.user import User
-from fbone.extensions import db, mail
+from uru_crm.modules.user import User
+from uru_crm.extensions import db, mail
 
 from tests import TestCase
 

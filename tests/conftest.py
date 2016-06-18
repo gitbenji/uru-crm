@@ -12,10 +12,10 @@ import pytest
 # from alembic.command import upgrade
 # from alembic.config import Config
 
-from fbone.factory import create_app
-from fbone.config import TestConfig
-from fbone.extensions import db as _db
-from fbone.utils import INSTANCE_FOLDER_PATH
+from uru_crm.factory import create_app
+from uru_crm.config import TestConfig
+from uru_crm.extensions import db as _db
+from uru_crm.utils import INSTANCE_FOLDER_PATH
 
 
 @pytest.fixture(scope='session')

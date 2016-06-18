@@ -15,7 +15,7 @@ from fabric import utils
 import fabric_gunicorn as gunicorn
 
 
-project = "fbone"
+project = "uru_crm"
 
 # the user to use for the remote commands
 env.user = ''
@@ -48,12 +48,12 @@ def bootstrap():
 def create_virtualenv():
     """ setup virtualenv on remote host """
     with prefix("source ~/.bash_profile"):
-        run('mkvirtualenv %s' % 'fbone')
+        run('mkvirtualenv %s' % 'uru_crm')
 
 
 def update_requirements():
     """ update external dependencies on remote host """
-    with prefix('workon fbone'):
+    with prefix('workon uru_crm'):
         requirements = os.path.join(env.path, 'requirements.txt')
         cmd = ['pip install -r %s' % requirements]
         run(' '.join(cmd))
@@ -113,10 +113,10 @@ def d():
 def babel():
     """Babel compile.
     """
-    local("pybabel extract -F ../fbone/config -k lazy_gettext -o messages.pot fbone")
-    local("pybabel init -i messages.pot -d fbone/translations -l es")
-    local("pybabel init -i messages.pot -d fbone/translations -l en")
-    local("pybabel compile -f -d fbone/translations")
+    local("pybabel extract -F ../uru_crm/config -k lazy_gettext -o messages.pot uru_crm")
+    local("pybabel init -i messages.pot -d uru_crm/translations -l es")
+    local("pybabel init -i messages.pot -d uru_crm/translations -l en")
+    local("pybabel compile -f -d uru_crm/translations")
 
 
 def service(command=None):
@@ -125,7 +125,7 @@ def service(command=None):
     commands: start, stop, status
     """
     if command:
-        run('service fbone %s' % command)
+        run('service uru_crm %s' % command)
     utils.error('invalid command')
 
 

@@ -10,7 +10,7 @@
 
 import pytest
 
-from fbone.modules.user import User, USER
+from uru_crm.modules.user import User, USER
 from .factories import UserFactory
 
 

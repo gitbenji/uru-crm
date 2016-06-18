@@ -12,12 +12,12 @@ import sqlalchemy
 from flask.ext.script import Manager
 from flask.ext.migrate import MigrateCommand
 
-from fbone import create_app
-from fbone.extensions import db
-from fbone.utils import PROJECT_PATH, MALE
-from fbone.modules.user import User, ADMIN, ACTIVE
+from uru_crm import create_app
+from uru_crm.extensions import db
+from uru_crm.utils import PROJECT_PATH, MALE
+from uru_crm.modules.user import User, ADMIN, ACTIVE
 
-from fbone.modules.user.commands import CreateUserCommand, DeleteUserCommand, ListUsersCommand
+from uru_crm.modules.user.commands import CreateUserCommand, DeleteUserCommand, ListUsersCommand
 
 
 app = create_app()
