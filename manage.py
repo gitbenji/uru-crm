@@ -37,8 +37,8 @@ def initdb():
         db.drop_all()
     except sqlalchemy.exc.OperationalError:
         URI = app.config['SQLALCHEMY_DATABASE_URI'][:app.config['SQLALCHEMY_DATABASE_URI'].rfind('/')]
-        engine = sqlalchemy.create_engine(URI)
-        engine.execute("CREATE DATABASE fbone")
+        engine = sqlalchemy.create_engine(URI, isolation_level='AUTOCOMMIT')
+        engine.execute("CREATE DATABASE uru_crm")
 
     db.create_all()
 

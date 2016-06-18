@@ -7,7 +7,7 @@ from utils import make_dir, INSTANCE_FOLDER_PATH
 
 class BaseConfig(object):
 
-    PROJECT = "fbone"
+    PROJECT = "uru_crm"
 
     # Get app root path, also can use flask.root_path.
     # ../../config.py
@@ -16,7 +16,7 @@ class BaseConfig(object):
     DEBUG = True
     TESTING = False
 
-    ADMINS = ['youremail@yourdomain.com']
+    ADMINS = ['bshankwitz@gmail.com', 'idas.bianca@gmail.com']
 
     # http://flask.pocoo.org/docs/quickstart/#sessions
     SECRET_KEY = 'youshouldreplacethis'
@@ -47,10 +47,10 @@ class DefaultConfig(BaseConfig):
     # SQLALCHEMY_DATABASE_URI = 'sqlite:///' + INSTANCE_FOLDER_PATH + '/%s.sqlite' % BaseConfig.PROJECT
 
     # MySQL
-    SQLALCHEMY_DATABASE_URI = 'mysql://root@localhost/%s?charset=utf8' % BaseConfig.PROJECT
+    # SQLALCHEMY_DATABASE_URI = 'mysql://root@localhost/%s?charset=utf8' % BaseConfig.PROJECT
 
     # PostgreSQL
-    # SQLALCHEMY_DATABASE_URI = 'postgresql://root@localhost/%s' % BaseConfig.PROJECT
+    SQLALCHEMY_DATABASE_URI = 'postgresql://benji@localhost/%s' % BaseConfig.PROJECT
 
     # Flask-babel: http://pythonhosted.org/Flask-Babel/
     ACCEPT_LANGUAGES = ['zh']
