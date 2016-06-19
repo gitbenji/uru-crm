@@ -5,7 +5,7 @@ from flask import Markup, current_app
 from flask.ext.wtf import Form
 from flask.ext.wtf.html5 import EmailField
 from wtforms import (ValidationError, BooleanField, TextField, HiddenField, PasswordField,
-    SubmitField)
+    SubmitField, RadioField, SelectMultipleField)
 from wtforms.validators import (Required, Length, EqualTo, Email)
 from flask.ext.babel import lazy_gettext as _
 
@@ -26,13 +26,33 @@ class LoginForm(Form):
 
 class SignupForm(Form):
     next = HiddenField()
-    email = EmailField(_('Email'), [Required(), Email()],
-            description=_("What's your email address?"))
+
+    first_name = TextField(_('First Name'))
+
+    last = TextField(_('Last Name'))
+
+    email = EmailField(_('Email'), [Required(), Email()])
+
     password = PasswordField(_('Password'), [Required(), Length(PASSWORD_LEN_MIN,
         PASSWORD_LEN_MAX)], description=_('%(minChar)s characters or more! Be tricky.',
         minChar=PASSWORD_LEN_MIN))
-    # phone_number = TextField(_('Phone number'), [Required(), Length(PHONENUMBER_LENGTH
-    #     )], description=_("Don't worry. you can change it later."))
+
+    phone_number = TextField(_('Phone number'), [Required(), Length(PHONENUMBER_LENGTH)])
+
+    address_1 = TextField(_('Street Address'))
+
+    address_2 = TextField(_('City, State, ZIP'))
+
+    delivery_preference = TextField(_('Delivery Preferences'), description=_("(ex. Leave box on the back porch)"))
+
+    quantity = RadioField('Who are we feeding?', choices=[('value','just me!'),('value_two','me and wifey'),('three','the whole fam<3')])
+
+    duration = RadioField('Duration?', choices=[('value','One week($50)'),('value_two','One Month($45)'),('three','Three Months($40)')], description=_("Any veggies you would like to avoid?"))
+
+    avocados=_('avocados')
+    cilantro = BooleanField(_('cilantro'))
+    watermelon = BooleanField(_('watermelon'))
+    peas = BooleanField(_('peas'))
 
     agree = BooleanField(_('Agree to the ') +
         Markup('<a target="blank" href="/terms">' + _('Terms of Service') + '</a>'), [Required()])
