@@ -23,6 +23,8 @@ def load_user(id):
 def index(offset=0):
     if not current_user.is_authenticated():
         abort(403)
+    if current_user.role_code == 0:
+        return render_template('admin/index.html', user=current_user)
     return render_template('user/index.html', user=current_user)
 
 
