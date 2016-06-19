@@ -47,6 +47,10 @@ def get_current_time():
     return datetime.utcnow()
 
 
+def get_grouping():
+    return random.randint(1, 2)
+
+
 def pretty_date(dt, default=None):
     """
     Returns string representing "time since" e.g.

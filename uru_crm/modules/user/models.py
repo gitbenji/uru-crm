@@ -14,7 +14,7 @@ from flask.ext.login import UserMixin
 
 from uru_crm.types import DenormalizedText
 from uru_crm.extensions import db
-from uru_crm.utils import get_current_time, GENDER_TYPE, STRING_LEN
+from uru_crm.utils import get_current_time, get_grouping, GENDER_TYPE, STRING_LEN
 from uru_crm.modules.base import Base
 from .constants import USER, USER_ROLE, ADMIN, INACTIVE, USER_STATUS
 
@@ -56,7 +56,7 @@ class User(Base, UserMixin):
     duration = Column(db.String(STRING_LEN), nullable=False)
     delivery_instructs = Column(db.Text)
     bad_veggies = Column(db.Text)
-    user_grouping = Column(db.Integer, nullable=False, default=1)
+    user_grouping = Column(db.Integer, nullable=False, default=get_grouping)
 
     user_grouping = db.relationship('Box', secondary=box_groupings,
                             backref=db.backref('users', lazy='dynamic'))
