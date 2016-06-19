@@ -8,7 +8,7 @@ from flask.ext.login import login_required
 from flask.ext.babel import Babel
 
 from uru_crm.decorators import admin_required
-from uru_crm.modules.user import User
+from uru_crm.modules.user import User, Box
 from .forms import UserForm, EditTranslationForm, UploadLogoForm
 
 
@@ -23,6 +23,14 @@ def index():
     logo_form = UploadLogoForm()
     return render_template('admin/index.html', users=users, active='index', logo_form=logo_form)
 
+
+@admin.route('/boxes')
+@login_required
+@admin_required
+def boxes():
+    users = User.query.all()
+    boxes = Box.query.all()
+    return render_template('admin/boxes.html', users=users, boxes=boxes)
 
 @admin.route('/users')
 @login_required

@@ -14,7 +14,7 @@ from flask.ext.login import UserMixin
 
 from uru_crm.types import DenormalizedText
 from uru_crm.extensions import db
-from uru_crm.utils import get_current_time, get_grouping, GENDER_TYPE, STRING_LEN
+from uru_crm.utils import get_current_time, get_grouping, STRING_LEN
 from uru_crm.modules.base import Base
 from .constants import USER, USER_ROLE, ADMIN, INACTIVE, USER_STATUS
 
@@ -26,23 +26,11 @@ box_groupings = db.Table(
 )
 
 
-class Farm(Base):
-    farm = db.Column(db.String(STRING_LEN), nullable=False, unique=True)
-    phone_num = Column(db.String(STRING_LEN), nullable=False, default='test')
-    email = Column(db.String(STRING_LEN), nullable=False, unique=True)
-    address = Column(db.String(STRING_LEN), nullable=False, default='test')
-
-
-class Available_Veggie(Base):
-    veggie = db.Column(db.String(STRING_LEN), nullable=False)
-    farm = db.Column(db.String(STRING_LEN), nullable=False)
-    quantity = db.Column(db.String(STRING_LEN), nullable=False)
-
-
 class Box(Base):
     group = Column(db.Integer, nullable=False)
     veggies = db.Column(db.String(STRING_LEN), nullable=False, unique=True)
     date = Column(db.DateTime, nullable=False)
+    users = db.relationship("User", back_populates="box")
 
 
 class User(Base, UserMixin):
@@ -56,10 +44,8 @@ class User(Base, UserMixin):
     duration = Column(db.String(STRING_LEN), nullable=False)
     delivery_instructs = Column(db.Text)
     bad_veggies = Column(db.Text)
-    user_grouping = Column(db.Integer, nullable=False, default=get_grouping)
-
-    user_grouping = db.relationship('Box', secondary=box_groupings,
-                            backref=db.backref('users', lazy='dynamic'))
+    box_group = Column(db.Integer, db.ForeignKey('box.id'), default=get_grouping)
+    box = db.relationship("Box", back_populates="users")
 
     _password = Column('password', db.String(STRING_LEN), nullable=False, default=uuid4().hex)
 

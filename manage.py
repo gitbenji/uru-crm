@@ -15,7 +15,9 @@ from flask.ext.migrate import MigrateCommand
 from uru_crm import create_app
 from uru_crm.extensions import db
 from uru_crm.utils import PROJECT_PATH, MALE
-from uru_crm.modules.user import User, ADMIN, ACTIVE, Farm, Available_Veggie
+from uru_crm.modules.user import User, ADMIN, ACTIVE, Box
+from uru_crm.modules.farm import Farm
+from uru_crm.modules.veggies import Available_Veggie
 
 from uru_crm.modules.user.commands import CreateUserCommand, DeleteUserCommand, ListUsersCommand
 
@@ -41,6 +43,20 @@ def initdb():
         engine.execute("CREATE DATABASE uru_crm")
 
     db.create_all()
+
+    box1 = Box(
+        group=1,
+        veggies='{potatoes,canteloupe,peppers}',
+        date='2016-06-22'
+    )
+    db.session.add(box1)
+
+    box2 = Box(
+        group=2,
+        veggies='{celery,carrots,squash,cucumber}',
+        date='2016-06-22'
+    )
+    db.session.add(box2)
 
     admin = User(
         first_name=u'Benji',

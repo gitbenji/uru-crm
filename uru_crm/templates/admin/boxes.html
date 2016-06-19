@@ -1,0 +1,28 @@
+{% extends "admin/layout.html" %}
+
+{% block body %}
+<div class="container">
+    <h2>Boxes</h2>
+    <table class='table table-bordered table-hover'>
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Veggies</th>
+                <th></th>
+            </tr>
+        </thead>
+        {% for user in users if user.role_code != 0%}
+        {% for box in boxes if user.user_grouping == box.group %}
+        <tr>
+            <td>{{ user.first_name }}</td>
+            <td>{{ user.last_name }}</td>
+            <td>{{ box.veggies }}</td>
+
+            <td><a href="{{ url_for('admin.user', user_id=user.id) }}">Edit</a></td>
+        </tr>
+        {% endfor %}
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

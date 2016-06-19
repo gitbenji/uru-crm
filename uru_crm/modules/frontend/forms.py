@@ -46,14 +46,9 @@ class SignupForm(Form):
     box_size = RadioField('Who are we feeding?', choices=[('just me!','just me!'),('me and wifey','me and wifey'),('the whole fam<3','the whole fam<3')])
     duration = RadioField('Duration?', choices=[('One week($50)','One week($50)'),('One Month($45)','One Month($45)'),('Three Months($40)','Three Months($40)')], description=_("Any veggies you would like to avoid?"))
 
-    avocados = BooleanField(_('avocados'))
-    cilantro = BooleanField(_('cilantro'))
-    watermelon = BooleanField(_('watermelon'))
-    peas = BooleanField(_('peas'))
     list_of_veggies = ['avocados', 'cilantro', 'watermelon', 'peas']
     veggies = [(x, x) for x in list_of_veggies]
     bad_veggies = MultiCheckboxField('Label', choices=veggies)
-
 
     agree = BooleanField(_('Agree to the ') +
         Markup('<a target="blank" href="/terms">' + _('Terms of Service') + '</a>'), [Required()])
