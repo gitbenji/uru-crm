@@ -48,7 +48,7 @@ def initdb():
         email=u'bshankwitz@gmail.com',
         phone_num='5617231122',
         address=u'211 Westridge Dr, Tallahassee, FL., 32304',
-        password=u'nolomonk23',
+        password=u'bianca',
         box_size=u'single',
         duration=u'forever',
         role_code=ADMIN,
