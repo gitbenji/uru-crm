@@ -1,0 +1,27 @@
+{% extends "admin/layout.html" %}
+
+{% block body %}
+<div class="container">
+    <h2>Farms</h2>
+    <table class='table table-bordered table-hover'>
+        <thead>
+            <tr>
+                <th>Farm</th>
+                <th>Phone Number</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th></th>
+            </tr>
+        </thead>
+        {% for farm in farms %}
+        <tr>
+            <td>{{ farm.farm }}</td>
+            <td>{{ farm.phone_num }}</td>
+            <td>{{ farm.email }}</td>
+            <td>{{ farm.address }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="/admin/farms/signup">+Farm</a>
+</div>
+{% endblock %}

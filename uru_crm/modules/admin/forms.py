@@ -1,11 +1,16 @@
 # -*- coding: utf-8 -*-
 
+from flask import Markup, current_app, Flask, render_template
+
 from flask.ext.wtf import Form
-from wtforms import (HiddenField, SubmitField, RadioField, FileField, DateField)
-from wtforms.validators import AnyOf
+from flask.ext.wtf.html5 import EmailField
+from wtforms import (HiddenField, SubmitField, RadioField, FileField, DateField, TextField)
+from wtforms.validators import AnyOf, Required, Email
+from flask.ext.babel import lazy_gettext as _
 
 from uru_crm.extensions import db
 from uru_crm.modules.user import USER_ROLE, USER_STATUS
+from uru_crm.modules.farm import Farm
 
 
 class UserForm(Form):
@@ -22,6 +27,22 @@ class UserForm(Form):
         self.populate_obj(user)
         db.session.add(user)
         db.session.commit()
+
+
+class NewFarmForm(Form):
+    next = HiddenField()
+    farm = TextField(_('Farm Name'))
+    phone_num = TextField(_('Phone Number'))
+    email = EmailField(_('Email'), [Required(), Email()])
+    address = TextField(_('Address'))
+    submit = SubmitField(u'Sign up')
+
+    def save(self):
+        farm = Farm()
+        self.populate_obj(farm)
+        db.session.add(farm)
+        db.session.commit()
+        return farm
 
 
 class EditTranslationForm(Form):
