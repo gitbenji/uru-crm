@@ -10,8 +10,7 @@ from flask.ext.babel import Babel
 from uru_crm.decorators import admin_required
 from uru_crm.modules.farm import Farm
 from uru_crm.modules.user import User, Box, WeeklyNumbers
-from .forms import UserForm, EditTranslationForm, UploadLogoForm, NewFarmForm
-
+from .forms import UserForm, EditTranslationForm, UploadLogoForm, NewFarmForm, NewBoxesForm
 
 admin = Blueprint('admin', __name__, url_prefix='/admin')
 
@@ -24,6 +23,12 @@ def index():
     logo_form = UploadLogoForm()
     return render_template('admin/index.html', users=users, active='index', logo_form=logo_form)
 
+@admin.route('/boxes/create')
+@login_required
+@admin_required
+def create_boxes():
+    form = NewBoxesForm(next=request.args.get('next'))
+    return render_template('admin/create_boxes.html')
 
 @admin.route('/boxes')
 @login_required
@@ -31,7 +36,7 @@ def index():
 def boxes():
     users = User.query.all()
     boxes = Box.query.all()
-    return render_template('admin/boxes.html', users=users, boxes=boxes)
+    return render_template('admin/boxes.html', users=users, boxes=boxes, active='boxes')
 
 @admin.route('/users')
 @login_required
@@ -61,7 +66,6 @@ def farm_signup():
     form = NewFarmForm(next=request.args.get('next'))
 
     if form.validate_on_submit():
-        print('!!!!!!!!!!!!!!!!!!!!!!!!')
         farm = form.save()
 
         return redirect(form.next.data or url_for('admin.farms'))

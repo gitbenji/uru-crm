@@ -29,6 +29,11 @@ class UserForm(Form):
         db.session.commit()
 
 
+class NewBoxesForm(Form):
+    next = HiddenField()
+
+
+
 class NewFarmForm(Form):
     next = HiddenField()
     farm = TextField(_('Farm Name'))

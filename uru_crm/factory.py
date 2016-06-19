@@ -68,6 +68,14 @@ def configure_app(app, config=None):
         config_file = os.path.join(PROJECT_PATH, config)
         app.config.from_pyfile(config_file, silent=False)
 
+    @app.context_processor
+    def utility_processor():
+        def parse_list(list_string):
+            # string_length = len(list_string)
+            list_string = list_string[1:-1]
+            return list_string.split(',')
+        return dict(parse_list=parse_list)
+
 
 def configure_extensions(app):
     # flask-sqlalchemy

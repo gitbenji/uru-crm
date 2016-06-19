@@ -1,0 +1,24 @@
+{% from "macros/_form.html" import render_form %}
+
+{% set page_title = 'Create Boxes' %}
+
+{% extends "layouts/base.html" %}
+
+{% block body %}
+<h2>{{_('Create Box 1') }}</h2>
+{{ render_form(url_for('admin.create_boxes'), form) }}
+
+        {% for message in get_flashed_messages() %}
+            <p><b>Error</b>: {{ message }}</p>
+        {% endfor %}
+        {% if current_user.is_authenticated() %}
+            <h2>Hi, {{ current_user.nickname }}!</h2>
+            <p><a href="{{ url_for('logout') }}">Logout</a></p>
+        {% else %}
+            <!-- <h2>I don't know you!</h2> -->
+
+        {% endif %}
+
+
+
+{% endblock %}
