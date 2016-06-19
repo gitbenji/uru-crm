@@ -6,19 +6,33 @@
     <table class='table table-bordered table-hover'>
         <thead>
             <tr>
-                <th>Username</th>
-                <th>Status</th>
-                <th>Role</th>
-                <th>Created Time</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>Box Size</th>
+                <th>Duration</th>
+                <th>Instructions</th>
+                <th>Avoidances</th>
+                <th>Grouping</th>
+                <th>Registered</th>
                 <th></th>
             </tr>
         </thead>
-        {% for user in users %}
+        {% for user in users if user.role_code != 0%}
         <tr>
-            <td>{{ user.name }}</td>
-            <td>{{ user.status }}</td>
-            <td>{{ user.role }}</td>
-            <td>{{ user.created_time|format_date }}</td>
+            <td>{{ user.first_name }}</td>
+            <td>{{ user.last_name }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.phone_num }}</td>
+            <td>{{ user.address }}</td>
+            <td>{{ user.box_size }}</td>
+            <td>{{ user.duration }}</td>
+            <td>{{ user.delivery_instructs }}</td>
+            <td>{{ user.bad_veggies }}</td>
+            <td>{{ user.user_grouping }}</td>
+            <td>{{ user.registered_at|format_date }}</td>
             <td><a href="{{ url_for('admin.user', user_id=user.id) }}">Edit</a></td>
         </tr>
         {% endfor %}

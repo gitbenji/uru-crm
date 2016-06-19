@@ -15,7 +15,7 @@ from flask.ext.migrate import MigrateCommand
 from uru_crm import create_app
 from uru_crm.extensions import db
 from uru_crm.utils import PROJECT_PATH, MALE
-from uru_crm.modules.user import User, ADMIN, ACTIVE
+from uru_crm.modules.user import User, ADMIN, ACTIVE, Farm, Available_Veggie
 
 from uru_crm.modules.user.commands import CreateUserCommand, DeleteUserCommand, ListUsersCommand
 
@@ -54,6 +54,22 @@ def initdb():
         role_code=ADMIN,
         status_code=ACTIVE)
     db.session.add(admin)
+
+    farm = Farm(
+        farm=u'Pita Queen, LLC',
+        phone_num=u'1234567890',
+        email=u'pita@gmail.com',
+        address=u'123 Main Street'
+    )
+    db.session.add(farm)
+
+    veggie = Available_Veggie(
+        veggie=u'Potato',
+        farm=u'Pita Queen, LLC',
+        quantity=u'50lbs'
+    )
+    db.session.add(veggie)
+
     db.session.commit()
 
 

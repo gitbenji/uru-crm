@@ -31,11 +31,8 @@ class SignupForm(Form):
     password = PasswordField(_('Password'), [Required(), Length(PASSWORD_LEN_MIN,
         PASSWORD_LEN_MAX)], description=_('%(minChar)s characters or more! Be tricky.',
         minChar=PASSWORD_LEN_MIN))
-    name = TextField(_('Choose your username'), [Required(), Length(USERNAME_LEN_MIN,
-        USERNAME_LEN_MAX)], description=_("Don't worry. you can change it later."))
-
-    phone_number = TextField(_('Phone number'), [Required(), Length(PHONENUMBER_LENGTH
-        )], description=_("Don't worry. you can change it later."))
+    # phone_number = TextField(_('Phone number'), [Required(), Length(PHONENUMBER_LENGTH
+    #     )], description=_("Don't worry. you can change it later."))
 
     agree = BooleanField(_('Agree to the ') +
         Markup('<a target="blank" href="/terms">' + _('Terms of Service') + '</a>'), [Required()])
