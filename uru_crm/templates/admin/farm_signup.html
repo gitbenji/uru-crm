@@ -1,0 +1,18 @@
+{% from "macros/_form.html" import render_form %}
+
+{% set page_title = 'Farm Sign up' %}
+
+{% extends "layouts/base.html" %}
+
+{% block body %}
+{{ render_form(url_for('admin.farm_signup'), form) }}
+
+
+        {% for message in get_flashed_messages() %}
+            <p><b>Error</b>: {{ message }}</p>
+        {% endfor %}
+
+
+
+
+{% endblock %}

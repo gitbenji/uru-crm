@@ -8,8 +8,8 @@ from flask.ext.login import login_required
 from flask.ext.babel import Babel
 
 from uru_crm.decorators import admin_required
-from uru_crm.modules.user import User
-from .forms import UserForm, EditTranslationForm, UploadLogoForm
+from uru_crm.modules.user import User, Farm
+from .forms import UserForm, EditTranslationForm, UploadLogoForm, NewFarmForm
 
 
 admin = Blueprint('admin', __name__, url_prefix='/admin')
@@ -31,6 +31,26 @@ def users():
     users = User.query.all()
     return render_template('admin/users.html', users=users, active='users')
 
+@admin.route('/farms')
+@login_required
+@admin_required
+def farms():
+    farms = Farm.query.all()
+    return render_template('admin/farms.html', farms=farms, active='farms')
+
+@admin.route('/farms/signup', methods=['GET', 'POST'])
+@login_required
+@admin_required
+def farm_signup():
+    form = NewFarmForm(next=request.args.get('next'))
+
+    if form.validate_on_submit():
+        print('!!!!!!!!!!!!!!!!!!!!!!!!')
+        farm = form.save()
+
+        return redirect(form.next.data or url_for('admin.farms'))
+
+    return render_template('admin/farm_signup.html', form=form)
 
 @admin.route('/user/<int:user_id>', methods=['GET', 'POST'])
 @login_required
