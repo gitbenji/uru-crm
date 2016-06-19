@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 
-from flask import Markup, current_app
+from flask import Markup, current_app, Flask, render_template
 
 from flask.ext.wtf import Form
 from flask.ext.wtf.html5 import EmailField
 from wtforms import (ValidationError, BooleanField, TextField, HiddenField, PasswordField,
-    SubmitField, RadioField, SelectMultipleField)
+    SubmitField, RadioField)
 from wtforms.validators import (Required, Length, EqualTo, Email)
 from flask.ext.babel import lazy_gettext as _
 
@@ -49,10 +49,11 @@ class SignupForm(Form):
 
     duration = RadioField('Duration?', choices=[('One week($50)','One week($50)'),('One Month($45)','One Month($45)'),('Three Months($40)','Three Months($40)')], description=_("Any veggies you would like to avoid?"))
 
-    avocados = BooleanField_('avocados')
+    avocados = BooleanField(_('avocados'))
     cilantro = BooleanField(_('cilantro'))
     watermelon = BooleanField(_('watermelon'))
     peas = BooleanField(_('peas'))
+
 
     agree = BooleanField(_('Agree to the ') +
         Markup('<a target="blank" href="/terms">' + _('Terms of Service') + '</a>'), [Required()])
