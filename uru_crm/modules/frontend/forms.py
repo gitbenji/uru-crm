@@ -4,10 +4,7 @@ from flask import Markup, current_app, Flask, render_template
 
 from flask.ext.wtf import Form
 from flask.ext.wtf.html5 import EmailField
-from wtforms import (ValidationError, BooleanField, TextField, HiddenField, PasswordField,
-    SubmitField, RadioField)
-
-    SubmitField, RadioField, SelectMultipleField, widgets)
+from wtforms import (ValidationError, BooleanField, TextField, HiddenField, PasswordField, SubmitField, RadioField)
 from wtforms.validators import (Required, Length, EqualTo, Email)
 from flask.ext.babel import lazy_gettext as _
 
