@@ -32,18 +32,16 @@ class UsersSocialAccount(Base):
 
 
 class User(Base, UserMixin):
-    name = Column(db.String(STRING_LEN), nullable=False, unique=True, default='')
-    fullname = Column(db.String(STRING_LEN), nullable=False, default='')
+    first_name = Column(db.String(STRING_LEN), nullable=False, default='test')
+    last_name = Column(db.String(STRING_LEN), nullable=False, default='test')
+    phone_num = Column(db.String(STRING_LEN), nullable=False, default='test')
     email = Column(db.String(STRING_LEN), nullable=False, unique=True)
-    activation_key = Column(db.String(STRING_LEN))
+    address = Column(db.String(STRING_LEN), nullable=False, default='test')
     registered_at = Column(db.DateTime, default=get_current_time)
-    bio = Column(db.String(STRING_LEN))
-    avatar = Column(db.String(STRING_LEN))
-    gender_code = db.Column(db.Integer)
-
-    @property
-    def gender(self):
-        return GENDER_TYPE.get(self.gender_code)
+    box_size = Column(db.String(STRING_LEN), nullable=False, default='test')
+    duration = Column(db.String(STRING_LEN), nullable=False, default='test')
+    delivery_instructs = Column(db.Text)
+    bad_veggies = Column(db.Text)
 
     social_ids = db.relationship('UsersSocialAccount', secondary=social_accounts,
                             backref=db.backref('users', lazy='dynamic'))
@@ -97,52 +95,52 @@ class User(Base, UserMixin):
 
     # ================================================================
     # Follow / Following
-    followers = Column(DenormalizedText)
-    following = Column(DenormalizedText)
-
-    @property
-    def num_followers(self):
-        if self.followers:
-            return len(self.followers)
-        return 0
-
-    @property
-    def num_following(self):
-        return len(self.following)
-
-    def follow(self, user):
-        user.followers.add(self.id)
-        self.following.add(user.id)
-        user.followers = list(user.followers)
-        self.following = list(self.following)
-        db.session.commit()
-
-    def unfollow(self, user):
-        if self.id in user.followers:
-            user.followers.remove(self.id)
-            user.followers = list(user.followers)
-            db.session.add(user)
-        if user.id in self.following:
-            self.following.remove(user.id)
-            self.following = list(self.following)
-            db.session.add(self)
-        db.session.commit()
-
-    def get_following_query(self):
-        return User.query.filter(User.id.in_(self.following or set()))
-
-    def get_followers_query(self):
-        return User.query.filter(User.id.in_(self.followers or set()))
-
-    def is_following(self, follower):
-        return follower.id in self.following and self.id in follower.followers
+    # followers = Column(DenormalizedText)
+    # following = Column(DenormalizedText)
+    #
+    # @property
+    # def num_followers(self):
+    #     if self.followers:
+    #         return len(self.followers)
+    #     return 0
+    #
+    # @property
+    # def num_following(self):
+    #     return len(self.following)
+    #
+    # def follow(self, user):
+    #     user.followers.add(self.id)
+    #     self.following.add(user.id)
+    #     user.followers = list(user.followers)
+    #     self.following = list(self.following)
+    #     db.session.commit()
+    #
+    # def unfollow(self, user):
+    #     if self.id in user.followers:
+    #         user.followers.remove(self.id)
+    #         user.followers = list(user.followers)
+    #         db.session.add(user)
+    #     if user.id in self.following:
+    #         self.following.remove(user.id)
+    #         self.following = list(self.following)
+    #         db.session.add(self)
+    #     db.session.commit()
+    #
+    # def get_following_query(self):
+    #     return User.query.filter(User.id.in_(self.following or set()))
+    #
+    # def get_followers_query(self):
+    #     return User.query.filter(User.id.in_(self.followers or set()))
+    #
+    # def is_following(self, follower):
+    #     return follower.id in self.following and self.id in follower.followers
 
     # ================================================================
     # Class methods
 
     @classmethod
     def authenticate(cls, login, password):
-        user = cls.query.filter(db.or_(User.name == login, User.email == login)).first()
+        user = cls.query.filter(db.or_(User.email == login)).first()
 
         if user:
             authenticated = user.check_password(password)
@@ -157,11 +155,10 @@ class User(Base, UserMixin):
         for keyword in keywords.split():
             keyword = '%' + keyword + '%'
             criteria.append(db.or_(
-                User.name.ilike(keyword),
-                User.email.ilike(keyword),
+                User.email.ilike(keyword)
             ))
         q = reduce(db.and_, criteria)
         return cls.query.filter(q)
 
-    def check_name(self, name):
-        return User.query.filter(db.and_(User.name == name, User.email != self.id)).count() == 0
+    def check_name(self):
+        return User.query.filter(db.and_(User.email != self.id)).count() == 0
