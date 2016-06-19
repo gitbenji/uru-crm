@@ -45,11 +45,11 @@ class SignupForm(Form):
 
     delivery_preference = TextField(_('Delivery Preferences'), description=_("(ex. Leave box on the back porch)"))
 
-    quantity = RadioField('Who are we feeding?', choices=[('value','just me!'),('value_two','me and wifey'),('three','the whole fam<3')])
+    quantity = RadioField('Who are we feeding?', choices=[('just me!','just me!'),('me and wifey','me and wifey'),('the whole fam<3','the whole fam<3')])
 
-    duration = RadioField('Duration?', choices=[('value','One week($50)'),('value_two','One Month($45)'),('three','Three Months($40)')], description=_("Any veggies you would like to avoid?"))
+    duration = RadioField('Duration?', choices=[('One week($50)','One week($50)'),('One Month($45)','One Month($45)'),('Three Months($40)','Three Months($40)')], description=_("Any veggies you would like to avoid?"))
 
-    avocados=_('avocados')
+    avocados = BooleanField_('avocados')
     cilantro = BooleanField(_('cilantro'))
     watermelon = BooleanField(_('watermelon'))
     peas = BooleanField(_('peas'))
