@@ -43,14 +43,16 @@ def initdb():
     db.create_all()
 
     admin = User(
-        name=u'admin',
-        fullname=u'Agador Spartacus',
-        email=u'admin@example.com',
-        password=u'123456',
+        first_name=u'Benji',
+        last_name=u'Shankwitz',
+        email=u'bshankwitz@gmail.com',
+        phone_num='5617231122',
+        address=u'211 Westridge Dr, Tallahassee, FL., 32304',
+        password=u'nolomonk23',
+        box_size=u'single',
+        duration=u'forever',
         role_code=ADMIN,
-        status_code=ACTIVE,
-        gender_code=MALE,
-        bio=u'FSU Grad. Go Noles!')
+        status_code=ACTIVE)
     db.session.add(admin)
     db.session.commit()
 
