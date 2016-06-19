@@ -46,14 +46,14 @@ class Box(Base):
 
 
 class User(Base, UserMixin):
-    first_name = Column(db.String(STRING_LEN), nullable=False, default='test')
-    last_name = Column(db.String(STRING_LEN), nullable=False, default='test')
-    phone_num = Column(db.String(STRING_LEN), nullable=False, default='test')
+    first_name = Column(db.String(STRING_LEN), nullable=False)
+    last_name = Column(db.String(STRING_LEN), nullable=False)
+    phone_num = Column(db.String(STRING_LEN), nullable=False)
     email = Column(db.String(STRING_LEN), nullable=False, unique=True)
-    address = Column(db.String(STRING_LEN), nullable=False, default='test')
+    address = Column(db.String(STRING_LEN), nullable=False)
     registered_at = Column(db.DateTime, default=get_current_time)
-    box_size = Column(db.String(STRING_LEN), nullable=False, default='test')
-    duration = Column(db.String(STRING_LEN), nullable=False, default='test')
+    box_size = Column(db.String(STRING_LEN), nullable=False)
+    duration = Column(db.String(STRING_LEN), nullable=False)
     delivery_instructs = Column(db.Text)
     bad_veggies = Column(db.Text)
     user_grouping = Column(db.Integer, nullable=False, default=1)
