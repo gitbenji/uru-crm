@@ -19,16 +19,30 @@ from uru_crm.modules.base import Base
 from .constants import USER, USER_ROLE, ADMIN, INACTIVE, USER_STATUS
 
 
-social_accounts = db.Table(
-    'social_accounts',
+box_groupings = db.Table(
+    'box_groupings',
     db.Column('user_id', db.Integer(), db.ForeignKey('user.id')),
-    db.Column('social_id', db.Integer(), db.ForeignKey('userssocialaccount.id'))
+    db.Column('box_id', db.Integer(), db.ForeignKey('box.id'))
 )
 
 
-class UsersSocialAccount(Base):
-    provider = db.Column(db.String(STRING_LEN), nullable=False)
-    social_id = db.Column(db.String(64), nullable=False, unique=True)
+class Farm(Base):
+    farm = db.Column(db.String(STRING_LEN), nullable=False, unique=True)
+    phone_num = Column(db.String(STRING_LEN), nullable=False, default='test')
+    email = Column(db.String(STRING_LEN), nullable=False, unique=True)
+    address = Column(db.String(STRING_LEN), nullable=False, default='test')
+
+
+class Available_Veggie(Base):
+    veggie = db.Column(db.String(STRING_LEN), nullable=False)
+    farm = db.Column(db.String(STRING_LEN), nullable=False)
+    quantity = db.Column(db.String(STRING_LEN), nullable=False)
+
+
+class Box(Base):
+    group = Column(db.Integer, nullable=False)
+    veggies = db.Column(db.String(STRING_LEN), nullable=False, unique=True)
+    date = Column(db.DateTime, nullable=False)
 
 
 class User(Base, UserMixin):
@@ -42,8 +56,9 @@ class User(Base, UserMixin):
     duration = Column(db.String(STRING_LEN), nullable=False, default='test')
     delivery_instructs = Column(db.Text)
     bad_veggies = Column(db.Text)
+    user_grouping = Column(db.Integer, nullable=False, default=1)
 
-    social_ids = db.relationship('UsersSocialAccount', secondary=social_accounts,
+    user_grouping = db.relationship('Box', secondary=box_groupings,
                             backref=db.backref('users', lazy='dynamic'))
 
     _password = Column('password', db.String(STRING_LEN), nullable=False, default=uuid4().hex)

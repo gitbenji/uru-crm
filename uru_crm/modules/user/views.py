@@ -7,7 +7,7 @@ from flask import current_app as APP
 from flask.ext.login import login_user, login_required, current_user
 from uru_crm.extensions import db, login_manager
 from uru_crm.core.oauth import OAuthSignIn
-from .models import User, UsersSocialAccount
+from .models import User, Box
 
 
 user = Blueprint('user', __name__, url_prefix='/user')
@@ -23,8 +23,6 @@ def load_user(id):
 def index(offset=0):
     if not current_user.is_authenticated():
         abort(403)
-    if current_user.role_code == 0:
-        return render_template('admin/index.html', user=current_user)
     return render_template('user/index.html', user=current_user)
 
 
@@ -49,7 +47,7 @@ def oauth_callback(provider, user=None):
     # user = User.query.filter_by(social_id=social_id).first()
     if not user:
         user = User().create(nickname=username, email=email)
-        social_id = UsersSocialAccount().create(social_id=social_id, provider=provider)
+        social_id = Box().create(social_id=social_id, provider=provider)
         user.social_ids.append(social_id)
         db.session.commit()
     login_user(user, True)

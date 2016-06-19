@@ -63,12 +63,14 @@ def login():
 
     if form.validate_on_submit():
         user, authenticated = User.authenticate(form.login.data,
-                                    form.password.data)
+                                                form.password.data)
 
         if user and authenticated:
             remember = request.form.get('remember') == 'y'
             if login_user(user, remember=remember):
                 flash(_("Logged in"), 'success')
+            if user.role_code == 0:
+                return redirect(form.next.data or url_for('admin.users'))
             return redirect(form.next.data or url_for('user.index'))
         else:
             flash(_('Sorry, invalid login'), 'error')
@@ -83,7 +85,7 @@ def reauth():
 
     if request.method == 'POST':
         user, authenticated = User.authenticate(current_user.name,
-                                    form.password.data)
+                                                form.password.data)
         if user and authenticated:
             confirm_login()
             current_app.logger.debug('reauth: %s' % session['_fresh'])
