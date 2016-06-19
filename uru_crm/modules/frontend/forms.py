@@ -5,7 +5,7 @@ from flask import Markup, current_app
 from flask.ext.wtf import Form
 from flask.ext.wtf.html5 import EmailField
 from wtforms import (ValidationError, BooleanField, TextField, HiddenField, PasswordField,
-    SubmitField, RadioField, SelectMultipleField)
+    SubmitField, RadioField, SelectMultipleField, widgets)
 from wtforms.validators import (Required, Length, EqualTo, Email)
 from flask.ext.babel import lazy_gettext as _
 
@@ -13,6 +13,11 @@ from uru_crm.modules.user import User
 from uru_crm.utils import (PASSWORD_LEN_MIN, PASSWORD_LEN_MAX,
         USERNAME_LEN_MIN, USERNAME_LEN_MAX, PHONENUMBER_LENGTH)
 from uru_crm.extensions import db
+
+
+class MultiCheckboxField(SelectMultipleField):
+    widget = widgets.ListWidget(prefix_label=False)
+    option_widget = widgets.CheckboxInput()
 
 
 class LoginForm(Form):
@@ -28,31 +33,23 @@ class SignupForm(Form):
     next = HiddenField()
 
     first_name = TextField(_('First Name'))
-
-    last = TextField(_('Last Name'))
-
+    last_name = TextField(_('Last Name'))
     email = EmailField(_('Email'), [Required(), Email()])
-
     password = PasswordField(_('Password'), [Required(), Length(PASSWORD_LEN_MIN,
         PASSWORD_LEN_MAX)], description=_('%(minChar)s characters or more! Be tricky.',
         minChar=PASSWORD_LEN_MIN))
 
-    phone_number = TextField(_('Phone number'), [Required(), Length(PHONENUMBER_LENGTH)])
+    phone_num = TextField(_('Phone number'), [Required(), Length(PHONENUMBER_LENGTH)])
+    address = TextField(_('Address'))
+    # address_2 = TextField(_('City, State, ZIP'))
 
-    address_1 = TextField(_('Street Address'))
-
-    address_2 = TextField(_('City, State, ZIP'))
-
-    delivery_preference = TextField(_('Delivery Preferences'), description=_("(ex. Leave box on the back porch)"))
-
-    quantity = RadioField('Who are we feeding?', choices=[('just me!','just me!'),('me and wifey','me and wifey'),('the whole fam<3','the whole fam<3')])
-
+    delivery_instructs = TextField(_('Delivery Preferences'), description=_("(ex. Leave box on the back porch)"))
+    box_size = RadioField('Who are we feeding?', choices=[('just me!','just me!'),('me and wifey','me and wifey'),('the whole fam<3','the whole fam<3')])
     duration = RadioField('Duration?', choices=[('One week($50)','One week($50)'),('One Month($45)','One Month($45)'),('Three Months($40)','Three Months($40)')], description=_("Any veggies you would like to avoid?"))
 
-    avocados = BooleanField_('avocados')
-    cilantro = BooleanField(_('cilantro'))
-    watermelon = BooleanField(_('watermelon'))
-    peas = BooleanField(_('peas'))
+    list_of_veggies = ['avocados', 'cilantro', 'watermelon', 'peas']
+    veggies = [(x, x) for x in list_of_veggies]
+    bad_veggies = MultiCheckboxField('Label', choices=veggies)
 
     agree = BooleanField(_('Agree to the ') +
         Markup('<a target="blank" href="/terms">' + _('Terms of Service') + '</a>'), [Required()])
