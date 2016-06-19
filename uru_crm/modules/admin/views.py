@@ -9,7 +9,7 @@ from flask.ext.babel import Babel
 
 from uru_crm.decorators import admin_required
 from uru_crm.modules.farm import Farm
-from uru_crm.modules.user import User, Box
+from uru_crm.modules.user import User, Box, WeeklyNumbers
 from .forms import UserForm, EditTranslationForm, UploadLogoForm, NewFarmForm
 
 
@@ -46,6 +46,13 @@ def users():
 def farms():
     farms = Farm.query.all()
     return render_template('admin/farms.html', farms=farms, active='farms')
+
+@admin.route('/numbers')
+@login_required
+@admin_required
+def numbers():
+    numbers = WeeklyNumbers.query.all()
+    return render_template('admin/numbers.html', numbers=numbers, active='numbers')
 
 @admin.route('/farms/signup', methods=['GET', 'POST'])
 @login_required

@@ -1,0 +1,30 @@
+{% extends "admin/layout.html" %}
+
+{% block body %}
+<div class="container">
+    <h2>Account</h2>
+    <table class='table table-bordered table-hover'>
+        <thead>
+            <tr>
+                <th>Farm Cost</th>
+                <th>Gas Cost</th>
+                <th>Salaries</th>
+                <th>Customer Revenue</th>
+                <th>Profit Margin</th>
+
+                <th></th>
+            </tr>
+        </thead>
+        {% for number in numbers %}
+        <tr>
+            <td>{{ number.farm_cost }}</td>
+            <td>{{ number.truck_gas }}</td>
+            <td>{{ number.salaries }}</td>
+            <td>{{ number.customer_revenue }}</td>
+            <td>{{ number.profit_margin }}</td>
+
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

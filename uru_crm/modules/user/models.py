@@ -26,6 +26,15 @@ box_groupings = db.Table(
 )
 
 
+class WeeklyNumbers(Base):
+    farm_cost = Column(db.Integer, nullable=False)
+    truck_gas = Column(db.Integer, nullable=False, unique=True)
+    salaries = Column(db.Integer, nullable=False)
+    customer_revenue = Column(db.Integer, nullable=False)
+    profit_margin = Column(db.Integer, nullable=False)
+
+
+
 class Box(Base):
     group = Column(db.Integer, nullable=False)
     veggies = db.Column(db.String(STRING_LEN), nullable=False, unique=True)
