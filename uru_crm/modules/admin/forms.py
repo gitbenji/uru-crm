@@ -4,12 +4,12 @@ from flask import Markup, current_app, Flask, render_template
 
 from flask.ext.wtf import Form
 from flask.ext.wtf.html5 import EmailField
-from wtforms import (HiddenField, SubmitField, RadioField, FileField, DateField, TextField)
+from wtforms import (HiddenField, SubmitField, RadioField, FileField, DateField, TextField, DecimalField)
 from wtforms.validators import AnyOf, Required, Email
 from flask.ext.babel import lazy_gettext as _
 
 from uru_crm.extensions import db
-from uru_crm.modules.user import USER_ROLE, USER_STATUS
+from uru_crm.modules.user import USER_ROLE, USER_STATUS, Box
 from uru_crm.modules.farm import Farm
 
 
@@ -31,7 +31,25 @@ class UserForm(Form):
 
 class NewBoxesForm(Form):
     next = HiddenField()
+    date = DateField(_('Date'))
+    veggies = TextField(_('Vegetable'))
+    # quantity = DecimalField(_('Quantity'))
+    add = SubmitField()
+    submit = SubmitField(u'Create', [Required()])
 
+    def add_set(self):
+        pass
+
+    def combine_veggies(self):
+        print('combine_veggies')
+
+    def save(self):
+        box = Box()
+        self.populate_obj(box)
+        box.group = 1
+        db.session.add(box)
+        db.session.commit()
+        return box
 
 
 class NewFarmForm(Form):

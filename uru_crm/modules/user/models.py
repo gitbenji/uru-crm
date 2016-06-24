@@ -19,11 +19,11 @@ from uru_crm.modules.base import Base
 from .constants import USER, USER_ROLE, ADMIN, INACTIVE, USER_STATUS
 
 
-box_groupings = db.Table(
-    'box_groupings',
-    db.Column('user_id', db.Integer(), db.ForeignKey('user.id')),
-    db.Column('box_id', db.Integer(), db.ForeignKey('box.id'))
-)
+# box_groupings = db.Table(
+#     'box_groupings',
+#     db.Column('user_id', db.Integer(), db.ForeignKey('user.id')),
+#     db.Column('box_id', db.Integer(), db.ForeignKey('box.id'))
+# )
 
 
 class WeeklyNumbers(Base):
@@ -34,12 +34,11 @@ class WeeklyNumbers(Base):
     profit_margin = Column(db.Integer, nullable=False)
 
 
-
 class Box(Base):
     group = Column(db.Integer, nullable=False)
-    veggies = db.Column(db.String(STRING_LEN), nullable=False, unique=True)
+    veggies = db.Column(db.String(STRING_LEN), nullable=False)
     date = Column(db.DateTime, nullable=False)
-    users = db.relationship("User", back_populates="box")
+    # users = db.relationship("User", back_populates="box")
 
 
 class User(Base, UserMixin):
@@ -54,7 +53,7 @@ class User(Base, UserMixin):
     delivery_instructs = Column(db.Text)
     bad_veggies = Column(db.Text)
     box_group = Column(db.Integer, db.ForeignKey('box.id'), default=get_grouping)
-    box = db.relationship("Box", back_populates="users")
+    # box = db.relationship("Box", back_populates="users")
 
     _password = Column('password', db.String(STRING_LEN), nullable=False, default=uuid4().hex)
 

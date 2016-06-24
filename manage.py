@@ -15,7 +15,7 @@ from flask.ext.migrate import MigrateCommand
 from uru_crm import create_app
 from uru_crm.extensions import db
 from uru_crm.utils import PROJECT_PATH, MALE
-from uru_crm.modules.user import User, ADMIN, ACTIVE, Box, WeeklyNumbers
+from uru_crm.modules.user import User, ADMIN, ACTIVE, USER, Box, WeeklyNumbers
 from uru_crm.modules.farm import Farm
 from uru_crm.modules.veggies import Available_Veggie
 
@@ -43,6 +43,19 @@ def initdb():
         engine.execute("CREATE DATABASE uru_crm")
 
     db.create_all()
+
+    user = User(
+        first_name=u'Banjo',
+        last_name=u'Ides',
+        email=u'banji@gmail.com',
+        phone_num='5617231123',
+        address=u'211 Westridge Dr, Tallahassee, FL., 32304',
+        password=u'bianca',
+        box_size=u'single',
+        duration=u'forever',
+        role_code=USER,
+        status_code=ACTIVE)
+    db.session.add(user)
 
     numbers = WeeklyNumbers(
     farm_cost=100,

@@ -6,6 +6,8 @@ from flask import (Blueprint, render_template, request, flash, current_app, send
     redirect, url_for)
 from flask.ext.login import login_required
 from flask.ext.babel import Babel
+from wtforms import (HiddenField, SubmitField, RadioField, FileField, DateField, TextField, DecimalField)
+from flask.ext.babel import lazy_gettext as _
 
 from uru_crm.decorators import admin_required
 from uru_crm.modules.farm import Farm
@@ -23,12 +25,31 @@ def index():
     logo_form = UploadLogoForm()
     return render_template('admin/index.html', users=users, active='index', logo_form=logo_form)
 
-@admin.route('/boxes/create')
+@admin.route('/boxes/create', methods=['GET', 'POST'])
 @login_required
 @admin_required
 def create_boxes():
     form = NewBoxesForm(next=request.args.get('next'))
-    return render_template('admin/create_boxes.html')
+    print(dir(form))
+
+    if form.validate_on_submit():
+        form.combine_veggies()
+        box = form.save()
+        del NewBoxesForm.veggie2
+        return redirect(form.next.data or url_for('admin.boxes'))
+
+    # veggies = []
+    # form is staying updated
+    # try setting it back to normal at validate_on_submit()
+    if form.is_submitted():
+        # num_of_veggies += 1
+
+        print(dir(form))
+        setattr(NewBoxesForm, 'veggie2', TextField(_('Vector')))
+        form = NewBoxesForm(next=request.args.get('next'))
+        return render_template('admin/create_boxes.html', form=form)
+
+    return render_template('admin/create_boxes.html', form=form)
 
 @admin.route('/boxes')
 @login_required
