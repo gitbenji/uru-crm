@@ -16,6 +16,7 @@ from uru_crm.types import DenormalizedText
 from uru_crm.extensions import db
 from uru_crm.utils import get_current_time, get_grouping, STRING_LEN
 from uru_crm.modules.base import Base
+from uru_crm.modules.mixins import StripeMixin
 from .constants import USER, USER_ROLE, ADMIN, INACTIVE, USER_STATUS
 
 
@@ -41,17 +42,17 @@ class Box(Base):
     # users = db.relationship("User", back_populates="box")
 
 
-class User(Base, UserMixin):
+class User(Base, UserMixin, StripeMixin):
     first_name = Column(db.String(STRING_LEN), nullable=False)
     last_name = Column(db.String(STRING_LEN), nullable=False)
     phone_num = Column(db.String(STRING_LEN), nullable=False)
     email = Column(db.String(STRING_LEN), nullable=False, unique=True)
     address = Column(db.String(STRING_LEN), nullable=False)
     registered_at = Column(db.DateTime, default=get_current_time)
-    box_size = Column(db.String(STRING_LEN), nullable=False)
-    duration = Column(db.String(STRING_LEN), nullable=False)
+    box_size = Column(db.String(STRING_LEN))
     delivery_instructs = Column(db.Text)
     bad_veggies = Column(db.Text)
+    customer_id = Column(db.String(STRING_LEN), nullable=False)
     box_group = Column(db.Integer, db.ForeignKey('box.id'), default=get_grouping)
     # box = db.relationship("Box", back_populates="users")
 

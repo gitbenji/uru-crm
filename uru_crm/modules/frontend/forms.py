@@ -4,13 +4,13 @@ from flask import Markup, current_app, Flask, render_template
 
 from flask.ext.wtf import Form
 from flask.ext.wtf.html5 import EmailField
-from wtforms import (ValidationError, BooleanField, TextField, HiddenField, PasswordField, SubmitField, RadioField, SelectMultipleField, widgets)
+from wtforms import (ValidationError, BooleanField, TextField, HiddenField, IntegerField, PasswordField, SubmitField, RadioField, SelectMultipleField, widgets)
 from wtforms.validators import (Required, Length, EqualTo, Email)
 from flask.ext.babel import lazy_gettext as _
 
 from uru_crm.modules.user import User
 from uru_crm.utils import (PASSWORD_LEN_MIN, PASSWORD_LEN_MAX,
-        USERNAME_LEN_MIN, USERNAME_LEN_MAX, PHONENUMBER_LENGTH)
+        USERNAME_LEN_MIN, USERNAME_LEN_MAX, PHONENUMBER_LENGTH, CARDNUMBER_LENGTH, CVCNUMBER_LENGTH)
 from uru_crm.extensions import db
 
 
@@ -26,6 +26,51 @@ class LoginForm(Form):
         PASSWORD_LEN_MAX)])
     remember = BooleanField(_('Remember me'))
     submit = SubmitField(_('Sign in'))
+
+
+class StripeForm(Form):
+    next = HiddenField()
+
+    first_name = TextField(_('First Name'), default='Fly')
+    last_name = TextField(_('Last Name'), default='Robyn')
+    email = EmailField(_('Email'), [Required(), Email()], default='email@gmail.com')
+    password = PasswordField(_('Password'), [Required(), Length(PASSWORD_LEN_MIN,
+        PASSWORD_LEN_MAX)], description=_('%(minChar)s characters or more! Be tricky.',
+        minChar=PASSWORD_LEN_MIN), default='asdfasdf')
+
+    phone_num = TextField(_('Phone number'), [Required(), Length(PHONENUMBER_LENGTH)], default='1234567890')
+    address = TextField(_('Address'), [Required()], default='123 High Rd')
+    address_2 = TextField(_('City, State, ZIP'), default='Tallahassee')
+
+    box_size = RadioField('Who are we feeding?', choices=[('single','Just me!'),('couple','Me and bae'),('family','The whole fam<3')], default='couple')
+
+    card_number = TextField(_('Card Number'), [Required()], default='4242424242424242')
+    exp_month = IntegerField(_('Expiration Date'), [Required()], default=12)
+    exp_year = IntegerField(_(''), [Required()], default=17)
+    cvc_number = IntegerField(_('CVC'), [Required()], default=123)
+
+    agree = BooleanField(_('Agree to the ') +
+        Markup('<a target="blank" href="/terms">' + _('Terms of Service') + '</a>'), [Required()])
+    submit = SubmitField('Sign up')
+
+    def validate_email(self, field):
+        pass
+        # if User.query.filter_by(email=field.data).first() is not None:
+        #     raise ValidationError(_('This email is taken'))
+
+    def signup(self):
+        card_vals = {
+          'number': self.card_number.data,
+          'cvc': self.cvc_number.data,
+          'exp_month': self.exp_month.data,
+          'exp_year': self.exp_year.data
+        }
+        cid = User().create_customer(card_vals, self.email.data, self.box_size.data)
+        user = User()
+        self.populate_obj(user)
+        user.customer_id = cid
+        User().save(user)
+        return user
 
 
 class SignupForm(Form):
@@ -55,6 +100,7 @@ class SignupForm(Form):
     submit = SubmitField('Sign up')
 
     def validate_name(self, field):
+        # this never runs
         if User.query.filter_by(name=field.data).first() is not None:
             raise ValidationError(_('This username is taken'))
 

@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import os
+import types
 
 from flask import Blueprint, render_template, send_from_directory, abort, redirect, url_for, flash
 from flask import current_app as APP
@@ -23,6 +24,18 @@ def load_user(id):
 def index(offset=0):
     if not current_user.is_authenticated():
         abort(403)
+    return render_template('user/index.html', user=current_user)
+
+
+@user.route('/cancel_subscription/', methods=['GET', 'POST'])
+@login_required
+def cancel_subscription():
+    # sid = current_user.subscriptions.data[0].id
+    User().cancel_subscription(current_user)
+    # remove box_size from db
+    user = User().get_by_id(current_user.id)
+    user.box_size = None
+    User().update(user)
     return render_template('user/index.html', user=current_user)
 
 

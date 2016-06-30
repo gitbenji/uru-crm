@@ -52,16 +52,16 @@ def initdb():
         address=u'211 Westridge Dr, Tallahassee, FL., 32304',
         password=u'bianca',
         box_size=u'single',
-        duration=u'forever',
         role_code=USER,
-        status_code=ACTIVE)
+        status_code=ACTIVE,
+        customer_id='asdf1234')
     db.session.add(user)
 
     numbers = WeeklyNumbers(
-    farm_cost=100,
-    truck_gas=3,
-    salaries=120,
-    customer_revenue=300
+        farm_cost=100,
+        truck_gas=3,
+        salaries=120,
+        customer_revenue=300
     )
     numbers.profit_margin = numbers.customer_revenue - numbers.truck_gas
     db.session.add(numbers)
@@ -88,9 +88,9 @@ def initdb():
         address=u'211 Westridge Dr, Tallahassee, FL., 32304',
         password=u'bianca',
         box_size=u'single',
-        duration=u'forever',
         role_code=ADMIN,
-        status_code=ACTIVE)
+        status_code=ACTIVE,
+        customer_id='admin')
     db.session.add(admin)
 
     farm = Farm(

@@ -5,6 +5,7 @@
 {% extends "layouts/base.html" %}
 
 {% block body %}
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 <h2>{{_('Sign up') }}<br>
   <small>{{_('Already have an account?')}}
     <a href="{{ url_for('frontend.login') }}">{{_('Sign in!')}}</a></small></h2>

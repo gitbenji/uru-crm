@@ -10,6 +10,8 @@
 
 <h2> {{_('Hello')}}, {{ user.first_name }}! {{ user.role_code }}</h2>
 
+<button><a href = "{{ url_for('user.cancel_subscription', cid=user.cid) }}">Cancel</a></button>
+
 
 {% endblock %}
 

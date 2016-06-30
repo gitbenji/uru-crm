@@ -1,5 +1,10 @@
 # -*- coding: utf-8 -*-
 
+import requests
+import json
+from pprint import pprint
+import stripe
+
 from flask import (Blueprint, render_template, current_app, request,
                    flash, url_for, redirect, session, abort)
 from flask.ext.mail import Message
@@ -7,8 +12,9 @@ from flask.ext.login import (login_required, login_user, current_user, logout_us
 from flask.ext.babel import gettext as _
 
 from uru_crm.modules.user import User
+# from uru_crm.modules.stripe.controllers import get_token, create_customer
 from uru_crm.extensions import mail, login_manager
-from .forms import (SignupForm, LoginForm, RecoverPasswordForm, ReauthForm, ChangePasswordForm, CreateProfileForm)
+from .forms import (SignupForm, LoginForm, RecoverPasswordForm, ReauthForm, ChangePasswordForm, CreateProfileForm, StripeForm)
 
 
 frontend = Blueprint('frontend', __name__)
@@ -109,7 +115,7 @@ def signup():
     if current_user.is_authenticated():
         return redirect(url_for('user.index'))
 
-    form = SignupForm(next=request.args.get('next'))
+    form = StripeForm(next=request.args.get('next'))
 
     if form.validate_on_submit():
         user = form.signup()
@@ -126,6 +132,7 @@ def change_password():
     if current_user.is_authenticated():
         if not login_fresh():
             return login_manager.needs_refresh()
+        current_user.change_password()
         user = current_user
     elif 'activation_key' in request.values and 'email' in request.values:
         activation_key = request.values['activation_key']
