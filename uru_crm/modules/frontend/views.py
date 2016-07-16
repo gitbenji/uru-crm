@@ -5,6 +5,8 @@ import json
 from pprint import pprint
 import stripe
 
+from datetime import datetime as dt
+
 from flask import (Blueprint, render_template, current_app, request,
                    flash, url_for, redirect, session, abort)
 from flask.ext.mail import Message
@@ -12,7 +14,7 @@ from flask.ext.login import (login_required, login_user, current_user, logout_us
 from flask.ext.babel import gettext as _
 
 from uru_crm.modules.user import User
-# from uru_crm.modules.stripe.controllers import get_token, create_customer
+import uru_crm.modules.mixins.stripe_mix as stripe_conts
 from uru_crm.extensions import mail, login_manager
 from .forms import (SignupForm, LoginForm, RecoverPasswordForm, ReauthForm, ChangePasswordForm, CreateProfileForm, StripeForm)
 
@@ -119,6 +121,10 @@ def signup():
 
     if form.validate_on_submit():
         user = form.signup()
+        try:
+            stripe_conts.create_subscription(user)
+        except:
+            raise
 
         if login_user(user):
             return redirect(form.next.data or url_for('user.index'))

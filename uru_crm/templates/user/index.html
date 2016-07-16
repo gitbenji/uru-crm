@@ -10,7 +10,11 @@
 
 <h2> {{_('Hello')}}, {{ user.first_name }}! {{ user.role_code }}</h2>
 
-<button><a href = "{{ url_for('user.cancel_subscription', cid=user.cid) }}">Cancel</a></button>
+<button><a href = "{{ url_for('user.cancel_subscription') }}">Cancel</a></button>
+<button><a href = "{{ url_for('user.update_subscription', plan='single') }}">Single</a></button>
+<button><a href = "{{ url_for('user.update_subscription', plan='couple') }}">Couple</a></button>
+<button><a href = "{{ url_for('user.update_subscription', plan='family') }}">Family</a></button>
+
 
 
 {% endblock %}

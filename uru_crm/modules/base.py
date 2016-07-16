@@ -53,6 +53,7 @@ class Base(db.Model):
         """Commits the model to the database and returns the model
         :param model: the model to save
         """
+        print(model)
         self._isinstance(model)
         db.session.add(model)
         db.session.commit()

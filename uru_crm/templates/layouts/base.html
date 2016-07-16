@@ -54,13 +54,13 @@
             <ul class="nav navbar-nav navbar-right">
                 {% if current_user.is_admin() %}
                 <li><a href="{{ url_for('admin.index') }}">{{ current_user.name }}</a></li>
+                <li><a href="{{ url_for('admin.farms') }}">{{_('Farms')}}</a></li>
+                <li><a href="{{ url_for('admin.users') }}">{{_('Users')}}</a></li>
+                <li><a href="{{ url_for('admin.numbers') }}">{{_('Account')}}</a></li>
                 {% else %}
                 <li><a href="{{ url_for('user.index') }}">{{ current_user.name }}</a></li>
                 {% endif %}
                 <li><a href="{{ url_for('settings.profile') }}">{{_('Settings')}}</a></li>
-                <li><a href="{{ url_for('admin.farms') }}">{{_('Farms')}}</a></li>
-                <li><a href="{{ url_for('admin.users') }}">{{_('Users')}}</a></li>
-                <li><a href="{{ url_for('admin.numbers') }}">{{_('Account')}}</a></li>
                 <li><a href="{{ url_for('frontend.logout') }}">{{_('Log out')}}</a></li>
             </ul>
         </div>

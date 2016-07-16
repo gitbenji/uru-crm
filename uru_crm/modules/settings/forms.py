@@ -13,63 +13,35 @@ from wtforms.validators import (Required, Length, EqualTo, Email, AnyOf, Optiona
 from flask.ext.babel import lazy_gettext as _
 from flask.ext.login import current_user
 
-from uru_crm.utils import PASSWORD_LEN_MIN, PASSWORD_LEN_MAX
+from uru_crm.utils import (PASSWORD_LEN_MIN, PASSWORD_LEN_MAX,
+        USERNAME_LEN_MIN, USERNAME_LEN_MAX, PHONENUMBER_LENGTH, CARDNUMBER_LENGTH, CVCNUMBER_LENGTH)
 from uru_crm.utils import allowed_file, ALLOWED_AVATAR_EXTENSIONS, make_dir
 from uru_crm.utils import GENDER_TYPE
 from uru_crm.extensions import db
 from uru_crm.modules.user import User
+import uru_crm.modules.mixins.stripe_mix as stripe_conts
 
 
 class ProfileForm(Form):
     multipart = True
     next = HiddenField()
+    first_name = TextField(_('First Name'))
+    last_name = TextField(_('Last Name'))
     email = EmailField(_('Email'), [Required(), Email()])
-    avatar_file = FileField(_("Avatar"), [Optional()])
-    gender_code = RadioField(_("Gender"), [AnyOf([str(val) for val in GENDER_TYPE.keys()])],
-        choices=[(str(val), label) for val, label in GENDER_TYPE.items()])
-    bio = TextAreaField(_('Bio'), [Length(max=1024)])
+    phone_num = TextField(_('Phone number'), [Required(), Length(PHONENUMBER_LENGTH)])
+    address = TextField(_('Address'), [Required()])
+
+    box_size = RadioField('Who are we feeding?', choices=[('single', 'Just me!'), ('couple', 'Me and bae'), ('family', 'The whole fam<3')])
     submit = SubmitField(_('Save'))
-
-    def validate_name(form, field):
-        user = User.get_by_id(current_user.id)
-        if not user.check_name(field.data):
-            raise ValidationError(_("Please pick another name."))
-
-    def validate_avatar_file(form, field):
-        if field.data and not allowed_file(field.data.filename):
-            raise ValidationError(_("Please only upload files with extensions:") + " %s" %
-                "/".join(ALLOWED_AVATAR_EXTENSIONS))
 
     def create_profile(self, request, user):
 
-        if self.avatar_file.data:
-            upload_file = request.files[self.avatar_file.name]
-            if upload_file and allowed_file(upload_file.filename):
-                # Don't trust any input, we use a random string as filename.
-                # or use secure_filename:
-                # http://flask.pocoo.org/docs/patterns/fileuploads/
-
-                user_upload_dir = os.path.join(current_app.config['UPLOAD_FOLDER'],
-                    "user_%s" % user.id)
-                current_app.logger.debug(user_upload_dir)
-
-                make_dir(user_upload_dir)
-                root, ext = os.path.splitext(upload_file.filename)
-                today = datetime.now().strftime('_%Y-%m-%d')
-                # Hash file content as filename.
-                hash_filename = hashlib.sha1(upload_file.read()).hexdigest() + "_" + today + ext
-                user.avatar = hash_filename
-
-                avatar_ab_path = os.path.join(user_upload_dir, user.avatar)
-                # Reset file curso since we used read()
-                upload_file.seek(0)
-                upload_file.save(avatar_ab_path)
-
         self.populate_obj(user)
-        self.populate_obj(user.user_detail)
 
         db.session.add(user)
         db.session.commit()
+
+        stripe_conts.update_subscription(user, user.box_size)
 
 
 class PasswordForm(Form):

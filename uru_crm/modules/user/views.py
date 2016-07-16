@@ -9,6 +9,7 @@ from flask.ext.login import login_user, login_required, current_user
 from uru_crm.extensions import db, login_manager
 from uru_crm.core.oauth import OAuthSignIn
 from .models import User, Box
+import uru_crm.modules.mixins.stripe_mix as stripe_conts
 
 
 user = Blueprint('user', __name__, url_prefix='/user')
@@ -31,10 +32,22 @@ def index(offset=0):
 @login_required
 def cancel_subscription():
     # sid = current_user.subscriptions.data[0].id
-    User().cancel_subscription(current_user)
+    stripe_conts.cancel_subscription(current_user)
     # remove box_size from db
     user = User().get_by_id(current_user.id)
     user.box_size = None
+    User().update(user)
+    return render_template('user/index.html', user=current_user)
+
+
+@user.route('/update_subscription/<plan>', methods=['GET', 'POST'])
+@login_required
+def update_subscription(plan):
+    # sid = current_user.subscriptions.data[0].id
+    stripe_conts.update_subscription(current_user, plan)
+    # remove box_size from db
+    user = User().get_by_id(current_user.id)
+    user.box_size = plan
     User().update(user)
     return render_template('user/index.html', user=current_user)
 

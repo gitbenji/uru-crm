@@ -13,11 +13,15 @@ settings = Blueprint('settings', __name__, url_prefix='/settings')
 @settings.route('/profile', methods=['GET', 'POST'])
 @login_required
 def profile():
-    user = User.query.filter_by(name=current_user.name).first_or_404()
-    form = ProfileForm(obj=user.user_detail,
+    user = User.query.filter_by(email=current_user.email).first_or_404()
+    form = ProfileForm(first_name=current_user.first_name,
+            last_name=current_user.last_name,
             email=current_user.email,
-            role_code=current_user.role_code,
-            status_code=current_user.status_code,
+            phone_num=current_user.phone_num,
+            address=current_user.address,
+            box_size=current_user.box_size,
+            delivery_instructs=current_user.delivery_instructs,
+            bad_veggies=current_user.bad_veggies,
             next=request.args.get('next'))
 
     if form.validate_on_submit():

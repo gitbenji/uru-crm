@@ -12,6 +12,7 @@ from uru_crm.modules.user import User
 from uru_crm.utils import (PASSWORD_LEN_MIN, PASSWORD_LEN_MAX,
         USERNAME_LEN_MIN, USERNAME_LEN_MAX, PHONENUMBER_LENGTH, CARDNUMBER_LENGTH, CVCNUMBER_LENGTH)
 from uru_crm.extensions import db
+import uru_crm.modules.mixins.stripe_mix as stripe_conts
 
 
 class MultiCheckboxField(SelectMultipleField):
@@ -65,7 +66,7 @@ class StripeForm(Form):
           'exp_month': self.exp_month.data,
           'exp_year': self.exp_year.data
         }
-        cid = User().create_customer(card_vals, self.email.data, self.box_size.data)
+        cid = stripe_conts.create_customer(card_vals, self.email.data)
         user = User()
         self.populate_obj(user)
         user.customer_id = cid
@@ -112,8 +113,13 @@ class SignupForm(Form):
         user = User()
         self.populate_obj(user)
         db.session.add(user)
+        # try:
         db.session.commit()
         return user
+        # # ???????????
+        # except IntegrityError:
+        #     db.session.rollback()
+        #     raise Exception
 
 
 class RecoverPasswordForm(Form):
