@@ -48,7 +48,7 @@ class StripeForm(Form):
     # state
     # zip
 
-    box_size = RadioField('What size box is needed?', choices=[('single','Enough for 1 person'),('couple','Enough for 2 persons'),('family','Enough for 4 persons')], default='couple')
+    box_size = RadioField('What size box is needed?', [Required()], choices=[('single','Enough for 1 person ($25)'),('couple','Enough for 2 persons ($45)'),('family','Enough for 4 persons ($75)')])
 
     card_number = TextField(_('Card Number'), [Required()])
     exp_month = IntegerField(_('Expiration Date (mm)'), [Required()])
