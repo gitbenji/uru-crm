@@ -1,2 +1,2 @@
-web: python manage.py runserver -h 0.0.0.0 -p 5000
+web: gunicorn manage:app
 initdb: python manage.py initdb
