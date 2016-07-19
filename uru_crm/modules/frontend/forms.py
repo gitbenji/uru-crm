@@ -51,8 +51,8 @@ class StripeForm(Form):
     box_size = RadioField('What size box is needed?', choices=[('single','Enough for 1 person'),('couple','Enough for 2 persons'),('family','Enough for 4 persons')], default='couple')
 
     card_number = TextField(_('Card Number'), [Required()])
-    exp_month = IntegerField(_('Expiration Date'), [Required()])
-    exp_year = IntegerField(_(''), [Required()])
+    exp_month = IntegerField(_('Expiration Date (mm)'), [Required()])
+    exp_year = IntegerField(_('Expiration Date (yy)'), [Required()])
     cvc_number = IntegerField(_('CVC'), [Required()])
 
     agree = BooleanField(_('Agree to the ') +

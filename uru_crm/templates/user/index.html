@@ -8,12 +8,15 @@
 {% block body %}
 
 
-<h2> {{_('Hello')}}, {{ user.first_name }}! {{ user.role_code }}</h2>
+<h2> {{_('Hello')}}, {{ user.first_name }}!</h2>
 
-<button><a href = "{{ url_for('user.cancel_subscription') }}">Cancel</a></button>
-<button><a href = "{{ url_for('user.update_subscription', plan='single') }}">Single</a></button>
+<p> Thanks for signing up! </p> <br>
+<p> You will be charged on Wednesdays </p>
+
+<button><a href = "{{ url_for('user.cancel_subscription') }}">Cancel Subscription</a></button>
+<!-- <button><a href = "{{ url_for('user.update_subscription', plan='single') }}">Single</a></button>
 <button><a href = "{{ url_for('user.update_subscription', plan='couple') }}">Couple</a></button>
-<button><a href = "{{ url_for('user.update_subscription', plan='family') }}">Family</a></button>
+<button><a href = "{{ url_for('user.update_subscription', plan='family') }}">Family</a></button> -->
 
 
 
