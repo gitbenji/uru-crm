@@ -40,7 +40,7 @@ def create_profile():
     return render_template('frontend/create_profile.html', form=form)
 
 
-@frontend.route('/')
+@frontend.route('/index')
 def index():
     current_app.logger.debug('debug')
 
@@ -112,7 +112,7 @@ def logout():
     return redirect(url_for('frontend.index'))
 
 
-@frontend.route('/signup', methods=['GET', 'POST'])
+@frontend.route('/', methods=['GET', 'POST'])
 def signup():
     if current_user.is_authenticated():
         return redirect(url_for('user.index'))

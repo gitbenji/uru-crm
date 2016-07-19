@@ -32,23 +32,28 @@ class LoginForm(Form):
 class StripeForm(Form):
     next = HiddenField()
 
-    first_name = TextField(_('First Name'), default='Fly')
-    last_name = TextField(_('Last Name'), default='Robyn')
-    email = EmailField(_('Email'), [Required(), Email()], default='email@gmail.com')
+    first_name = TextField(_('First Name'))
+    last_name = TextField(_('Last Name'))
+    email = EmailField(_('Email'), [Required(), Email()])
     password = PasswordField(_('Password'), [Required(), Length(PASSWORD_LEN_MIN,
         PASSWORD_LEN_MAX)], description=_('%(minChar)s characters or more! Be tricky.',
-        minChar=PASSWORD_LEN_MIN), default='asdfasdf')
+        minChar=PASSWORD_LEN_MIN))
+    # password_verification
 
-    phone_num = TextField(_('Phone number'), [Required(), Length(PHONENUMBER_LENGTH)], default='1234567890')
-    address = TextField(_('Address'), [Required()], default='123 High Rd')
-    address_2 = TextField(_('City, State, ZIP'), default='Tallahassee')
+    phone_num = TextField(_('Phone number'), [Required(), Length(PHONENUMBER_LENGTH)])
+    address = TextField(_('Address'), [Required()])
+        # meant for apt no. and shit
+    address_2 = TextField(_('City, State, ZIP'))
+    # city
+    # state
+    # zip
 
-    box_size = RadioField('Who are we feeding?', choices=[('single','Just me!'),('couple','Me and bae'),('family','The whole fam<3')], default='couple')
+    box_size = RadioField('What size box is needed?', choices=[('single','Enough for 1 person'),('couple','Enough for 2 persons'),('family','Enough for 4 persons')], default='couple')
 
-    card_number = TextField(_('Card Number'), [Required()], default='4242424242424242')
-    exp_month = IntegerField(_('Expiration Date'), [Required()], default=12)
-    exp_year = IntegerField(_(''), [Required()], default=17)
-    cvc_number = IntegerField(_('CVC'), [Required()], default=123)
+    card_number = TextField(_('Card Number'), [Required()])
+    exp_month = IntegerField(_('Expiration Date'), [Required()])
+    exp_year = IntegerField(_(''), [Required()])
+    cvc_number = IntegerField(_('CVC'), [Required()])
 
     agree = BooleanField(_('Agree to the ') +
         Markup('<a target="blank" href="/terms">' + _('Terms of Service') + '</a>'), [Required()])
