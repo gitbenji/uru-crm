@@ -14,9 +14,9 @@
 <!-- <p>Or fill out the form below</p> -->
 {{ render_form(url_for('frontend.signup'), form) }}
 
-        {% for message in get_flashed_messages() %}
+        <!-- {% for message in get_flashed_messages() %}
             <p><b>Error</b>: {{ message }}</p>
-        {% endfor %}
+        {% endfor %} -->
         {% if current_user.is_authenticated() %}
             <h2>Hi, {{ current_user.nickname }}!</h2>
             <p><a href="{{ url_for('logout') }}">Logout</a></p>
