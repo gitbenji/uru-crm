@@ -16,7 +16,7 @@ from flask.ext.babel import gettext as _
 from uru_crm.modules.user import User
 import uru_crm.modules.mixins.stripe_mix as stripe_conts
 from uru_crm.extensions import mail, login_manager
-from .forms import (SignupForm, LoginForm, RecoverPasswordForm, ReauthForm, ChangePasswordForm, CreateProfileForm, StripeForm)
+from .forms import (LoginForm, RecoverPasswordForm, ReauthForm, ChangePasswordForm, CreateProfileForm, StripeForm)
 
 
 frontend = Blueprint('frontend', __name__)
