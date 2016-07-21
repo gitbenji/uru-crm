@@ -58,8 +58,12 @@ class StripeForm(Form):
         if User.query.filter_by(email=field.data).first() is not None:
             raise ValidationError(_('This email is taken'))
 
-    def validate_last_name(self, field):
-        print('last_name')
+    def validate_card_number(self, field):
+        pass
+
+    # def validate_last_name(self, field):
+    #     if User.query.filter_by(last_name=field.data).first() is not None:
+    #         raise ValidationError(_('This last name is taken'))
 
     def signup(self):
         card_vals = {
