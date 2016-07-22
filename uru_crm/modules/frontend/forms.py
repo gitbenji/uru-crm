@@ -32,23 +32,30 @@ class LoginForm(Form):
 class StripeForm(Form):
     next = HiddenField()
 
-    first_name = TextField(_('First Name'), [Required()], default='Fly')
-    last_name = TextField(_('Last Name'), [Required()], default='Robyn')
-    email = TextField(_('Email'), [Required(), Email()], default='email@gmail.com')
+    first_name = TextField(_('First Name'), [Required()], default='Person')
+    last_name = TextField(_('Last Name'), [Required()], default='Person')
+    email = TextField(_('Email'), [Required(), Email()], default='person@gmail.com')
     password = PasswordField(_('Password'), [Required(), Length(PASSWORD_LEN_MIN,
         PASSWORD_LEN_MAX)], description=_('%(minChar)s characters or more! Be tricky.',
-        minChar=PASSWORD_LEN_MIN), default='asdfasdf')
+        minChar=PASSWORD_LEN_MIN))
+    # password_verification
+    retype_password = PasswordField(_('Retype Password'))
 
-    phone_num = TextField(_('Phone number'), [Required(), Length(PHONENUMBER_LENGTH)], default='1234567890')
-    address = TextField(_('Address'), [Required()], default='123 High Rd')
-    address_2 = TextField(_('City, State, ZIP'), default='Tallahassee')
+    phone_num = TextField(_('Phone number'), [Length(PHONENUMBER_LENGTH)], default='1234567890')
+    address = TextField(_('Street Address'), [Required()], default='123 High Rd')
+    address_2 = TextField(_('Apt/Suite'))
+    city = TextField(_('City'), [Required()], default='Tallahassee')
+    state = TextField(_('State'), [Required()], default='FL')
+    postal_zip = TextField(_('Zip'), [Required()], default='32304')
 
-    box_size = RadioField('Who are we feeding?', [Required()], choices=[('single','Just me!'),('couple','Me and bae'),('family','The whole fam<3')], default='couple')
+    box_size = RadioField('What size box is needed?', [Required()], choices=[('single', 'Enough for 1 person ($25)'),
+            ('couple', 'Enough for 2 persons ($45)'),
+            ('family', 'Enough for 4 persons ($75)')], default='single')
 
     card_number = TextField(_('Card Number'), [Required()], default='4242424242424242')
-    exp_month = IntegerField(_('Expiration Date'), [Required()], default=12)
-    exp_year = IntegerField(_(''), [Required()], default=17)
-    cvc_number = IntegerField(_('CVC'), [Required()], default=123)
+    exp_month = IntegerField(_('Expiration Date (mm)'), [Required()], default='12')
+    exp_year = IntegerField(_('Expiration Date (yy)'), [Required()], default='17')
+    cvc_number = IntegerField(_('CVC'), [Required()], default='123')
 
     agree = BooleanField(_('Agree to the ') +
         Markup('<a target="blank" href="/terms">' + _('Terms of Service') + '</a>'), [Required()])
@@ -57,6 +64,10 @@ class StripeForm(Form):
     def validate_email(self, field):
         if User.query.filter_by(email=field.data).first() is not None:
             raise ValidationError(_('This email is taken'))
+
+    def validate_retype_password(self, field):
+        if field.data != self.password.data:
+            raise ValidationError(_('Passwords do not match'))
 
     def validate_card_number(self, field):
         pass
@@ -76,6 +87,11 @@ class StripeForm(Form):
         user = User()
         self.populate_obj(user)
         user.customer_id = cid
+        self.address = self.address.data + ', ' + \
+            self.address_2.data + ', ' + \
+            self.city.data + ', ' + \
+            self.state.data + ' ' + \
+            self.postal_zip.data
         User().save(user)
         return user
 
