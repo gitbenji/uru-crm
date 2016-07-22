@@ -384,3 +384,6 @@ body {
   line-height: 0em;
   color: white;
 }
+.background_which{
+  background-image: url("../img/whichwich.jpeg");
+}
