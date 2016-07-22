@@ -3,9 +3,9 @@
 
 
 /* TEAM */
-  Programmer: Wilson Xu
-  Site: http://imwilsonxu.net
-  Twitter: @imwilsonxu
+  Programmer: Benji Shankwitz
+  Site: tba
+  Twitter: @benjibikes
 
 /* THANKS */
   Names (& URL):
