@@ -52,6 +52,8 @@ class StripeForm(Form):
             ('couple', 'Enough for 2 persons ($45)'),
             ('family', 'Enough for 4 persons ($75)')], default='single')
 
+    # box_size = HiddenField()
+
     card_number = TextField(_('Card Number'), [Required()], default='4242424242424242')
     exp_month = IntegerField(_('Expiration Date (mm)'), [Required()], default='12')
     exp_year = IntegerField(_('Expiration Date (yy)'), [Required()], default='17')
