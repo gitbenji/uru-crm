@@ -64,7 +64,8 @@ a:focus {
   margin-bottom: 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   text-transform: uppercase;
-  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: archer;
+  letter-spacing: 8px;
   background-color: black;
 }
 .navbar-custom .navbar-toggle {
@@ -114,7 +115,7 @@ a:focus {
   .navbar-custom {
     padding: 20px 0;
     border-bottom: none;
-    letter-spacing: 1px;
+    letter-spacing: 3px;
     background: transparent;
     -webkit-transition: background 0.5s ease-in-out, padding 0.5s ease-in-out;
     -moz-transition: background 0.5s ease-in-out, padding 0.5s ease-in-out;
