@@ -1,0 +1,37 @@
+{% from "macros/_form.html" import render_form %}
+
+{% set page_title = user.first_name %}
+
+{% extends "layouts/base.html" %}
+
+
+{% block body %}
+
+{% if form %}
+  {{ render_form(url_for('user.settings'), form) }}
+{% endif %}
+
+<h2> {{_('You look beautiful today')}}, {{ user.first_name }}!</h2>
+<h3>Here's what your order looks like for next week:</h3>
+<p>Feel free to change anything your stomach desires</p><hr>
+
+<h4> {{_('Email: ')}} {{ user.email }}</h4> <a href="settings/email">edit</a><hr>
+<h4> {{_('Phone Number: ')}} {{ user.phone_num }}</h4> <a href="settings/phone_num">edit</a><hr>
+<h4> {{_('Address: ')}} {{ user.address }}</h4> <a href="settings/address">edit</a><hr>
+<h4> {{_('Box Sizing: ')}} {{ user.box_size }}</h4> <a href="settings/box_size">edit</a><hr>
+<h4> {{_('How Long: ')}} {{ user.duration }}</h4> <a href="settings/duration">edit</a><hr>
+<h4> {{_('Instructions: ')}} {{ user.delivery_instructs }}</h4> <a href="settings/delivery_instructs">edit</a><hr>
+<h4> {{_('I deteste: ')}} {{ user.bad_veggies }}</h4> <a href="settings/bad_veggies">edit</a><hr>
+
+<a href ="/user/update_form">change user info</a>
+
+
+
+<p>Have any questions, comments or concerns?! Feel free to contact us at contact@uruTallahassee.com!</p>
+
+
+
+{% endblock %}
+
+{% block extra_js %}
+{% endblock %}
