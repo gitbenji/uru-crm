@@ -43,7 +43,7 @@ class StripeForm(Form):
     address = TextField(_('Address'), [Required()], default='123 High Rd')
     address_2 = TextField(_('City, State, ZIP'), default='Tallahassee')
 
-    box_size = RadioField('Who are we feeding?', choices=[('single','Just me!'),('couple','Me and bae'),('family','The whole fam<3')], default='couple')
+    box_size = RadioField('Who are we feeding?', [Required()], choices=[('single','Just me!'),('couple','Me and bae'),('family','The whole fam<3')], default='couple')
 
     card_number = TextField(_('Card Number'), [Required()], default='4242424242424242')
     exp_month = IntegerField(_('Expiration Date'), [Required()], default=12)
