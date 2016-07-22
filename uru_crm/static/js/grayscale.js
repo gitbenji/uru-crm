@@ -8,10 +8,10 @@
 function collapseNavbar() {
     if ($(".navbar").offset().top > 50) {
         $(".navbar-fixed-top").addClass("top-nav-collapse");
-        $("a.page-scroll").css("color", "#353535");
+        $("a.page-scroll").addClass("nav-font");
     } else {
         $(".navbar-fixed-top").removeClass("top-nav-collapse");
-        $("a.page-scroll").css("color", "white");
+        $("a.page-scroll").removeClass("nav-font");
     }
 }
 
