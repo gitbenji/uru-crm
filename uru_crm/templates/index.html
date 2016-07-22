@@ -98,7 +98,7 @@
             <div class="col-lg-4">
               <!-- <div class="lil_sweet_potato__bw_background"> -->
               <div class="lil_sweet_potato_background">
-                <a href="/signup">
+                <a href="{{ url_for('frontend.signup', box_size='single')}}">
                   <h2>Single</h2>
                   <p>enough for one person</p>
                   <p>$25</p>
@@ -109,7 +109,7 @@
             </div>
             <div class="col-lg-4">
               <div class="mushie_background">
-                <a href="/signup">
+                <a href="{{ url_for('frontend.signup', box_size='couple')}}">
                   <h2>Couple</h2>
                   <p>enough for two people</p>
                   <p>$45</p>
@@ -120,7 +120,7 @@
 
             <div class="col-lg-4">
               <div class="tomato_background">
-                <a href="/signup">
+                <a href="{{ url_for('frontend.signup', box_size='family')}}">
                   <h2>Family</h2>
                   <p>enough for four people</p>
                   <p>$75</p>

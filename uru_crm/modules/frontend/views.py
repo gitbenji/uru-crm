@@ -112,12 +112,14 @@ def logout():
     return redirect(url_for('frontend.index'))
 
 
-@frontend.route('/signup', methods=['GET', 'POST'])
-def signup():
+@frontend.route('/signup', defaults={'box_size': None}, methods=['GET', 'POST'])
+@frontend.route('/signup/<box_size>', methods=['GET', 'POST'])
+def signup(box_size):
+    print(box_size)
     if current_user.is_authenticated():
         return redirect(url_for('user.index'))
 
-    form = StripeForm(next=request.args.get('next'))
+    form = StripeForm(next=request.args.get('next'), box_size=box_size)
 
     if form.validate_on_submit():
         user = form.signup()
