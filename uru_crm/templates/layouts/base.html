@@ -33,25 +33,26 @@
 
     {% block topbar %}
     <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="{{ url_for('frontend.index') }}">Manekineko</a>
-        </div>
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">
+                  <i class="fa fa-sun-o" aria-hidden="true"></i>
+                    <!-- <i class="fa fa-play-circle"></i>  -->
+                    <span class="light">UruTallahassee</span>
+                </a>
+            </div>
         {% if current_user.is_authenticated() %}
-        <form class="navbar-form navbar-left" role="search">
+        <form class="navbar-form navbar-left navbar-fixed-top navbar-custom " role="search">
             <div class="form-group">
                 <input type='text' class="form-control" name='keywords' value='{{ keywords|default('') }}' placeholder='Search' />
             </div>
             <button type="submit" class="btn btn-default">Submit</button>
         </form>
         <div class="navbar-collapse">
-            <ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav navbar-fixed-top navbar-custom navbar-right">
                 {% if current_user.is_admin() %}
                 <li><a href="{{ url_for('admin.index') }}">{{ current_user.name }}</a></li>
                 <li><a href="{{ url_for('admin.farms') }}">{{_('Farms')}}</a></li>
@@ -65,7 +66,7 @@
             </ul>
         </div>
         {% else %}
-        <div id="navbar" class="collapse navbar-collapse">
+        <div id="navbar" class="collapse navbar-fixed-top navbar-custom navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="{{ url_for('frontend.signup') }}">{{_('Sign up')}}</a></li>
             <li><a href="{{ url_for('frontend.login') }}">{{_('Sign in')}}</a></li>
@@ -77,15 +78,40 @@
     {% endblock %}
 
     {% block container %}
+    <!-- <div class="intro"> -->
     <div class="container">
         <div class="page-header">
             {% block body %}
             {% endblock %}
         </div>
-    </div>
+      </div>
+    <!-- </div> -->
     {% endblock %}
 
-    <footer class="footer">
+    <!-- Contact Section -->
+    <section id="contact" class="container content-section text-center">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2>Contact Uru Tallahassee</h2>
+                <p>Comments, questions, concerns?  Feel free to send us an email and we'll get back to you as soon as possible</p>
+                <p><a href="mailto:hello@urutallahassee.com">hello@urutallahassee.com</a>
+                </p>
+                <ul class="list-inline banner-social-buttons">
+                    <li>
+                        <a href="https://instagram.com/urutallahassee" class="btn btn-default btn-lg"><i class="fa fa-instagram fa-fw"></i> <span class="network-name">Instagram</span></a>
+                    </li>
+                    <li>
+                        <a href="https://facebook.com/urutallahassee" class="btn btn-default btn-lg"><i class="fa fa-facebook fa-fw"></i> <span class="network-name">Facebook</span></a>
+                    </li>
+                    <!-- <li>
+                        <a href="https://plus.google.com/+Startbootstrap/posts" class="btn btn-default btn-lg"><i class="fa fa-google-plus fa-fw"></i> <span class="network-name">Google+</span></a>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- <footer class="footer">
         <ul class="footer-links">
             <li>{{_('&copy;')}}</li>
             <li><a href='https://github.com/frankV/manekineko'>{{_('About')}}</a></li>
@@ -94,6 +120,11 @@
             <li class="muted">&middot;</li>
             <li><a href='#'>{{_('Terms')}}</a></li>
         </ul>
+    </footer> -->
+    <footer>
+        <div class="container text-center">
+            <p>Copyright &copy; Uru 2016</p>
+        </div>
     </footer>
 
 

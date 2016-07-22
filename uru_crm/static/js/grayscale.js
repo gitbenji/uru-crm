@@ -11,7 +11,9 @@ function collapseNavbar() {
         $("a.page-scroll").css("color", "#353535");
     } else {
         $(".navbar-fixed-top").removeClass("top-nav-collapse");
-        $("a.page-scroll").css("color", "white");
+        if (window.width > 767) {
+          $("a.page-scroll").css("color", "white");
+      }
     }
 }
 
