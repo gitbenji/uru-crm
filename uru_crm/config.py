@@ -22,7 +22,14 @@ class BaseConfig(object):
     SECRET_KEY = 'youshouldreplacethis'
 
     LOG_FOLDER = os.path.join(INSTANCE_FOLDER_PATH, 'logs')
-    make_dir(LOG_FOLDER)
+    # for app crashing
+    try:
+        make_dir(LOG_FOLDER)
+    except OSError, e:
+        if e.errno != 17:
+            raise
+        # time.sleep might help here
+        pass
 
     # Fild upload, should override in production.
     # Limit the maximum allowed payload to 16 megabytes.
