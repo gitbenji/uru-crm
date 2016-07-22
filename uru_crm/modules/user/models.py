@@ -47,7 +47,7 @@ class User(Base, UserMixin):
     last_name = Column(db.String(STRING_LEN), nullable=False)
     phone_num = Column(db.String(STRING_LEN), nullable=False)
     email = Column(db.String(STRING_LEN), nullable=False, unique=True)
-    address = Column(db.String(STRING_LEN), nullable=False)
+    address1 = Column(db.String(STRING_LEN), nullable=False)
     registered_at = Column(db.DateTime, default=get_current_time)
     box_size = Column(db.String(STRING_LEN))
     delivery_instructs = Column(db.Text)
