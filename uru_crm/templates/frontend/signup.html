@@ -6,14 +6,15 @@
 {% block body %}
 
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-<div class="col-sm-5 col-md-6 shadow_box"><h2>{{_('Sign up') }}<br>
+<!-- <div class="col-sm-5 col-md-6 shadow_box"> -->
+  <!-- <h2>{{_('Sign up') }}<br>
   <small>{{_('Already have an account?')}}
     <a href="{{ url_for('frontend.login') }}">{{_('Sign in!')}}</a></small></h2>
 <p>Login with:<a href="{{ url_for('user.oauth_authorize', provider='facebook') }}"><img src="./../static/img/facebook.png"/></a>
 <a href="{{ url_for('user.oauth_authorize', provider='twitter') }}"><img src="./../static/img/twitter.png"/></a></p>
-<p>Or fill out the form</p>
-</div>
-<div class="col-sm-5 col-sm-offset-2 col-md-6 col-md-offset-0 ">
+<p>Or fill out the form</p> -->
+<!-- </div> -->
+<!-- <div class="col-sm-5 col-sm-offset-2 col-md-6 col-md-offset-0 "> -->
 
 {{ render_form(url_for('frontend.signup'), form) }}
 
@@ -27,6 +28,6 @@
             <!-- <h2>I don't know you!</h2> -->
 
         {% endif %}
-</div>
+<!-- </div> -->
 
 {% endblock %}
