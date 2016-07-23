@@ -54,8 +54,8 @@ class StripeForm(Form):
     # box_size = HiddenField()
 
     card_number = TextField((''), [Required()], description='Card Number')
-    exp_month = IntegerField((''), [Required()], description='mm')
-    exp_year = IntegerField((''), [Required()], description='yy')
+    exp_month = IntegerField((''), [Required()], description='Expiration (mm)')
+    exp_year = IntegerField((''), [Required()], description='Expiration (yy)')
     cvc_number = IntegerField((''), [Required()], description='CVC')
 
     agree = BooleanField(_('Agree to the ') +
