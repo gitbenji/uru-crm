@@ -31,6 +31,7 @@ class LoginForm(Form):
 
 
 class StripeForm(Form):
+    id = 'signup'
     next = HiddenField()
 
     first_name = TextField((''), [Required()], description='First Name')
