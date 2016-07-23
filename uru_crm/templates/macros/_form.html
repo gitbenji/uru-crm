@@ -40,7 +40,7 @@
 
 {% macro render_datepicker(field) %}
 <div class="control-group{% if field.errors %} error{% endif %}">
-    <label class="control-label" 
+    <label class="control-label"
         for="{{ field.id }}">
         {{ field.label }}
     </label>
@@ -58,7 +58,7 @@
 
 {% macro render_textarea(field) %}
 <div class="control-group{% if field.errors %} error{% endif %}">
-    <label class="control-label" 
+    <label class="control-label"
         for="{{ field.id }}">
         {{ field.label }}
     </label>
@@ -76,13 +76,8 @@
 
 {% macro render_input(field) %}
 <div class="control-group{% if field.errors %} error{% endif %}">
-    <label class="control-label" 
-        for="{{ field.id }}">
-        {{ field.label }}
-    </label>
     <div class="controls">
-        {{ field(class="form-control") }}
-        <span class="help-inline">{{ field.description }}</span>
+        {{ field(class="form-control", placeholder=field.description) }}
         {% if field.errors -%}
             {% for error in field.errors -%}
             <span class="help-block error">{{ error }}</span>
@@ -102,7 +97,7 @@
 
 {% macro render_form(url, form, horizontal=False, legend=None, confirm_msg=None) %}
 <form class="{% if horizontal %}form-horizontal{% endif %}" method="POST" action="{{ url }}"
-    {% if confirm_msg %}onsubmit='return confirm("{{ confirm_msg }}");' {% endif %} 
+    {% if confirm_msg %}onsubmit='return confirm("{{ confirm_msg }}");' {% endif %}
     {% if form.multipart %}enctype="multipart/form-data"{% endif %} >
     {{ form.hidden_tag() }}
     <fieldset>

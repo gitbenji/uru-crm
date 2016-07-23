@@ -5,20 +5,6 @@ import os
 from utils import make_dir, INSTANCE_FOLDER_PATH
 
 
-class HerokuConfig(object)
-
-    PROJECT = "uru_crm"
-
-    PROJECT_ROOT = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
-
-    DEBUG = os.environ.get('DEBUG', True)
-
-    DB_NAME = os.environ.get('DB_NAME', 'twp')
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL', None)
-    SQLALCHEMY_ECHO = os.environ.get('SQLALCHEMY_ECHO', True)
-
-    PREFERRED_URL_SCHEME = 'https'
-
 class BaseConfig(object):
 
     PROJECT = "uru_crm"
@@ -30,10 +16,10 @@ class BaseConfig(object):
     DEBUG = True
     TESTING = False
 
-    ADMINS = ['youremail@yourdomain.com']
+    ADMINS = ['hello@urutallahassee.com']
 
     # http://flask.pocoo.org/docs/quickstart/#sessions
-    SECRET_KEY = 'youshouldreplacethis'
+    SECRET_KEY = 'savethefuckingworld'
 
     LOG_FOLDER = os.path.join(INSTANCE_FOLDER_PATH, 'logs')
     # for app crashing
@@ -54,7 +40,26 @@ class BaseConfig(object):
     TRANSLATIONS_PATH = 'LC_MESSAGES/'
     TRANSALTIONS_FILE = 'messages.po'
     LOGO_FILE = os.path.join(PROJECT_ROOT, 'uru_crm/static/img/logo.png')
-    make_dir(UPLOAD_FOLDER)
+    # make_dir(UPLOAD_FOLDER)
+
+
+class HerokuConfig(BaseConfig):
+
+    DEBUG = os.environ.get('DEBUG', True)
+
+    DB_NAME = os.environ.get('DB_NAME', 'twp')
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL', None)
+    SQLALCHEMY_ECHO = os.environ.get('SQLALCHEMY_ECHO', True)
+
+    # Flask-cache: http://pythonhosted.org/Flask-Cache/
+    CACHE_TYPE = 'simple'
+    CACHE_DEFAULT_TIMEOUT = 60
+
+    PREFERRED_URL_SCHEME = 'https'
+
+    LANGUAGES = {
+        'en': 'English'
+    }
 
 
 class DefaultConfig(BaseConfig):
