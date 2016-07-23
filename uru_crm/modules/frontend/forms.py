@@ -57,9 +57,9 @@ class StripeForm(Form):
     exp_month = IntegerField((''), [Required()], description='Expiration (mm)')
     exp_year = IntegerField((''), [Required()], description='Expiration (yy)')
     cvc_number = IntegerField((''), [Required()], description='CVC')
-
-    agree = BooleanField(_('Agree to the ') +
-        Markup('<a target="blank" href="/terms">' + _('Terms of Service') + '</a>'), [Required()])
+    # 
+    # agree = BooleanField(_('Agree to the ') +
+    #     Markup('<a target="blank" href="/terms">' + _('Terms of Service') + '</a>'), [Required()])
     submit = SubmitField('Sign up')
 
     def validate_email(self, field):
