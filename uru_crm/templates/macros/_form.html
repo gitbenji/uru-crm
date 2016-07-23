@@ -74,10 +74,10 @@
 </div>
 {% endmacro %}
 
-{% macro render_input(field) %}
+{% macro render_input(field, form_id) %}
 <div class="control-group{% if field.errors %} error{% endif %}">
     <div class="controls">
-        {{ field(class="form-control", placeholder=field.description) }}
+        {{ field(class="form-control", id=field.name + form_id, placeholder=field.description) }}
         {% if field.errors -%}
             {% for error in field.errors -%}
             <span class="help-block error">{{ error }}</span>
@@ -100,6 +100,7 @@
     {% if confirm_msg %}onsubmit='return confirm("{{ confirm_msg }}");' {% endif %}
     {% if form.multipart %}enctype="multipart/form-data"{% endif %} >
     {{ form.hidden_tag() }}
+
     <fieldset>
         {% if legend %}
         <legend>{{ legend|safe }}</legend>
@@ -119,13 +120,13 @@
                     {{ render_datepicker(field) }}
                 {% elif field.type == "TextField" %}
                     {% if focus %}
-                        {{ render_input(field) }}
+                        {{ render_input(field, form.id) }}
                         {% set focus = False %}
                     {% else %}
-                        {{ render_input(field) }}
+                        {{ render_input(field, form.id) }}
                     {% endif %}
                 {% else %}
-                    {{ render_input(field) }}
+                    {{ render_input(field, form.id) }}
                 {% endif %}
             {% endif %}
         {% endfor %}

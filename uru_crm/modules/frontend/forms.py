@@ -21,6 +21,7 @@ class MultiCheckboxField(SelectMultipleField):
 
 
 class LoginForm(Form):
+    id = 'login'
     next = HiddenField()
     login = TextField(_('Username or email'), [Required()])
     password = PasswordField(_('Password'), [Required(), Length(PASSWORD_LEN_MIN,
