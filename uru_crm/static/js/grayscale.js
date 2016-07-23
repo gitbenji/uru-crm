@@ -11,9 +11,11 @@ function collapseNavbar() {
         $("a.page-scroll").addClass("nav-font");
     } else {
         $(".navbar-fixed-top").removeClass("top-nav-collapse");
+        $("a.page-scroll").removeClass("nav-font");
+
         if (window.width > 767) {
           $("a.page-scroll").css("color", "white");
-      }
+        }
     }
 }
 
