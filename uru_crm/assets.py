@@ -17,8 +17,8 @@ css_uru_crm = Bundle("less/style.less",
 #: consolidated css bundle
 css_all = Bundle("vendor/bootstrap/css/bootstrap-theme.css",
                  "vendor/bootstrap/css/bootstrap.css",
-                 "css/grayscale.css",
-                 css_uru_crm, filters="cssmin", output="css/uru_crm.min.css")
+                 "css/grayscale.css")
+                #  css_uru_crm, filters="cssmin", output="css/uru_crm.min.css")
 
 #: vendor js bundle
 js_vendor = Bundle("vendor/bootstrap/js/bootstrap.min.js",
