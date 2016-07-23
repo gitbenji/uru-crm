@@ -5,6 +5,20 @@ import os
 from utils import make_dir, INSTANCE_FOLDER_PATH
 
 
+class HerokuConfig(object)
+
+    PROJECT = "uru_crm"
+
+    PROJECT_ROOT = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
+
+    DEBUG = os.environ.get('DEBUG', True)
+
+    DB_NAME = os.environ.get('DB_NAME', 'twp')
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL', None)
+    SQLALCHEMY_ECHO = os.environ.get('SQLALCHEMY_ECHO', True)
+
+    PREFERRED_URL_SCHEME = 'https'
+
 class BaseConfig(object):
 
     PROJECT = "uru_crm"
