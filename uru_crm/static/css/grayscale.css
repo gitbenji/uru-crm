@@ -465,13 +465,14 @@ body {
 }
 .form-control {
   box-shadow: none;
-  outline-color: black !important;
-  border-bottom: 1px !important;
-  border-bottom-color: black !important;
-  border-color: black !important;
+  border-bottom: 1;
+  border-bottom-color: #a29f9c;
   border-top: 0px;
   border-right: 0px;
+  width: 48%;
   border-left: 0px;
+  padding: 1em 1em 1em 3em;
+  border-radius: 0px;
 }
 .form-control:focus {
   border-color: #000;
@@ -480,34 +481,48 @@ body {
   /*box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);*/
 }
 form {
-  background-color: rgba(255, 255, 255, 0.48);
-  box-shadow: 0px 0px 42px 4px;
+  /*background-color: rgba(255, 255, 255, 0.48);*/
+  box-shadow: 0px 0px 20px -9px;
+  background-color: white;
   text-align: center;
-  width: 100%;
+  width: 60%;
+  margin-left:  18%;
+  margin-top: 8%;
 }
-/*.form-control {
-  background-color: #dc8243;
-  color: white;
+
+#contact {
+  background-color: white;
+}
+.control-label label{
+  visibility: hidden;
+}
+label {
+  margin-bottom: 0em;
+}
+
+#first_name, #email, #retype_password, #address, #city,  #card_number, #exp_year {
+  float: left;
+}
+
+#last_name, #password, #phone_num, #address_2, #state, #cvc_number, #exp_month {
+  float: right;
+  margin-top: -2em;
+}
+
+#box_size-0, #box_size-1, #box_size-2 {
+  float: left;
 }
 .control-group {
-  background-color: rgba(175, 175, 49, 0.35);
-}*/
-.shadow_box {
-  background-color: rgba(255, 255, 255, 0.62);
-  box-shadow: 0px 0px 17px -1px;
+  padding: 1em 1em 1em 3em;
 }
-/*.navbar {
-  z-index: 1;
+@media (max-width: 767px) {
+  #first_name, #email, #retype_password, #address, #city,  #card_number, #exp_year {
+    float: none;
+  }
+  #last_name, #password, #phone_num, #address_2, #state, #cvc_number, #exp_month {
+    float: none;;
+  }
+  .form-control {
+    width: 100%;
+  }
 }
-.nav_bar_buttons {
-  z-index: -1;
-}
-.navbar-header a{
-  z-index: 121212;
-}
-.nav-signup {
-  z-index: 14;
-}
-.navbar-brand span{
-  z-index: 170000000;
-}*/
