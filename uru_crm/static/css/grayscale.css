@@ -26,14 +26,32 @@ h6 {
   font-weight: 700;
   letter-spacing: 1px;
 }
-.tallahassee_script h1{
+.brand-heading h1 {
+  font-size: 100px;
+}
+.brand-heading h2 {
+  font-family:"lavanderia" !important;
+  text-transform: none;
+  font-size: 100px;
+}
+.intro-text{
+  letter-spacing: 3px;
+}
+
+/*.tallahassee_script1{
   margin: 0 0 35px;
   text-transform: none;
-  /*font-family:"lavanderia" !important;*/
   font-weight: 700;
   letter-spacing: 1px;
   padding-bottom: 2em;
 }
+.tallahassee_script h1{
+  margin: 0 0 35px;
+  text-transform: none;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding-bottom: 2em;
+}*/
 p {
   margin: 0 0 25px;
   font-size: 18px;
@@ -166,7 +184,11 @@ a:focus {
   }
 
   }
-  .intro .intro-body .intro-text {
+  .intro .intro-body .
+
+
+
+   {
     font-size: 26px;
   }
 }
@@ -332,55 +354,160 @@ body {
 .tomato_background {
   background-image: url("../img/tomato_.png");
   padding-bottom: 5.4em;
+  background-repeat: no-repeat;
 }
 .tomato_background:hover {
   background-image: url("../img/tomato_bw.png");
+  background-repeat: no-repeat;
 }
 .tomato_background h2 {
-  padding-top: 3em;
+  /*padding-top: 3em;*/
   line-height: 0em;
   color: white;
+  letter-spacing: 5px;
 }
 .tomato_background p {
   padding-top: 0em;
   line-height: 0em;
   color: white;
+  letter-spacing: 1.5px;
 }
-
+.tomato_background .tiny{
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: white;
+  padding-top: 8em;
+}
 .mushie_background {
   background-image: url("../img/mushie_.png");
   padding-bottom: 5.4em;
+  background-repeat: no-repeat;
 }
 .mushie_background:hover {
   background-image: url("../img/mushie_bw.png");
+  background-repeat: no-repeat;
 }
 .mushie_background h2 {
-  padding-top: 3em;
+  /*padding-top: 3em;*/
   line-height: 0em;
   color: white;
+  letter-spacing: 5px;
 }
 .mushie_background p {
   padding-top: 0em;
   line-height: 0em;
   color: white;
+  letter-spacing: 1.5px;
 }
-
+.mushie_background .tiny{
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: white;
+  padding-top: 8em;
+}
 .lil_sweet_potato_background {
   background-image: url("../img/lil_sweet_potato_.png");
   padding-bottom: 5.4em;
+  background-repeat: no-repeat;
 }
 
 .lil_sweet_potato_background:hover{
   background-image: url("../img/lil_sweet_potato_bw.png");
+  background-repeat: no-repeat;
 }
 
 .lil_sweet_potato_background h2 {
-  padding-top: 3em;
+  /*padding-top: 3em;*/
   line-height: 0em;
   color: white;
+  letter-spacing: 5px;
 }
 .lil_sweet_potato_background p {
   padding-top: 0em;
   line-height: 0em;
   color: white;
+  letter-spacing: 1.5px;
 }
+.background_which{
+  background-image: url("../img/whichwich.jpeg");
+  background-repeat: no-repeat;
+}
+.lil_sweet_potato_background .tiny {
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: white;
+  padding-top: 8em;
+}
+.veggie_circles_background {
+  background-image: url("../img/veggie_circles.png");
+}
+.nav_signup {
+  background-color: white !important;
+  color: black !important;
+  font-style: source serif pro;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+/*button .navbar-toggle {
+  font-family: source serif pro !important;
+  letter-spacing: 3px !important;
+  text-transform: uppercase !important;
+}*/
+.black_text_navbar a {
+  color: black;
+  margin-top: -1em;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-family: source serif pro;
+}
+.black_text_navbar:hover a {
+  color: #42DCA3;
+}
+.form-control {
+  box-shadow: none;
+  outline-color: black !important;
+  border-bottom: 1px !important;
+  border-bottom-color: black !important;
+  border-color: black !important;
+  border-top: 0px;
+  border-right: 0px;
+  border-left: 0px;
+}
+.form-control:focus {
+  border-color: #000;
+  border-bottom: 1px;
+  /*-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);*/
+  /*box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);*/
+}
+form {
+  background-color: rgba(255, 255, 255, 0.48);
+  box-shadow: 0px 0px 42px 4px;
+  text-align: center;
+  width: 100%;
+}
+/*.form-control {
+  background-color: #dc8243;
+  color: white;
+}
+.control-group {
+  background-color: rgba(175, 175, 49, 0.35);
+}*/
+.shadow_box {
+  background-color: rgba(255, 255, 255, 0.62);
+  box-shadow: 0px 0px 17px -1px;
+}
+/*.navbar {
+  z-index: 1;
+}
+.nav_bar_buttons {
+  z-index: -1;
+}
+.navbar-header a{
+  z-index: 121212;
+}
+.nav-signup {
+  z-index: 14;
+}
+.navbar-brand span{
+  z-index: 170000000;
+}*/
