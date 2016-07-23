@@ -32,32 +32,31 @@ class LoginForm(Form):
 class StripeForm(Form):
     next = HiddenField()
 
-    first_name = TextField(_('First Name'), [Required()], default='Person')
-    last_name = TextField(_('Last Name'), [Required()], default='Person')
-    email = TextField(_('Email'), [Required(), Email()], default='person@gmail.com')
-    password = PasswordField(_('Password'), [Required(), Length(PASSWORD_LEN_MIN,
-        PASSWORD_LEN_MAX)], description=_('%(minChar)s characters or more! Be tricky.',
-        minChar=PASSWORD_LEN_MIN))
+    first_name = TextField((''), [Required()], description='First Name')
+    last_name = TextField((''), [Required()], description='Last Name')
+    email = TextField((''), [Required(), Email()], description='Email Address')
+    password = PasswordField((''), [Required(), Length(PASSWORD_LEN_MIN,
+        PASSWORD_LEN_MAX)], description='Password')
     # password_verification
-    retype_password = PasswordField(_('Retype Password'))
+    retype_password = PasswordField((''), description='Retype Password')
 
-    phone_num = TextField(_('Phone number'), [Length(PHONENUMBER_LENGTH)], default='1234567890')
-    address = TextField(_('Street Address'), [Required()], default='123 High Rd')
-    address_2 = TextField(_('Apt/Suite'))
-    city = TextField(_('City'), [Required()], default='Tallahassee')
-    state = TextField(_('State'), [Required()], default='FL')
-    postal_zip = TextField(_('Zip'), [Required()], default='32304')
+    phone_num = TextField((''), [Length(PHONENUMBER_LENGTH)], description='Phone Number')
+    address = TextField((''), [Required()], description='Street Address')
+    address_2 = TextField((''), description='Apt/Bldg No')
+    city = TextField((''), [Required()], default='Tallahassee', description='City')
+    state = TextField((''), [Required()], default='FL', description='State')
+    postal_zip = TextField((''), [Required()], description='Postal Code')
 
     box_size = RadioField('What size box is needed?', [Required()], choices=[('single', 'Enough for 1 person ($25)'),
             ('couple', 'Enough for 2 persons ($45)'),
-            ('family', 'Enough for 4 persons ($75)')], default='single')
+            ('family', 'Enough for 4 persons ($75)')])
 
     # box_size = HiddenField()
 
-    card_number = TextField(_('Card Number'), [Required()], default='4242424242424242')
-    exp_month = IntegerField(_('Expiration Date (mm)'), [Required()], default='12')
-    exp_year = IntegerField(_('Expiration Date (yy)'), [Required()], default='17')
-    cvc_number = IntegerField(_('CVC'), [Required()], default='123')
+    card_number = TextField((''), [Required()], description='Card Number')
+    exp_month = IntegerField((''), [Required()], description='mm')
+    exp_year = IntegerField((''), [Required()], description='yy')
+    cvc_number = IntegerField((''), [Required()], description='CVC')
 
     agree = BooleanField(_('Agree to the ') +
         Markup('<a target="blank" href="/terms">' + _('Terms of Service') + '</a>'), [Required()])
