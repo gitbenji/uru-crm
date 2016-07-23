@@ -40,7 +40,7 @@ def create_profile():
     return render_template('frontend/create_profile.html', form=form)
 
 
-@frontend.route('/')
+@frontend.route('/index')
 def index():
     current_app.logger.debug('debug')
 
