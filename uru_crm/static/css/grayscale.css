@@ -582,3 +582,11 @@ label {
     width: 100%;
   }
 }
+#contact {
+  position: absolute;
+  bottom: 0em;
+  width: 100%;
+}
+.page-header {
+  margin-top: 9%;
+}
