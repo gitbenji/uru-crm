@@ -12,7 +12,7 @@
     <title>Uru - Tallahassee</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.css') }}" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="{{ url_for('static', filename='vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
@@ -50,7 +50,7 @@
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
-                <ul class="nav navbar-nav">
+                <ul class="nav_center nav navbar-nav col-4 col-offset-3">
                     <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
                     <li class="hidden">
                         <a href="#page-top"></a>
@@ -65,6 +65,18 @@
                         <a class="page-scroll" href="#contact">Contact</a>
                     </li>
                 </ul>
+
+                <ul class="nav navbar-nav">
+                  <li class="hidden">
+                      <a href="#page-top"></a>
+                  </li>
+                  <!-- <li>
+                      <a class="page-scroll" href="/signup">Sign Up</a>
+                  </li> -->
+                  <li>
+                      <a class="page-scroll" href="/login">Login</a>
+                  </li>
+                </ul>
             </div>
             <!-- /.navbar-collapse -->
         </div>
@@ -76,12 +88,12 @@
         <div class="intro-body">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-8 col-md-offset-2">
+                    <div class="col-4 col-offset-3 centered">
                         <span class="brand-heading"><h1>uru</h1><h2>Tallahassee</h2></span>
                         <p class="intro-text">Native Nutrients
                             <br>Right to your door.</p>
-                        <a href="#about" class="btn btn-circle page-scroll">
-                            <i class="fa fa-angle-double-down animated"></i>
+                        <a href="#about" class="btn page-scroll btn-header">
+                            <h3>Let's Get Started!</h3>
                         </a>
                     </div>
                 </div>
@@ -92,41 +104,40 @@
     <!-- About Section -->
     <section id="about" class="container content-section text-center">
       <div class="tallahassee_script">
-      <h1>How can we accommodate your veggie needs?</h1>
+      <h1 class="h1_padding">How can we accommodate your veggie needs?</h1>
     </div>
-        <div class="row">
-            <div class="col-lg-4">
-              <!-- <div class="lil_sweet_potato__bw_background"> -->
+        <div class="row row-centered">
+            <div class="col-md-4 col-centered">
               <div class="lil_sweet_potato_background">
                 <a href="{{ url_for('frontend.signup', box_size='single')}}">
                 <p class="tiny">single sprout</p>
                   <h2>Single</h2>
                   <p>enough for one person</p>
-                  <p>$25</p>
+                  <h2>$25</h2>
               </div>
                   <p>Select</p>
                 </a>
               <!-- </div> -->
             </div>
-            <div class="col-lg-4">
+            <div class="col-md-4 col-centered">
               <div class="mushie_background">
                 <a href="{{ url_for('frontend.signup', box_size='couple')}}">
                 <p class="tiny">two peas in a pod!</p>
                   <h2>Couple</h2>
                   <p>enough for two people</p>
-                  <p>$45</p>
+                  <h2>$45</h2>
               </div>
                 <p>Select</p>
                 </a>
           </div>
 
-            <div class="col-lg-4">
+            <div class="col-md-4 col-centered">
               <div class="tomato_background">
                 <a href="{{ url_for('frontend.signup', box_size='family')}}">
                 <p class="tiny">a carr[ot]ing family</p>
                   <h2>Family</h2>
                   <p>enough for four people</p>
-                  <p>$75</p>
+                  <h2>$75</h2>
                 </div>
                   <p>Select</p>
                 </a>
@@ -140,17 +151,23 @@
     <section id="download" class="content-section text-center">
         <div class="download-section">
             <div class="container">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <h2>Why Buy Local?</h2>
-                    <p><i>Nut</i> only are you supporting local organic farms, but produce from neighboring farms also has higher nutrient content that regular supermarkets. Buying local reduces fossil fuels from transportation and we will soon accept food stamps to do our part in <i>growing</i> the Tallahassee community.
-                      <br>Uru benefits the community.
-                      <br>The environment.
-                      <br>The people.
-                      <br>You.
+              <div class="row centered">
+                <div class="span4">
+                    <h2>Buying Local</h2>
+                  </div>
+                    <div class="span8">
+
+                    <p><i>Nut</i> only helps local farmers, but it
+                    </p>
+                      <h2>Reduces emmissions</h2>
+                      <p>Buying local means a lot less transportation, which means a lot less fossil fuels to pollute the air</p>
+                      <h2>Increases Happiness</h2>
+                      <p>Produce picked the same day as eaten is proven to have much more viatmins.  More vitamins means more happiness. </p>
                       <br><br>We want you to feel <i>grape</i> about what you eat.</p>
                 </div>
+              </div>
             </div>
-        </div>
+            </div>
     </section>
 
     <!-- Contact Section -->
