@@ -12,7 +12,7 @@
     <title>Uru - Tallahassee</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.css') }}" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="{{ url_for('static', filename='vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
@@ -50,7 +50,7 @@
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
-                <ul class="nav navbar-nav">
+                <ul class="nav_center nav navbar-nav col-4 col-offset-3">
                     <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
                     <li class="hidden">
                         <a href="#page-top"></a>
@@ -65,6 +65,18 @@
                         <a class="page-scroll" href="#contact">Contact</a>
                     </li>
                 </ul>
+
+                <ul class="nav navbar-nav">
+                  <li class="hidden">
+                      <a href="#page-top"></a>
+                  </li>
+                  <!-- <li>
+                      <a class="page-scroll" href="/signup">Sign Up</a>
+                  </li> -->
+                  <li>
+                      <a class="page-scroll" href="/login">Login</a>
+                  </li>
+                </ul>
             </div>
             <!-- /.navbar-collapse -->
         </div>
@@ -76,12 +88,12 @@
         <div class="intro-body">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-8 col-md-offset-2">
+                    <div class="col-4 col-offset-3 centered">
                         <span class="brand-heading"><h1>uru</h1><h2>Tallahassee</h2></span>
                         <p class="intro-text">Native Nutrients
                             <br>Right to your door.</p>
-                        <a href="#about" class="btn btn-circle page-scroll">
-                            <i class="fa fa-angle-double-down animated"></i>
+                        <a href="#about" class="btn page-scroll btn-header">
+                            <h3>Let's Get Started!</h3>
                         </a>
                     </div>
                 </div>
@@ -92,41 +104,40 @@
     <!-- About Section -->
     <section id="about" class="container content-section text-center">
       <div class="tallahassee_script">
-      <h1>How can we accommodate your veggie needs?</h1>
+      <h1 class="h1_padding">How can we accommodate your veggie needs?</h1>
     </div>
-        <div class="row">
-            <div class="col-lg-4">
-              <!-- <div class="lil_sweet_potato__bw_background"> -->
+        <div class="row row-centered">
+            <div class="col-md-4 col-centered">
               <div class="lil_sweet_potato_background">
                 <a href="/signup">
                   <p class="tiny">single sprout</p>
                   <h2>Single</h2>
                   <p>enough for one person</p>
-                  <p>$25</p>
+                  <h2>$25</h2>
               </div>
                   <p>Select</p>
                 </a>
               <!-- </div> -->
             </div>
-            <div class="col-lg-4">
+            <div class="col-md-4 col-centered">
               <div class="mushie_background">
                 <a href="/signup">
                   <p class="tiny">two peas in a pod!</p>
                   <h2>Couple</h2>
                   <p>enough for two people</p>
-                  <p>$45</p>
+                  <h2>$45</h2>
               </div>
                 <p>Select</p>
                 </a>
           </div>
 
-            <div class="col-lg-4">
+            <div class="col-md-4 col-centered">
               <div class="tomato_background">
                 <a href="/signup">
                   <p class="tiny">a carr[ot]ing family</p>
                   <h2>Family</h2>
                   <p>enough for four people</p>
-                  <p>$75</p>
+                  <h2>$75</h2>
                 </div>
                   <p>Select</p>
                 </a>

@@ -32,26 +32,27 @@ h6 {
 .brand-heading h2 {
   font-family:"lavanderia" !important;
   text-transform: none;
-  font-size: 100px;
+  margin-top: -1em;
+}
+@media (min-width: 320px) {
+  .brand-heading h2 {
+    font-size: 50px;
+  }
+  .navbar-brand {
+    font-size: 12px;
+    letter-spacing: 5px;
 }
 .intro-text{
   letter-spacing: 3px;
+  }
+}
+@media (min-width: 768px) {
+  .brand-heading h2 {
+    font-size: 100px;
+    margin-top: -0.5em;
+  }
 }
 
-/*.tallahassee_script1{
-  margin: 0 0 35px;
-  text-transform: none;
-  font-weight: 700;
-  letter-spacing: 1px;
-  padding-bottom: 2em;
-}
-.tallahassee_script h1{
-  margin: 0 0 35px;
-  text-transform: none;
-  font-weight: 700;
-  letter-spacing: 1px;
-  padding-bottom: 2em;
-}*/
 p {
   margin: 0 0 25px;
   font-size: 18px;
@@ -78,14 +79,28 @@ a:focus {
 .light {
   font-weight: 400;
 }
+/*@media (min-width: 1000) {
+  .navbar-right {
+    position: absolute;
+    right: 1em;
+    z-index: 2;
+  }
+}*/
+.navbar-brand {
+  z-index: 2;
+}
 
 .navbar-custom {
   margin-bottom: 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   text-transform: uppercase;
+  font-size: smaller;
   font-family: archer;
   letter-spacing: 8px;
   background-color: black;
+}
+.navbar-fixed-top {
+  z-index: 1;
 }
 .navbar-custom .navbar-toggle {
   color: white;
@@ -130,7 +145,7 @@ a:focus {
 .navbar-custom .nav li.active a:hover {
   color: white;
 }
-@media (min-width: 768px) {
+@media (min-width: 1000px) {
   .navbar-custom {
     padding: 20px 0;
     border-bottom: none;
@@ -152,7 +167,7 @@ a:focus {
 .intro {
   display: table;
   width: 100%;
-  height: auto;
+  height: 100vh;
   padding: 100px 0;
   text-align: center;
   color: white;
@@ -169,6 +184,7 @@ a:focus {
 }
 .intro .intro-body .brand-heading {
   font-size: 40px;
+  align-content: center;
 }
 .intro .intro-body .intro-text {
   font-size: 18px;
@@ -181,14 +197,9 @@ a:focus {
   .intro .intro-body .brand-heading {
     font-size: 70px;
     font-family: Source Serif Pro;
+    align-content: center;
   }
-
-  }
-  .intro .intro-body .
-
-
-
-   {
+  .intro .intro-body {
     font-size: 26px;
   }
 }
@@ -289,12 +300,24 @@ a:focus {
 }
 .btn {
   text-transform: uppercase;
-  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: archer;
   font-weight: 400;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   border-radius: 0;
+  color: black;
+  background-color: white;
+}
+.btn-header {
+  margin-bottom: 0em;
+}
+.btn-header h3{
+  margin-bottom: 0em;
+  font-size: medium;
+  margin: 3px 3px 3px 3px;
+  text-transform: lowercase;
+  letter-spacing: 2px;
 }
 .btn-default {
   border: 1px solid #42DCA3;
@@ -355,6 +378,9 @@ body {
   background-image: url("../img/tomato_.png");
   padding-bottom: 5.4em;
   background-repeat: no-repeat;
+  text-transform: uppercase;
+  background-attachment: inherit;
+  background-position: center;
 }
 .tomato_background:hover {
   background-image: url("../img/tomato_bw.png");
@@ -371,6 +397,7 @@ body {
   line-height: 0em;
   color: white;
   letter-spacing: 1.5px;
+  font-size: 13px;
 }
 .tomato_background .tiny{
   font-size: 10px;
@@ -382,6 +409,21 @@ body {
   background-image: url("../img/mushie_.png");
   padding-bottom: 5.4em;
   background-repeat: no-repeat;
+  text-transform: uppercase;
+  background-attachment: inherit;
+  background-position: center;
+}
+@media (min-width: 1000px){
+  .mushie_background {
+    margin-left: -1em;
+  }
+  .lil_sweet_potato_background {
+    margin-left: -1em;
+  }
+  .tomato_background {
+    margin-left: -1em;
+  }
+
 }
 .mushie_background:hover {
   background-image: url("../img/mushie_bw.png");
@@ -398,6 +440,7 @@ body {
   line-height: 0em;
   color: white;
   letter-spacing: 1.5px;
+  font-size: 13px;
 }
 .mushie_background .tiny{
   font-size: 10px;
@@ -409,6 +452,9 @@ body {
   background-image: url("../img/lil_sweet_potato_.png");
   padding-bottom: 5.4em;
   background-repeat: no-repeat;
+  text-transform: uppercase;
+  background-attachment: inherit;
+  background-position: center;
 }
 
 .lil_sweet_potato_background:hover{
@@ -427,6 +473,7 @@ body {
   line-height: 0em;
   color: white;
   letter-spacing: 1.5px;
+  font-size: 13px;
 }
 .background_which{
   background-image: url("../img/whichwich.jpeg");
@@ -448,11 +495,6 @@ body {
   letter-spacing: 3px;
   text-transform: uppercase;
 }
-/*button .navbar-toggle {
-  font-family: source serif pro !important;
-  letter-spacing: 3px !important;
-  text-transform: uppercase !important;
-}*/
 .black_text_navbar a {
   color: black;
   margin-top: -1em;
@@ -485,10 +527,21 @@ form {
   box-shadow: 0px 0px 20px -9px;
   background-color: white;
   text-align: center;
-  width: 60%;
-  margin-left:  18%;
   margin-top: 8%;
   font-family: archer;
+}
+@media (min-width: 350px){
+  form {
+    margin-top: 23%;
+  }
+}
+@media (min-width: 750px){
+  form {
+    margin-top: 15%;
+  }
+}
+.h1_padding {
+  padding-bottom: 1em;
 }
 
 #contact {
