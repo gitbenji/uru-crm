@@ -21,6 +21,7 @@ class MultiCheckboxField(SelectMultipleField):
 
 
 class LoginForm(Form):
+    id = 'login'
     next = HiddenField()
     login = TextField(_('Username or email'), [Required()])
     password = PasswordField(_('Password'), [Required(), Length(PASSWORD_LEN_MIN,
@@ -30,6 +31,7 @@ class LoginForm(Form):
 
 
 class StripeForm(Form):
+    id = 'signup'
     next = HiddenField()
 
     first_name = TextField((''), [Required()], description='First Name')
