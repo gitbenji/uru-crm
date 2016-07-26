@@ -4318,9 +4318,28 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-toggle .icon-bar + .icon-bar {
   margin-top: 4px;
 }
+@media (min-width: 320px) {
+  .navbar-toggle {
+    display: none;
+  }
+  .signup_mobile {
+    visibility: visible;
+  }
+}
+@media (min-width: 750px) {
+  .navbar-toggle {
+    display: block;
+  }
+  .signup_mobile {
+    visibility: hidden;
+  }
+}
 @media (min-width: 1000px) {
   .navbar-toggle {
     display: none;
+  }
+  .signup_mobile {
+    visibility: visible;
   }
 }
 .navbar-nav {
