@@ -613,7 +613,7 @@ table {
   background-color: black;
   /*width: 100%*/
 }
-.black_background h2 {
+.black_background_padding {
   padding-top: 1em;
 }
 
@@ -627,8 +627,7 @@ table {
 }
 .cucumber_background {
   background: url(../img/cucumbers.jpeg) no-repeat center center scroll;
-  background-position-x: -21%;
-  background-size: contain;
+  background-size: cover;
 }
 .cucumber_background h2 {
   padding-top: 1em;
@@ -642,10 +641,18 @@ table {
 .cucumber_font p {
   font-size: 38px;
 }
+@media (max-width: 450px) {
+  .cucumber_font h2 {
+    font-size: 5em;
+  }
+  .cucumber_font p {
+    font-size: 25px;
+  }
+}
 .container {
   width: 100%;
 }
-@media (max-width:400) {
+@media (max-width:400px) {
   button.navbar-toggle {
     display: none;
   }
@@ -731,4 +738,18 @@ table {
 }
 .to_the_doorstep img{
   width: 15em;
+}
+/*user page*/
+
+.user_page_text {
+  text-transform: none;
+}
+.user {
+  background-color: white;
+}
+.white_background {
+  background-color: white;
+}
+.beet_utiful {
+  width: 25%;
 }

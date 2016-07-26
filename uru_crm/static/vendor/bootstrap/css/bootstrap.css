@@ -4194,7 +4194,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-collapse.in {
   overflow-y: auto;
 }
-@media (min-width: 1000px) {
+@media (min-width: 750p) {
   .navbar-collapse {
     width: auto;
     border-top: 0;
@@ -4320,13 +4320,13 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 @media (min-width: 320px) {
   .navbar-toggle {
-    display: none;
+    display: block;
   }
   .signup_mobile {
     visibility: visible;
   }
 }
-@media (min-width: 750px) {
+@media (max-width: 750px) {
   .navbar-toggle {
     display: block;
   }
