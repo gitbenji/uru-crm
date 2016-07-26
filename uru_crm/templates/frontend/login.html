@@ -1,3 +1,4 @@
+<div class="veggie_circles_background">
 {% from "macros/_form.html" import render_form %}
 
 {% set page_title = "Sign in" %}
@@ -7,4 +8,6 @@
 {% block body %}
 
 {{ render_form(url_for('frontend.login'), form)}}
+</div>
+
 {% endblock %}
