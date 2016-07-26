@@ -7,17 +7,27 @@
 
 {% block body %}
 
-
-<h2> {{_('Hello')}}, {{ user.first_name }}!</h2>
-
-<p> Thanks for signing up! </p> <br>
-<p> You will be charged on Wednesdays </p>
-
-<button><a href = "{{ url_for('user.cancel_subscription') }}">Cancel Subscription</a></button>
-<!-- <button><a href = "{{ url_for('user.update_subscription', plan='single') }}">Single</a></button>
+<!-- <body class="white_background"> -->
+<div class="col-md-6">
+<h2 class="user_page_text"> {{_('You look beet-utiful today')}}, {{ user.first_name }}! </h2>
+<img class="beet_utiful" src="./../static/img/beet_.png"/>
+<img class="beet_utiful" src="./../static/img/beet_.png"/>
+<img class="beet_utiful" src="./../static/img/beet_.png"/>
+<p>you are currenty signed up for a <b>{{ user.box_size }}</b> box</p>
+<p>Need to change or cancel your subscription? Click below! </p>
+<button><a href = "{{ url_for('user.cancel_subscription') }}">Cancel</a></button>
+<button><a href = "{{ url_for('user.update_subscription', plan='single') }}">Single</a></button>
 <button><a href = "{{ url_for('user.update_subscription', plan='couple') }}">Couple</a></button>
-<button><a href = "{{ url_for('user.update_subscription', plan='family') }}">Family</a></button> -->
+<button><a href = "{{ url_for('user.update_subscription', plan='family') }}">Family</a></button>
+</div>
+<div class="col-md-6">
+  <h2>What to expect!</h2>
+<p>Your next delivery is scheduled for next Wednesday! <b> July, 27th</b></p>
+<p><i>Seasonal</i> produce to expect: Figs, Peppers, Pears, Onion, Garlic, Lambs Quarter, Mushrooms, Red Hemp, &amp; Tomatoes! </p>
+<li><a href="{{ url_for('frontend.logout') }}">{{_('Log out')}}</a></li>
 
+</div>
+<!-- </body> -->
 
 
 {% endblock %}
