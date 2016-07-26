@@ -135,6 +135,7 @@
 
     {% block js_btm %}
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
         {% assets "js_vendor" -%}
             <script src="{{ ASSET_URL }}"></script>
         {% endassets %}
@@ -145,6 +146,7 @@
 
     {% block ga %}
         {% include "macros/_google_analytics.html" %}
+      
     {% endblock %}
 </body>
 </html>
