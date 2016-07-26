@@ -8,5 +8,6 @@
 {% block body %}
 <h2>{{_('Sign in')}}. {{_('Don\'t have an account?')}} <a href="{{ url_for('frontend.signup') }}">{{_('Sign up')}}</a>, {{_('please')}}</small></h2>
 {{ render_form(url_for('frontend.login'), form)}}
-{% endblock %}
 </div>
+
+{% endblock %}
