@@ -1,4 +1,4 @@
-<div class="veggie_circles_background">
+
 {% from "macros/_form.html" import render_form %}
 
 {% set page_title = "Sign in" %}
@@ -6,8 +6,9 @@
 {% extends "layouts/base.html" %}
 
 {% block body %}
+<div class="veggie_circles_background"></div>
 <h2>{{_('Sign in')}}. {{_('Don\'t have an account?')}} <a href="{{ url_for('frontend.signup') }}">{{_('Sign up')}}</a>, {{_('please')}}</small></h2>
 {{ render_form(url_for('frontend.login'), form)}}
-</div>
+
 
 {% endblock %}
