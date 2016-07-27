@@ -34,20 +34,20 @@ class StripeForm(Form):
     id = 'signup'
     next = HiddenField()
 
-    first_name = TextField((''), [Required()], description='First Name', render_kw={'medium':'6'})
-    last_name = TextField((''), [Required()], description='Last Name', render_kw={'medium':'6'})
-    email = TextField((''), [Required(), Email()], description='Email Address', render_kw={'medium':'12'})
+    first_name = TextField((''), [Required()], description='First Name', render_kw={'medium':'6', 'row_begin':True})
+    last_name = TextField((''), [Required()], description='Last Name', render_kw={'medium':'6', 'row_end':True})
+    email = TextField((''), [Required(), Email()], description='Email Address', render_kw={'medium':'8', 'row_begin':True})
+    phone_num = TextField((''), [Length(PHONENUMBER_LENGTH)], description='Phone Number', render_kw={'medium':'4', 'row_end':True})
     password = PasswordField((''), [Required(), Length(PASSWORD_LEN_MIN,
-        PASSWORD_LEN_MAX)], description='Password', render_kw={'medium':'3'})
+        PASSWORD_LEN_MAX)], description='Password', render_kw={'medium':'6', 'row_begin':True})
     # password_verification
-    retype_password = PasswordField((''), description='Retype Password', render_kw={'medium':'9'})
+    retype_password = PasswordField((''), description='Retype Password', render_kw={'medium':'6', 'row_end':True})
 
-    phone_num = TextField((''), [Length(PHONENUMBER_LENGTH)], description='Phone Number', render_kw={'medium':'6'})
-    address = TextField((''), [Required()], description='Street Address', render_kw={'medium':'6'})
-    address_2 = TextField((''), description='Apt/Bldg No', render_kw={'medium':'6'})
-    city = TextField((''), [Required()], default='Tallahassee', description='City', render_kw={'medium':'6'})
-    state = TextField((''), [Required()], default='FL', description='State', render_kw={'medium':'6'})
-    postal_zip = TextField((''), [Required()], description='Postal Code', render_kw={'medium':'6'})
+    address = TextField((''), [Required()], description='Street Address', render_kw={'medium':'9', 'row_begin':True})
+    address_2 = TextField((''), description='Apt/Bldg No', render_kw={'medium':'3', 'row_end':True})
+    city = TextField((''), [Required()], default='Tallahassee', description='City', render_kw={'medium':'7', 'row_begin':True})
+    state = TextField((''), [Required()], default='FL', description='State', render_kw={'medium':'2'})
+    postal_zip = TextField((''), [Required()], description='Postal Code', render_kw={'medium':'3', 'row_end':True})
 
     box_size = RadioField('What size box is needed?', [Required()], choices=[('single', 'Enough for 1 person ($25)'),
             ('couple', 'Enough for 2 persons ($45)'),
@@ -55,10 +55,10 @@ class StripeForm(Form):
 
     # box_size = HiddenField()
 
-    card_number = TextField((''), [Required()], description='Card Number', render_kw={'medium':'6'})
-    exp_month = IntegerField((''), [Required()], description='Expiration (mm)', render_kw={'medium':'6'})
-    exp_year = IntegerField((''), [Required()], description='Expiration (yy)', render_kw={'medium':'6'})
-    cvc_number = IntegerField((''), [Required()], description='CVC', render_kw={'medium':'6'})
+    card_number = TextField((''), [Required()], description='Card Number', render_kw={'medium':'12', 'row_begin':True, 'row_end':True})
+    exp_month = IntegerField((''), [Required()], description='Expiration (mm)', render_kw={'medium':'3', 'row_begin':True})
+    exp_year = IntegerField((''), [Required()], description='Expiration (yy)', render_kw={'medium':'3'})
+    cvc_number = IntegerField((''), [Required()], description='CVC', render_kw={'medium':'3', 'row_end':True})
     #
     # agree = BooleanField(_('Agree to the ') +
     #     Markup('<a target="blank" href="/terms">' + _('Terms of Service') + '</a>'), [Required()])
