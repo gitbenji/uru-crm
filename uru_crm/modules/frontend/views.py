@@ -40,9 +40,9 @@ def create_profile():
     return render_template('frontend/create_profile.html', form=form)
 
 
-@frontend.route('/.well-known/acme-challenge/XoUkieU7FcqWhJTQXOPu1cCtjiuuDUvcvBJsmOZ2FXU')
+@frontend.route('/.well-known/acme-challenge/Ua9npzdRwDOw0vlxRNMqCsX0IDoF-21W3wRR3Tbhono')
 def certbot():
-    return render_template('XoUkieU7FcqWhJTQXOPu1cCtjiuuDUvcvBJsmOZ2FXU')
+    return render_template('Ua9npzdRwDOw0vlxRNMqCsX0IDoF-21W3wRR3Tbhono')
 
 
 @frontend.route('/')
