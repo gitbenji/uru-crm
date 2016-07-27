@@ -84,7 +84,10 @@ a:focus {
 .navbar-brand {
   z-index: 2;
 }
-
+.navbar-custom1 {
+  background-color: white;
+  padding: 1em;
+}
 .navbar-custom {
   margin-bottom: 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
@@ -266,6 +269,10 @@ a:focus {
 }
 .btn_header1:hover{
   background-color: rgba(255, 255, 255, 0);
+  color: white;
+}
+.btn_header1 h3:hover{
+  color: white;
 }
 .btn-header1 {
   margin-bottom: 0em;
@@ -363,13 +370,13 @@ footer p {
 }
 ::-moz-selection {
   text-shadow: none;
-  background: #fcfcfc;
-  background: rgba(255, 255, 255, 0.2);
+  background: #b3b647;
+  background: #b3b647;
 }
 ::selection {
   text-shadow: none;
-  background: #fcfcfc;
-  background: rgba(255, 255, 255, 0.2);
+  background: #b3b647;
+  background: #b3b647;
 }
 img::selection {
   background: transparent;
@@ -378,7 +385,7 @@ img::-moz-selection {
   background: transparent;
 }
 body {
-  webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
+  webkit-tap-highlight-color: #b3b647;
 }
 .tomato_background {
   background-image: url("../img/tomato_.png");
@@ -521,7 +528,7 @@ body {
 .form-control {
   box-shadow: none;
   border-bottom: 1;
-  border-bottom-color: #a29f9c;
+  background-color: #a29f9c;
   border-top: 0px;
   border-right: 0px;
   /*width: 48%;*/
@@ -536,23 +543,17 @@ body {
   /*box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);*/
 }
 form {
-  /*background-color: rgba(255, 255, 255, 0.48);*/
-  box-shadow: 0px 0px 20px -9px;
   background-color: white;
   text-align: center;
-  margin-top: 8%;
+  margin-top: 0%;
   font-family: archer;
 }
 @media (min-width: 320px){
   form {
-    margin-top: 23%;
+    margin-top: 0%;
   }
 }
-@media (min-width: 750px){
-  form {
-    margin-top: 15%;
-  }
-}
+
 .h1_padding {
   padding-bottom: 1em;
 }
@@ -769,11 +770,16 @@ table {
   background-color: white;
   padding: 1em 1em 1em 1em;
   box-shadow: 0px 0px 20px -9px;
-
+}
+.signup_page p {
+  text-align: center;
 }
 #contact h2 {
   margin: 0px 0px 0px;
 }
 #contact p {
   margin: 0px 0px 0px;
+}
+.size_button p{
+  margin-bottom: 0em;
 }
