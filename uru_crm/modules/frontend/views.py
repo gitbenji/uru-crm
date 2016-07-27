@@ -40,6 +40,11 @@ def create_profile():
     return render_template('frontend/create_profile.html', form=form)
 
 
+@frontend.route('/.well-known/acme-challenge/XoUkieU7FcqWhJTQXOPu1cCtjiuuDUvcvBJsmOZ2FXU')
+def certbot():
+    return render_template('XoUkieU7FcqWhJTQXOPu1cCtjiuuDUvcvBJsmOZ2FXU')
+
+
 @frontend.route('/')
 def index():
     current_app.logger.debug('debug')
