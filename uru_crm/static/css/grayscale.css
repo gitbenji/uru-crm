@@ -269,6 +269,10 @@ a:focus {
 }
 .btn_header1:hover{
   background-color: rgba(255, 255, 255, 0);
+  color: white;
+}
+.btn_header1 h3:hover{
+  color: white;
 }
 .btn-header1 {
   margin-bottom: 0em;
@@ -775,4 +779,7 @@ table {
 }
 #contact p {
   margin: 0px 0px 0px;
+}
+.size_button p{
+  margin-bottom: 0em;
 }
