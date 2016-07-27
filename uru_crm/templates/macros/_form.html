@@ -75,6 +75,9 @@
 {% endmacro %}
 
 {% macro render_input(field, form_id) %}
+{% if field.render_kw.row_begin -%}
+<div class="row">
+{%- endif %}
 <div class="control-group{% if field.errors %} error{% endif %}">
     <div class="controls col-md-{{ field.render_kw.medium }}">
         {{ field(class="form-control", id=field.name + form_id, placeholder=field.description) }}
@@ -85,6 +88,9 @@
         {%- endif %}
     </div>
 </div>
+{% if field.render_kw.row_end -%}
+</div>
+{%- endif %}
 {% endmacro %}
 
 {% macro render_action(field) %}
