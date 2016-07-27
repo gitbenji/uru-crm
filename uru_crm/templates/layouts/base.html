@@ -7,10 +7,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>{% block title %}{{ page_title|default(_('Project')) }}{% endblock %}</title>
-    <meta name="description" content="Sign up for local veggies from Uru Tallahassee">
+    <meta name="description" content="Sign up for local farm fresh, local, organic veggies from Uru Tallahassee! We deliver to homes, restaurants, and businesses.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="Shortcut Icon" href="{{ url_for('static', filename='img/u-logo.png') }}" type="image/x-icon">
+    <link rel="Shortcut Icon" href="{{ url_for('static', filename='img/mushie_.png') }}" type="image/x-icon">
 
     {% block css %}
         {% assets "css_all" -%}
@@ -98,7 +98,7 @@
             <div class="col-lg-8 col-lg-offset-2">
                 <h2>Contact Uru Tallahassee</h2>
                 <p>We a-peas-ciate you!</p>
-                <p>Comments, questions, concerns?  Feel free to send us an email and we'll get back to you as soon as possible</p>
+                <p>Comments, questions, concerns?  Feel free to send us an email and we'll get back to you as soon as possible.</p>
                 <p><a href="mailto:hello@urutallahassee.com">hello@urutallahassee.com</a>
                 </p>
                 <ul class="list-inline banner-social-buttons">
@@ -112,6 +112,7 @@
                         <a href="https://plus.google.com/+Startbootstrap/posts" class="btn btn-default btn-lg"><i class="fa fa-google-plus fa-fw"></i> <span class="network-name">Google+</span></a>
                     </li> -->
                 </ul>
+                <p>Copyright &copy; URUTALLAHASSEE 2016</p>
             </div>
         </div>
     </section>
@@ -126,11 +127,7 @@
             <li><a href='#'>{{_('Terms')}}</a></li>
         </ul>
     </footer> -->
-    <footer>
-        <div class="container text-center">
-            <p>Copyright &copy; URUTALLAHASSEE 2016</p>
-        </div>
-    </footer>
+
 
 
     {% block js_btm %}
@@ -146,7 +143,7 @@
 
     {% block ga %}
         {% include "macros/_google_analytics.html" %}
-      
+
     {% endblock %}
 </body>
 </html>

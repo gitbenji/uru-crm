@@ -76,7 +76,7 @@
 
 {% macro render_input(field, form_id) %}
 <div class="control-group{% if field.errors %} error{% endif %}">
-    <div class="controls">
+    <div class="controls col-md-{{ field.render_kw.medium }}">
         {{ field(class="form-control", id=field.name + form_id, placeholder=field.description) }}
         {% if field.errors -%}
             {% for error in field.errors -%}

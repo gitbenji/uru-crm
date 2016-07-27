@@ -8,7 +8,11 @@
 <div class="veggie_circles_background"></div>
 
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-<div class="col-4 col-offset-3 centered">{{ render_form(url_for('frontend.signup'), form) }}</div>
+<div class="row">
+<div class="col-md-8 col-md-offset-2 centered signup_page">
+  <h2>Peas fill out this form to signup!</h2>
+    {{ render_form(url_for('frontend.signup'), form) }}</div>
+</div>
 
         <!-- {% for message in get_flashed_messages() %}
             <p><b>Error</b>: {{ message }}</p>

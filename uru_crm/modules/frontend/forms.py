@@ -34,20 +34,20 @@ class StripeForm(Form):
     id = 'signup'
     next = HiddenField()
 
-    first_name = TextField((''), [Required()], description='First Name')
-    last_name = TextField((''), [Required()], description='Last Name')
-    email = TextField((''), [Required(), Email()], description='Email Address')
+    first_name = TextField((''), [Required()], description='First Name', render_kw={'medium':'6'})
+    last_name = TextField((''), [Required()], description='Last Name', render_kw={'medium':'6'})
+    email = TextField((''), [Required(), Email()], description='Email Address', render_kw={'medium':'12'})
     password = PasswordField((''), [Required(), Length(PASSWORD_LEN_MIN,
-        PASSWORD_LEN_MAX)], description='Password')
+        PASSWORD_LEN_MAX)], description='Password', render_kw={'medium':'3'})
     # password_verification
-    retype_password = PasswordField((''), description='Retype Password')
+    retype_password = PasswordField((''), description='Retype Password', render_kw={'medium':'9'})
 
-    phone_num = TextField((''), [Length(PHONENUMBER_LENGTH)], description='Phone Number')
-    address = TextField((''), [Required()], description='Street Address')
-    address_2 = TextField((''), description='Apt/Bldg No')
-    city = TextField((''), [Required()], default='Tallahassee', description='City')
-    state = TextField((''), [Required()], default='FL', description='State')
-    postal_zip = TextField((''), [Required()], description='Postal Code')
+    phone_num = TextField((''), [Length(PHONENUMBER_LENGTH)], description='Phone Number', render_kw={'medium':'6'})
+    address = TextField((''), [Required()], description='Street Address', render_kw={'medium':'6'})
+    address_2 = TextField((''), description='Apt/Bldg No', render_kw={'medium':'6'})
+    city = TextField((''), [Required()], default='Tallahassee', description='City', render_kw={'medium':'6'})
+    state = TextField((''), [Required()], default='FL', description='State', render_kw={'medium':'6'})
+    postal_zip = TextField((''), [Required()], description='Postal Code', render_kw={'medium':'6'})
 
     box_size = RadioField('What size box is needed?', [Required()], choices=[('single', 'Enough for 1 person ($25)'),
             ('couple', 'Enough for 2 persons ($45)'),
@@ -55,11 +55,11 @@ class StripeForm(Form):
 
     # box_size = HiddenField()
 
-    card_number = TextField((''), [Required()], description='Card Number')
-    exp_month = IntegerField((''), [Required()], description='Expiration (mm)')
-    exp_year = IntegerField((''), [Required()], description='Expiration (yy)')
-    cvc_number = IntegerField((''), [Required()], description='CVC')
-    # 
+    card_number = TextField((''), [Required()], description='Card Number', render_kw={'medium':'6'})
+    exp_month = IntegerField((''), [Required()], description='Expiration (mm)', render_kw={'medium':'6'})
+    exp_year = IntegerField((''), [Required()], description='Expiration (yy)', render_kw={'medium':'6'})
+    cvc_number = IntegerField((''), [Required()], description='CVC', render_kw={'medium':'6'})
+    #
     # agree = BooleanField(_('Agree to the ') +
     #     Markup('<a target="blank" href="/terms">' + _('Terms of Service') + '</a>'), [Required()])
     submit = SubmitField('Sign up')
