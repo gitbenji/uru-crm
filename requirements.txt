@@ -57,7 +57,7 @@ SQLAlchemy==0.9.4
 stripe==1.35.0
 webassets==0.10.1
 Werkzeug==0.9.6
-WTForms==1.0.5
+WTForms==2.1
 zope.component==4.2.2
 zope.event==4.2.0
 zope.interface==4.2.0
