@@ -81,13 +81,6 @@ a:focus {
 .light {
   font-weight: 400;
 }
-/*@media (min-width: 1000) {
-  .navbar-right {
-    position: absolute;
-    right: 1em;
-    z-index: 2;
-  }
-}*/
 .navbar-brand {
   z-index: 2;
 }
@@ -517,6 +510,7 @@ body {
 .black_text_navbar a {
   color: black;
   margin-top: -1em;
+  font-size: 1em;
   letter-spacing: 3px;
   text-transform: uppercase;
   font-family: source serif pro;
@@ -773,6 +767,9 @@ table {
 }
 .signup_page {
   background-color: white;
+  padding: 1em 1em 1em 1em;
+  box-shadow: 0px 0px 20px -9px;
+
 }
 #contact h2 {
   margin: 0px 0px 0px;

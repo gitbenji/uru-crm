@@ -6,7 +6,7 @@ from flask import Flask, request, render_template
 from flask.ext.babel import Babel
 
 from uru_crm import assets
-from uru_crm.config import HerokuConfig
+from uru_crm.config import DefaultConfig
 from uru_crm.modules.user import User, user
 from uru_crm.modules.settings import settings
 from uru_crm.modules.frontend import frontend
@@ -32,7 +32,7 @@ def create_app(config=None, app_name=None, blueprints=None):
     """Create a Flask app."""
 
     if app_name is None:
-        app_name = HerokuConfig.PROJECT
+        app_name = DefaultConfig.PROJECT
     if blueprints is None:
         blueprints = DEFAULT_BLUEPRINTS
 
@@ -55,7 +55,7 @@ def create_app(config=None, app_name=None, blueprints=None):
 def configure_app(app, config=None):
     # http://flask.pocoo.org/docs/api/#configuration
     # inherit the base config object
-    app.config.from_object(HerokuConfig)
+    app.config.from_object(DefaultConfig)
 
     # If config is None, try to load config file from environment variable
     if config is None and 'uru_crm_CFG' in os.environ:
@@ -95,7 +95,7 @@ def configure_extensions(app):
 
     @babel.localeselector
     def get_locale():
-        return request.accept_languages.best_match(HerokuConfig.LANGUAGES)
+        return request.accept_languages.best_match(DefaultConfig.LANGUAGES)
 
     # flask-login
     login_manager.login_view = 'frontend.login'
