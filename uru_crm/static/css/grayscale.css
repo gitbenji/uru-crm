@@ -569,9 +569,9 @@ body {
   background-color: rgba(162, 159, 156, 0.31);
   border-top: 0px;
   border-right: 0px;
-  width: 48%;
+  width: 100%;
   border-left: 0px;
-  padding: 1em 1em 1em 3em;
+  padding: 1em 1em 1em 1em;
   border-radius: 0px;
 }
 .form-control:focus {
@@ -616,7 +616,7 @@ label {
   float: left;
 }
 
-#last_name, #password, #phone_num, #address_2, #state, #cvc_number, #exp_month {
+#last_name, #password, #phone_num, #address_2, #state, #cvc_number {
   float: right;
   margin-top: -2em;
 }
@@ -625,7 +625,7 @@ label {
   float: left;
 }
 .control-group {
-  padding: 1em 1em 1em 3em;
+  padding: 1em 1em 1em 1em;
 }
 @media (max-width: 767px) {
   #first_name, #email, #retype_password, #address, #city,  #card_number, #exp_year {
@@ -638,6 +638,10 @@ label {
     width: 100%;
   }
 }
+#last_namesignup, #retype_passwordsignup, #phone_numsignup, #address_2signup, #statesignup, #cvc_numbersignup,  #exp_yearsignup, #cvc_numbersignup {
+  margin-top: -2em;
+}
+
 #contact {
   /*position: absolute;
   bottom: 0em;*/
