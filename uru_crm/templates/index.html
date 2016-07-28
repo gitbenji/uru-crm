@@ -6,97 +6,103 @@
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
-    <!-- Intro Header -->
-    <header class="intro">
-        <div class="intro-body">
-            <div class="container">
-                <div class="row">
-                    <div class="col-4 col-offset-3 centered">
-                        <span class="brand-heading"><h1>uru</h1><h2>Tallahassee</h2></span>
-                        <h3 class="intro-text">Farm fresh food
-                            <br>right to your door.</h3>
-                            <button>
-                              <a href="#about">
-                                Get Started
-                              </a>
-                            </button>
-                    </div>
-                </div>
-            </div>
+  <!-- Intro Header -->
+  <header class="intro">
+    <div class="row">
+        <div id="hero" class="col-4 col-offset-3 centered">
+            <div class="brand-heading"><h1>URU</h1><h2>Tallahassee</h2></div>
+            <h3 class="intro-text">Hand-delivered produce <strong>{ Farm-to-doorstep }</strong>
+                <br>Always organic and locally sourced</h3>
         </div>
-    </header>
-<!-- 3 row thing -->
-  <div class="container">
-    <div class="row about_section one_time_subscription">
-      <div class="col-md-3">
-        <img src="./../static/img/3_sizes-01.svg"/>
-      </div>
-      <div class="col-md-9">
-        <h2>One time subscription. Choose your size.</h2>
-      </div>
     </div>
-    <div class="row about_section fresh_food">
-      <div class="col-md-9">
-        <h2>Fresh food from local farms, picked the same day.</h2>
-      </div>
-      <div class="col-md-3">
-        <img src="./../static/img/farmland-01.svg"/>
-      </div>
+    <div class="row">
+      <a href="#about">
+        <button>
+          Get Started
+        </button>
+      </a>
     </div>
-    <div class="row about_section to_the_doorstep">
-      <div class="col-md-3">
-        <img src="./../static/img/box-01.svg"/>
-      </div>
-      <div class="col-md-9">
-      <h2>Delivered to your doorstep every Wednesday.</h2>
-      </div>
-    </div>
-  </div>
-    <!-- About Section -->
-    <section id="about" class="container content-section text-center">
-      <div class="tallahassee_script">
-      <h1 class="h1_padding">How can we accommodate your veggie needs?</h1>
-    </div>
-        <div class="row row-centered">
-            <div class="col-md-4 col-centered">
-              <div class="lil_sweet_potato_background">
-                <a href="{{ url_for('frontend.signup', box_size='single')}}">
-                <p class="tiny">single sprout</p>
-                  <h2>Single</h2>
-                  <p>enough for one person</p>
-                  <h2>$25</h2>
-              </div>
-              <div class="btn btn-primary size_button"><p>Select</p></div>
-                </a>
-              <!-- </div> -->
-            </div>
-            <div class="col-md-4 col-centered">
-              <div class="mushie_background">
-                <a href="{{ url_for('frontend.signup', box_size='couple')}}">
-                <p class="tiny">two peas in a pod!</p>
-                  <h2>Couple</h2>
-                  <p>enough for two people</p>
-                  <h2>$45</h2>
-              </div>
-              <div class="btn btn-primary size_button"><p>Select</p></div>
-                </a>
-          </div>
+  </header>
 
-            <div class="col-md-4 col-centered">
-              <div class="tomato_background">
-                <a href="{{ url_for('frontend.signup', box_size='family')}}">
-                <p class="tiny">a carr[ot]ing family</p>
-                  <h2>Family</h2>
-                  <p>enough for four people</p>
-                  <h2>$75</h2>
-                </div>
-                <div class="btn btn-primary size_button"><p>Select</p></div>
-                </a>
+  <!-- 3 row thing -->
+  <section class="container">
+    <div class="about_section" id="one_time_subscription">
+      <div class="row">
+        <div class="col-md-3">
+          <img src="./../static/img/3_sizes-01.svg"/>
+        </div>
+        <div class="col-md-9">
+          <h3>One time subscription. Choose your size.</h3>
+        </div>
+      </div>
+    </div>
+    <div class="about_section" id="fresh_food">
+      <div class="row">
+        <div class="col-md-9">
+          <h3>Fresh food from local farms, picked the same day.</h3>
+        </div>
+        <div class="col-md-3">
+          <img src="./../static/img/farmland-01.svg"/>
+        </div>
+      </div>
+    </div>
+    <div class="about_section" id="to_the_doorstep">
+      <div class="row">
+        <div class="col-md-3">
+          <img src="./../static/img/box-01.svg"/>
+        </div>
+        <div class="col-md-9">
+          <h3>Delivered to your doorstep every Wednesday.</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="container content-section text-center">
+    <div class="tallahassee_script">
+    <h1 class="h1_padding">How can we accommodate your veggie needs?</h1>
+  </div>
+      <div class="row row-centered">
+          <div class="col-md-4 col-centered">
+            <div class="lil_sweet_potato_background">
+              <a href="{{ url_for('frontend.signup', box_size='single')}}">
+              <p class="tiny">single sprout</p>
+                <h2>Single</h2>
+                <p>enough for one person</p>
+                <h2>$25</h2>
             </div>
+            <button>Select</button>
+              </a>
+            <!-- </div> -->
           </div>
+          <div class="col-md-4 col-centered">
+            <div class="mushie_background">
+              <a href="{{ url_for('frontend.signup', box_size='couple')}}">
+              <p class="tiny">two peas in a pod!</p>
+                <h2>Couple</h2>
+                <p>enough for two people</p>
+                <h2>$45</h2>
+            </div>
+            <button>Select</button>
+              </a>
+        </div>
+
+          <div class="col-md-4 col-centered">
+            <div class="tomato_background">
+              <a href="{{ url_for('frontend.signup', box_size='family')}}">
+              <p class="tiny">a carr[ot]ing family</p>
+                <h2>Family</h2>
+                <p>enough for four people</p>
+                <h2>$75</h2>
+              </div>
+              <button>Select</button>
+              </a>
           </div>
         </div>
-    </section>
+        </div>
+      </div>
+  </section>
 
     <!-- Download Section -->
     <section id="download" class="content-section text-center">
