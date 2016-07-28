@@ -34,14 +34,16 @@ h2 {
 
 h3 {
   font-family: "source serif pro";
-  letter-spacing: 3px;
 }
 
 h4 {
-  text-align: center;
   font-family: "source serif pro";
-  text-transform: capitalize;
   font-size: 60px;
+}
+
+h6 {
+  font-family: "source serif pro";
+  font-size: 16px;
 }
 
 p {
@@ -52,22 +54,32 @@ p {
   letter-spacing: 3px;
 }
 
+/*-----------INTRO------------------*/
+
 .brand-heading h1 {
-  font-size: 160px;
-  margin: 0 0 35px;
+  font-size: 115px;
+  letter-spacing: 3px;
+  line-height: 1.5;
 }
 
 .brand-heading h2 {
-  font-family:"lavanderia" !important;
-  text-transform: none;
-  margin-top: -1em;
-  margin: 0 0 35px;
+  font-size: 63px;
+  margin-top: -43px;
 }
-.brand-heading h3 {
-  font-family:"archer" !important;
-  text-transform: none;
-  margin-top: -1em;
-  margin: 0 0 35px;
+
+.navbar-brand {
+  font-size: 12px;
+  letter-spacing: 5px;
+}
+
+.intro-text{
+  letter-spacing: 3px;
+  line-height: 1.5;
+  padding-top: 0px;
+}
+
+.three_options h3 {
+  font-size: 10px;
 }
 
 @media (min-width:1000px) {
@@ -113,46 +125,6 @@ p {
   }
 }
 
-@media (min-width:250px) {
-  h1 {
-    font-size: 23px;
-  }
-  h3 {
-    font-size: 21px;
-  }
-  h2 {
-    font-size: 10px;
-  }
-  p {
-    font-size: 15px;
-  }
-  h4 {
-    font-size: 30px;
-  }
-  .brand-heading h1 {
-    font-size: 115px;
-    letter-spacing: 3px;
-    line-height: 1.5;
-    padding-top: 0px;
-  }
-  .brand-heading h2 {
-    font-size: 50px;
-    margin-top: -1em;
-  }
-  .navbar-brand {
-    font-size: 12px;
-    letter-spacing: 5px;
-  }
-  .intro-text{
-    letter-spacing: 3px;
-    line-height: 1.5;
-    padding-top: 0px;
-    font-size: 16px;
-  }
-  .three_options h3 {
-    font-size: 10px;
-  }
-}
 
 /*---------------BUTTON-----------------*/
 
@@ -186,21 +158,16 @@ button:active {
 }
 
 .row {
-  max-width: 75rem;
+  max-width: 87%;
   margin-left: auto;
   margin-right: auto;
 }
 
 #hero {
-  padding-top: 20%;
+  padding-top: 10%;
 }
 
-@media (max-width:750px) {
-  #hero{
-    padding-top: 0%;
-  }
-}
-@media (min-width:751px) {
+@media (min-width:750px) {
   #hero {
     padding-top: 20%;
   }
