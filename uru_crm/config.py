@@ -77,7 +77,7 @@ class DefaultConfig(BaseConfig):
 
     # PostgreSQL
 
-    SQLALCHEMY_DATABASE_URI = 'postgresql://OAKSPROUT@localhost/%s' % BaseConfig.PROJECT
+    SQLALCHEMY_DATABASE_URI = 'postgresql://benji@localhost/%s' % BaseConfig.PROJECT
 
     # Flask-babel: http://pythonhosted.org/Flask-Babel/
     ACCEPT_LANGUAGES = ['zh']

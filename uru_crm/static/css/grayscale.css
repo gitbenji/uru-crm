@@ -10,10 +10,12 @@ body {
   color: black;
   background-color: white;
 }
+
 html {
   width: 100%;
   height: 100%;
 }
+
 h1,
 h2,
 h3,
@@ -22,18 +24,29 @@ h5,
 h6 {
   margin: 0 0 35px;
   text-transform: uppercase;
-  font-family: "source serif pro" ;
+  font-family: "source serif pro";
   font-weight: 700;
   letter-spacing: 1px;
 }
+
 .brand-heading h1 {
   font-size: 100px;
 }
+
 .brand-heading h2 {
   font-family:"lavanderia" !important;
   text-transform: none;
   margin-top: -1em;
 }
+
+button {
+  text-transform: uppercase;
+  font-family: "archer";
+  font-size: 13px;
+  letter-spacing: 3px;
+  padding: 10px 10px;
+}
+
 @media (min-width: 320px) {
   .brand-heading h2 {
     font-size: 50px;
@@ -68,7 +81,8 @@ p {
   }
 }
 a {
-  color: #42DCA3;
+  color: #e25a38;
+  text-decoration: none;
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
@@ -96,7 +110,8 @@ a:focus {
   margin-bottom: 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   text-transform: uppercase;
-  font-size: smaller;
+  font-size: small;
+  font-weight: 400;
   font-family: archer;
   letter-spacing: 8px;
   background-color: black;
@@ -149,9 +164,9 @@ a:focus {
 }
 @media (min-width: 1000px) {
   .navbar-custom {
-    padding: 20px 0;
+    padding: 25px 50px;
     border-bottom: none;
-    letter-spacing: 3px;
+    letter-spacing: 4px;
     background: transparent;
     -webkit-transition: background 0.5s ease-in-out, padding 0.5s ease-in-out;
     -moz-transition: background 0.5s ease-in-out, padding 0.5s ease-in-out;
