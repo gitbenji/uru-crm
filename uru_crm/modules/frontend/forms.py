@@ -58,7 +58,7 @@ class StripeForm(Form):
     card_number = TextField((''), [Required()], description='Card Number', render_kw={'medium':'12', 'row_begin':True, 'row_end':True})
     exp_month = IntegerField((''), [Required()], description='Exp (mm)', render_kw={'medium':'4', 'row_begin':True})
     exp_year = IntegerField((''), [Required()], description='Exp (yy)', render_kw={'medium':'4'})
-    cvc_number = IntegerField((''), [Required()], description='CVC', render_kw={'medium':'3', 'row_end':True})
+    cvc_number = IntegerField((''), [Required()], description='CVC', render_kw={'medium':'4', 'row_end':True})
     #
     # agree = BooleanField(_('Agree to the ') +
     #     Markup('<a target="blank" href="/terms">' + _('Terms of Service') + '</a>'), [Required()])

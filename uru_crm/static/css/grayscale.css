@@ -582,7 +582,6 @@ body {
 }
 form {
   /*background-color: rgba(255, 255, 255, 0.48);*/
-  box-shadow: 0px 0px 20px -9px;
   background-color: white;
   text-align: center;
   margin-top: 8%;
@@ -604,6 +603,10 @@ form {
 
 #contact {
   background-color: white;
+}
+#cvc_number {
+  float: right;
+  margin-top: -2em;
 }
 .control-label label{
   visibility: hidden;
@@ -714,6 +717,16 @@ table {
   .signup_mobile.navbar_right {
     display: none;
   }
+}
+.signup_page {
+  background-color: white;
+  margin-top: 15%;
+  box-shadow: 0px 0px 20px -9px;
+
+}
+.signup_page p {
+  text-align: center;
+  padding-top: 5%;
 }
 
 /*------about section--------*/
