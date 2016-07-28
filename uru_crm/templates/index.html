@@ -26,6 +26,7 @@
 
   <!-- 3 row thing -->
   <section class="container">
+    <div class="row centered"><h4>How it works:</h4></div>
     <div class="about_section" id="one_time_subscription">
       <div class="row">
         <div class="col-md-3">
@@ -59,18 +60,18 @@
   </section>
 
   <!-- About Section -->
-  <section id="about" class="container content-section text-center">
-    <div class="tallahassee_script">
+  <section id="about" class="container content-section text-center three_options">
     <h1 class="h1_padding">How can we accommodate your veggie needs?</h1>
-  </div>
-      <div class="row row-centered">
+      <!-- <div class="row row-centered"> -->
+        <h3>We have 3 box sizing options:</h3>
           <div class="col-md-4 col-centered">
             <div class="lil_sweet_potato_background">
               <a href="{{ url_for('frontend.signup', box_size='single')}}">
-              <p class="tiny">single sprout</p>
-                <h2>Single</h2>
+                <h1>1</h1>
+              <p class="tiny">a single sprout</p>
+                <h3>SINGLE</h3>
                 <p>enough for one person</p>
-                <h2>$25</h2>
+                <h3>$25</h3>
             </div>
             <button>Select</button>
               </a>
@@ -79,10 +80,11 @@
           <div class="col-md-4 col-centered">
             <div class="mushie_background">
               <a href="{{ url_for('frontend.signup', box_size='couple')}}">
+                <h1>2</h1>
               <p class="tiny">two peas in a pod!</p>
-                <h2>Couple</h2>
+                <h3>COUPLE</h3>
                 <p>enough for two people</p>
-                <h2>$45</h2>
+                <h3>$45</h3>
             </div>
             <button>Select</button>
               </a>
@@ -91,16 +93,17 @@
           <div class="col-md-4 col-centered">
             <div class="tomato_background">
               <a href="{{ url_for('frontend.signup', box_size='family')}}">
+                <h1>3</h1>
               <p class="tiny">a carr[ot]ing family</p>
-                <h2>Family</h2>
+                <h3>FAMILY</h3>
                 <p>enough for four people</p>
-                <h2>$75</h2>
+                <h3>$75</h3>
               </div>
               <button>Select</button>
               </a>
           </div>
         </div>
-        </div>
+        <!-- </div> -->
       </div>
   </section>
 
@@ -108,18 +111,18 @@
     <section id="download" class="content-section text-center">
         <div class="download-section">
             <div class="container">
-              <div class="row cucumber_background">
+              <div class="cucumber_background">
                 <div class="col-md-6 cucumber_font">
                     <h2>Buying Local:</h2>
                     </p>
                   </div>
                     <div class="col-md-6 black_background">
                       <p class="black_background_padding"><i>Nut</i> only helps local farmers, but it:
-                      <h2>Reduces emmissions</h2>
+                      <h1>Reduces emmissions</h1>
                       <p>Buying local means a lot less transportation, which means a lot less fossil fuels to pollute the air</p>
-                      <h2>Enhances the community</h2>
+                      <h1>Enhances the community</h1>
                       <p>Bring the community together</p>
-                      <h2>Increases Happiness</h2>
+                      <h1>Increases Happiness</h1>
                       <p>Produce picked the same day as eaten is proven to have much more vitamins.  More vitamins means more happiness. </p>
                       <br><br>We want you to feel <i>grape</i> about what you eat.</p>
                 </div>

@@ -9,6 +9,7 @@ body {
   font-family: "source serif pro";
   color: black;
   background-color: white;
+
 }
 
 html {
@@ -17,7 +18,6 @@ html {
 }
 
 h1 {
-  margin: 0 0 35px;
   font-family: "source serif pro";
   text-transform: uppercase;
   font-weight: 500;
@@ -25,25 +25,38 @@ h1 {
 }
 
 h2 {
-  margin: 0 0 35px;
   font-family: "lavanderia";
   font-weight: bold;
+  color: white;
 }
 
 h3 {
-  margin: 0 0 35px;
   font-family: "source serif pro";
   letter-spacing: 3px;
 }
-
+h4 {
+  text-align: center;
+  font-family: "source serif pro";
+  text-transform: capitalize;
+  font-size: 60px;
+}
 .brand-heading h1 {
   font-size: 175px;
+  margin: 0 0 35px;
+
 }
 
 .brand-heading h2 {
   font-family:"lavanderia" !important;
   text-transform: none;
   margin-top: -1em;
+  margin: 0 0 35px;
+}
+.brand-heading h3 {
+  font-family:"archer" !important;
+  text-transform: none;
+  margin-top: -1em;
+  margin: 0 0 35px;
 }
 
 button {
@@ -92,11 +105,11 @@ button:active {
   .navbar-brand {
     font-size: 12px;
     letter-spacing: 5px;
-}
-.intro-text{
-  letter-spacing: 3px;
-  line-height: 1.5;
-  padding-top: 10px;
+  }
+  .intro-text{
+    letter-spacing: 3px;
+    line-height: 1.5;
+    padding-top: 10px;
   }
 }
 @media (min-width: 768px) {
@@ -137,13 +150,20 @@ a:focus {
 .light {
   font-weight: 400;
 }
-/*@media (min-width: 1000) {
-  .navbar-right {
-    position: absolute;
-    right: 1em;
-    z-index: 2;
-  }
-}*/
+/*three option setion*/
+.three_options a {
+  color: white;
+}
+.three_options h3 {
+  font-size: 44px;
+}
+.three_options p {
+  font-size: 11px;
+  margin: 0px 0 0px;
+  text-transform: uppercase;
+}
+
+
 .navbar-brand {
   z-index: 2;
 }
@@ -433,13 +453,11 @@ footer p {
 }
 ::-moz-selection {
   text-shadow: none;
-  background: #fcfcfc;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(100, 142, 62, 0.7);
 }
 ::selection {
   text-shadow: none;
-  background: #fcfcfc;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(100, 142, 62, 0.7);
 }
 img::selection {
   background: transparent;
@@ -454,26 +472,12 @@ body {
   background-image: url("../img/tomato_.png");
   padding-bottom: 5.4em;
   background-repeat: no-repeat;
-  text-transform: uppercase;
   background-attachment: inherit;
   background-position: center;
 }
 .tomato_background:hover {
   background-image: url("../img/tomato_bw.png");
   background-repeat: no-repeat;
-}
-.tomato_background h2 {
-  /*padding-top: 3em;*/
-  line-height: 0em;
-  color: white;
-  letter-spacing: 5px;
-}
-.tomato_background p {
-  padding-top: 0em;
-  line-height: 0em;
-  color: white;
-  letter-spacing: 1.5px;
-  font-size: 13px;
 }
 .tomato_background .tiny{
   font-size: 10px;
@@ -485,7 +489,6 @@ body {
   background-image: url("../img/mushie_.png");
   padding-bottom: 5.4em;
   background-repeat: no-repeat;
-  text-transform: uppercase;
   background-attachment: inherit;
   background-position: center;
 }
@@ -505,19 +508,6 @@ body {
   background-image: url("../img/mushie_bw.png");
   background-repeat: no-repeat;
 }
-.mushie_background h2 {
-  /*padding-top: 3em;*/
-  line-height: 0em;
-  color: white;
-  letter-spacing: 5px;
-}
-.mushie_background p {
-  padding-top: 0em;
-  line-height: 0em;
-  color: white;
-  letter-spacing: 1.5px;
-  font-size: 13px;
-}
 .mushie_background .tiny{
   font-size: 10px;
   letter-spacing: 3px;
@@ -528,7 +518,6 @@ body {
   background-image: url("../img/lil_sweet_potato_.png");
   padding-bottom: 5.4em;
   background-repeat: no-repeat;
-  text-transform: uppercase;
   background-attachment: inherit;
   background-position: center;
 }
@@ -538,19 +527,6 @@ body {
   background-repeat: no-repeat;
 }
 
-.lil_sweet_potato_background h2 {
-  /*padding-top: 3em;*/
-  line-height: 0em;
-  color: white;
-  letter-spacing: 5px;
-}
-.lil_sweet_potato_background p {
-  padding-top: 0em;
-  line-height: 0em;
-  color: white;
-  letter-spacing: 1.5px;
-  font-size: 13px;
-}
 .background_which{
   background-image: url("../img/whichwich.jpeg");
   background-repeat: no-repeat;
@@ -675,7 +651,7 @@ table {
 }
 .black_background {
   background-color: black;
-  /*width: 100%*/
+  height: 100vh;
 }
 .black_background_padding {
   padding-top: 1em;
@@ -692,6 +668,9 @@ table {
 .cucumber_background {
   background: url(../img/cucumbers.jpeg) no-repeat center center scroll;
   background-size: cover;
+  z-index: 100;
+  width: 100%;
+  height: 100vh;
 }
 .cucumber_background h2 {
   padding-top: 1em;
@@ -700,7 +679,6 @@ table {
   font-size: 10em;
   font-family: lavanderia;
   text-transform: capitalize;
-  text-shadow: black 5px 3px;
 }
 .cucumber_font p {
   font-size: 38px;
@@ -745,35 +723,11 @@ table {
 #one_time_subscription {
   background-color: #648e3e;
 }
-
-/*.one_time_subscription h2 {
-  color: white;
-  text-transform: none;
-  font-family: archer;
-  font-weight: 100;
-  font-size: 3em;
-  margin-top: 0.7em;
-}*/
-/*.one_time_subscription img {
-  width: 15em;*/
-/*}*/
 #fresh_food {
   background-color: #e1781c;
   margin: 0em -1em;
   padding: 2em;
 }
-/*.fresh_food h2 {
-  color: white;
-  text-transform: none;
-  font-family: archer;
-  font-weight: 100;
-  float: right;
-  font-size: 3em;
-  margin-top: 0.7em;
-}
-.fresh_food img {
-  width: 15em;
-  /*margin-left: 5em;*/
 
 @media (max-width:350) {
   .one_time_subscription h2 {
@@ -795,19 +749,6 @@ table {
   margin: 0em -1em;
   padding: 2em;
 }
-/*.to_the_doorstep h2 {
-  color: white;
-  text-transform: none;
-  font-family: archer;
-  font-weight: 100;
-  font-size: 3em;
-  margin-top: 0.7em;
-}
-.to_the_doorstep img{
-  width: 15em;
-}*/
-/*user page*/
-
 .user_page_text {
   text-transform: none;
 }
