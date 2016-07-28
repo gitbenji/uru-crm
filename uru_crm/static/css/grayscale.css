@@ -41,7 +41,7 @@ h4 {
   font-size: 60px;
 }
 .brand-heading h1 {
-  font-size: 175px;
+  font-size: 160px;
   margin: 0 0 35px;
 
 }
@@ -95,7 +95,7 @@ button:active {
 }
 
 #hero {
-  padding-top: 34%;
+  padding-top: 20%;
 }
 
 @media (min-width: 320px) {
