@@ -11,8 +11,8 @@
     <div class="row">
         <div id="hero" class="col-4 col-offset-3 centered">
             <div class="brand-heading"><h1>URU</h1><h2>Tallahassee</h2></div>
-            <h6 class="intro-text">Hand-delivered produce <strong>{ Farm-To-Doorstep }</strong>
-                <br>always organic and locally sourced</h6>
+            <h6 class="intro-text">Hand-Delivered Produce <strong>{ Farm-To-Doorstep }</strong>
+                <br>Always Organic and Locally Sourced</h6>
         </div>
     </div>
     <div class="row">
@@ -22,11 +22,12 @@
         </button>
       </a>
     </div>
+    <div id="box_date">BOX FROM JULY 28, 2016</div>
   </header>
 
   <!-- 3 row thing -->
   <section class="container">
-    <div class="row centered"><h4>How it works:</h4></div>
+    <div class="row centered"><h3>The Process:</h3></div>
     <div class="about_section" id="one_time_subscription">
       <div class="row">
         <div class="col-md-3">
@@ -60,10 +61,11 @@
   </section>
 
   <!-- About Section -->
-  <section id="about" class="container content-section text-center three_options">
-    <h1 class="h1_padding">How can we accommodate your veggie needs?</h1>
-      <!-- <div class="row row-centered"> -->
-        <h3>We have 3 box sizing options:</h3>
+  <section id="sizes">
+    <div class="row">
+      <h3>How many veggies do you need?</h3>
+      <h5>We have 3 box sizing options:</h5>
+    </div>
           <div class="col-md-4 col-centered">
             <div class="lil_sweet_potato_background">
               <a href="{{ url_for('frontend.signup', box_size='single')}}">

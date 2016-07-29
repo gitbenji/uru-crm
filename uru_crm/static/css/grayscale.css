@@ -24,16 +24,19 @@ h1 {
   text-transform: uppercase;
   font-weight: 500;
   letter-spacing: 6px;
+  font-size: 110px;
 }
 
 h2 {
   font-family: "lavanderia";
   font-weight: bold;
   color: white;
+  font-size: 63px;
 }
 
 h3 {
   font-family: "source serif pro";
+  font-size: 34px;
 }
 
 h4 {
@@ -53,78 +56,6 @@ p {
   font-family: archer;
   letter-spacing: 3px;
 }
-
-/*-----------INTRO------------------*/
-
-.brand-heading h1 {
-  font-size: 115px;
-  letter-spacing: 3px;
-  line-height: 1.5;
-}
-
-.brand-heading h2 {
-  font-size: 63px;
-  margin-top: -43px;
-}
-
-.navbar-brand {
-  font-size: 12px;
-  letter-spacing: 5px;
-}
-
-.intro-text{
-  letter-spacing: 3px;
-  line-height: 1.5;
-  padding-top: 0px;
-}
-
-.three_options h3 {
-  font-size: 10px;
-}
-
-@media (min-width:1000px) {
-  h1 {
-    font-family: "source serif pro";
-    text-transform: uppercase;
-    font-weight: 500;
-    letter-spacing: 6px;
-  }
-
-  h2 {
-    font-family: "lavanderia";
-    font-weight: bold;
-    color: white;
-  }
-
-  h3 {
-    font-family: "source serif pro";
-    letter-spacing: 3px;
-  }
-  h4 {
-    text-align: center;
-    font-family: "source serif pro";
-    text-transform: capitalize;
-    font-size: 60px;
-  }
-  .brand-heading h1 {
-    font-size: 160px;
-    margin: 0 0 35px;
-  }
-
-  .brand-heading h2 {
-    font-family:"lavanderia" !important;
-    text-transform: none;
-    margin-top: -1em;
-    margin: 0 0 35px;
-  }
-  .brand-heading h3 {
-    font-family:"archer" !important;
-    text-transform: none;
-    margin-top: -1em;
-    margin: 0 0 35px;
-  }
-}
-
 
 /*---------------BUTTON-----------------*/
 
@@ -161,16 +92,6 @@ button:active {
   max-width: 87%;
   margin-left: auto;
   margin-right: auto;
-}
-
-#hero {
-  padding-top: 10%;
-}
-
-@media (min-width:750px) {
-  #hero {
-    padding-top: 20%;
-  }
 }
 
 /*--------------LINKS-------------*/
@@ -284,6 +205,9 @@ a:focus {
   }
 }
 
+
+/*-----------INTRO------------------*/
+
 .intro {
   /*display: table;*/
   width: 100%;
@@ -299,18 +223,46 @@ a:focus {
   background-size: cover;
   -o-background-size: cover;
 }
-.intro .intro-body {
-  /*display: table-cell;
-  vertical-align: middle;*/
+
+.brand-heading h2 {
+  margin-top: -20px;
 }
-.intro .intro-body .brand-heading {
-  font-size: 40px;
-  align-content: center;
+
+.navbar-brand {
+  font-size: 12px;
+  letter-spacing: 5px;
 }
-.intro .intro-body .intro-text {
-  font-size: 18px;
+
+.intro-text{
+  letter-spacing: 3px;
+  line-height: 1.5;
+  padding-top: 20px;
+  padding-bottom: 10px;
 }
-@media (min-width: 768px) {
+
+#hero {
+  padding-top: 6%;
+  padding-bottom: 5%;
+}
+
+#box_date {
+  font-family: "archer";
+  letter-spacing: 4px;
+  font-size: 8px;
+  position: absolute;
+  bottom: 7px;
+  right: 7px;
+}
+
+@media (min-width:750px) {
+  #hero {
+    padding-top: 20%;
+  }
+
+  #box_date {
+    font-size: 10px;
+  }
+
   .intro {
     height: 100%;
     padding: 0;
@@ -324,6 +276,26 @@ a:focus {
     font-size: 26px;
   }
 }
+
+/*-----------------------SIZES---------------------------*/
+
+#sizes {
+  padding-top: 15px;
+  color: #535353;
+}
+
+#sizes h3 {
+  border-bottom: 1px dashed #535353;
+}
+
+
+
+
+
+
+
+
+
 
 @-webkit-keyframes pulse {
   0 {
@@ -353,9 +325,6 @@ a:focus {
     transform: scale(1);
   }
 }
-.content-section {
-  padding-top: 100px;
-}
 .download-section {
   width: 100%;
   /*padding: 50px 0;*/
@@ -374,102 +343,8 @@ a:focus {
   }
 }
 
-/*-----------button-----------*/
 
 
-.btn_top {
-  text-transform: uppercase;
-  font-family: archer;
-  font-weight: 400;
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  border-radius: 0;
-  color: white !important;
-  transition: width 2s linear 1s;
-  transition-duration: 2s;
-  /*background-color: white;*/
-}
-.btn_header:hover{
-  color: white;
-}
-.btn-header {
-  margin-bottom: 0em;
-  border-color: white;
-  border-width: 1px;
-}
-.btn-header:hover {
-  margin-bottom: 0em;
-  border-width: 0px;
-}
-.btn-header h3{
-  margin-bottom: 0em;
-  font-size: medium;
-  margin: 3px 3px 3px 3px;
-  text-transform: lowercase;
-  letter-spacing: 2px;
-}
-.btn-default {
-  background-color: transparent;
-}
-.btn-default:hover,
-.btn-default:focus {
-  border: 1px solid white;
-  background-color: rgba(245, 245, 220, 0);
-  color: white;
-}
-.btn-header h3:hover {
-  color: white;
-  letter-spacing: 6px;
-}
-
-
-
-
-
-
-.btn {
-  text-transform: uppercase;
-  font-family: archer;
-  font-weight: 400;
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  border-radius: 0;
-  color: #42DCA3;
-  border-color: #42DCA3;
-  /*background-color: white;*/
-}
-.btn-header {
-  margin-bottom: 0em;
-  border-color: white;
-  border-width: 1px;
-}
-.btn-header:hover {
-  margin-bottom: 0em;
-  border-width: 0px;
-}
-.btn-header h3{
-  margin-bottom: 0em;
-  font-size: medium;
-  margin: 3px 3px 3px 3px;
-  text-transform: lowercase;
-  letter-spacing: 2px;
-}
-.btn-default {
-  background-color: transparent;
-}
-.btn-default:hover,
-.btn-default:focus {
-  border: 1px solid #42DCA3;
-  background-color: #42DCA3;
-  color: white;
-}
-.btn-header h3:hover {
-  color: white;
-  letter-spacing: 6px;
-}
-/*----------button end------------*/
 ul.banner-social-buttons {
   margin-top: 0;
 }
