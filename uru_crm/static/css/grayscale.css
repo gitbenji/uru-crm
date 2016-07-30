@@ -191,6 +191,12 @@ button:active {
   margin-right: auto;
 }
 
+.full_row {
+  max-width: 100%;
+  /*margin-left: auto;*/
+  /*margin-right: auto;*/
+}
+
 #hero {
   padding-top: 20%;
 }
@@ -389,6 +395,9 @@ a:focus {
 .content-section {
   padding-top: 100px;
 }
+.content-section_text p, h1, h2, h3 {
+  color: black;
+}
 .download-section {
   width: 100%;
   /*padding: 50px 0;*/
@@ -546,6 +555,10 @@ body {
   background-attachment: inherit;
   background-position: center;
 }
+.lil_sweet_potato_background h1, h2, h3, p {
+  text-align: center;
+  color: white;
+}
 .tomato_background:hover {
   background-image: url("../img/tomato_bw.png");
   background-repeat: no-repeat;
@@ -562,6 +575,9 @@ body {
   background-repeat: no-repeat;
   background-attachment: inherit;
   background-position: center;
+}
+.lil_sweet_potato_background h1, h2, p {
+  text-align: center;
 }
 @media (min-width: 1000px){
   .mushie_background {
@@ -591,6 +607,9 @@ body {
   background-repeat: no-repeat;
   background-attachment: inherit;
   background-position: center;
+}
+.lil_sweet_potato_background h1, h2, p {
+  text-align: center;
 }
 
 .lil_sweet_potato_background:hover{
@@ -675,6 +694,7 @@ form {
 #contact {
   background-color: white;
   padding-top: 29px;
+  color: black;
 }
 @media (max-width:550px) {
   #contact {
@@ -741,7 +761,9 @@ table {
 .black_background_padding {
   padding-top: 1em;
 }
-
+.black_text_navbar h1 {
+  color: white;
+}
 @media (max-height:786) {
   .black_background {
     width: 100%
@@ -862,4 +884,7 @@ table {
 }
 .beet_utiful {
   width: 25%;
+}
+.veggie_options h3 {
+  color: black;
 }
