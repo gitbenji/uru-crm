@@ -20,40 +20,40 @@ html {
 /*-----------FONT------------------*/
 
 h1 {
-  font-family: "source serif pro";
+  font-family: "playfair display";
   text-transform: uppercase;
   font-weight: 500;
-  letter-spacing: 6px;
-  font-size: 110px;
+  font-size: 157px;
 }
 
 h2 {
-  font-family: "lavanderia";
-  font-weight: bold;
+  font-family: "brandon grotesque";
+  font-weight: 100;
+  text-transform: capitalize;
   color: white;
-  font-size: 63px;
+  font-size: 51px;
 }
 
 h3 {
-  font-family: "source serif pro";
-  font-size: 34px;
+  font-family: "brandon grotesque";
+  font-size: 43px;
 }
 
 h4 {
-  font-family: "source serif pro";
-  font-size: 60px;
+  font-family: "brandon grotesque";
+  font-size: 30px;
 }
 
 h6 {
-  font-family: "source serif pro";
+  font-family: "brandon grotesque";
   font-size: 16px;
 }
 
 p {
+  font-family: "archer";
   margin: 0 0 25px;
   font-size: 18px;
   line-height: 1.5;
-  font-family: archer;
   letter-spacing: 3px;
 }
 
@@ -62,30 +62,50 @@ p {
 button {
   position: relative;
   background-color: #e1781c;
-  border-radius: 4px;
+  text-decoration: none;
   text-transform: uppercase;
   font-family: "archer";
-  font-size: 13px;
-  letter-spacing: 3px;
+  font-size: 15px;
+  letter-spacing: 5px;
   padding: 11px 14px;
   border: none;
   color: white;
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
-  box-shadow: 0px 0px 30px rgba(50, 50, 50, 0.5);
 }
 
 button:hover {
   background-color: #f9a44c;
-  box-shadow: 0px 0px 45px rgba(30, 30, 30, 0.5);
-  padding: 12px 15px;
+  /*box-shadow: 0px 0px 45px rgba(30, 30, 30, 0.5);*/
+  /*padding: 12px 15px;*/
 }
 
 button:active {
   background-color: #e1781c;
-  box-shadow: 0px 0px 30px rgba(50, 50, 50, 0.5);
-  padding: 11px 14px;
+  /*box-shadow: 0px 0px 30px rgba(50, 50, 50, 0.5);*/
+  /*padding: 11px 14px;*/
+}
+
+button::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #d4d4d4;
+  visibility: hidden;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+button:hover:before {
+  visibility: visible;
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
 }
 
 .row {
@@ -209,23 +229,22 @@ a:focus {
 /*-----------INTRO------------------*/
 
 .intro {
-  /*display: table;*/
   width: 100%;
   height: 100vh;
   padding: 100px 0;
   text-align: center;
   color: white;
   background: url(../img/box.jpg) no-repeat bottom center scroll;
-  over
-  background-color: black;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
   -o-background-size: cover;
 }
 
-.brand-heading h2 {
-  margin-top: -20px;
+.brand-heading h3 {
+  margin-top: -30px;
+  letter-spacing: 3px;
+  font-weight: 100;
 }
 
 .navbar-brand {
@@ -234,10 +253,15 @@ a:focus {
 }
 
 .intro-text{
-  letter-spacing: 3px;
-  line-height: 1.5;
-  padding-top: 20px;
+  text-align: left;
+  letter-spacing: 2px;
+  padding-top: 51px;
   padding-bottom: 10px;
+  padding-left: 62px;
+}
+
+.intro button {
+  padding: 12px 50px;
 }
 
 #hero {
@@ -256,7 +280,8 @@ a:focus {
 
 @media (min-width:750px) {
   #hero {
-    padding-top: 20%;
+    display: inline-flex;
+    padding: 29px 50px;
   }
 
   #box_date {
@@ -265,7 +290,7 @@ a:focus {
 
   .intro {
     height: 100%;
-    padding: 0;
+    padding-top: 16%;
   }
   .intro .intro-body .brand-heading {
     font-size: 70px;
@@ -288,7 +313,64 @@ a:focus {
   border-bottom: 1px dashed #535353;
 }
 
+.veggie_circles {
+  padding-bottom: 5.4em;
+  background-repeat: no-repeat;
+  background-attachment: inherit;
+  background-position: center;
+  text-align: center;
+}
 
+.veggie_circles h1 {
+  position: absolute;
+}
+
+.veggie_circles h3 {
+  border-bottom: none !important;
+  color: white;
+}
+
+.veggie_circles p {
+  color: white;
+}
+
+.tiny {
+  font-size: 10px;
+  letter-spacing: 3px;
+}
+
+#tomato_background {
+  background-image: url("../img/tomato_.png");
+}
+
+#tomato_background:hover {
+  background-image: url("../img/tomato_bw.png");
+  background-repeat: no-repeat;
+}
+
+#mushie_background {
+  background-image: url("../img/mushie_.png");
+}
+
+#mushie_background:hover {
+  background-image: url("../img/mushie_bw.png");
+  background-repeat: no-repeat;
+}
+
+#lil_sweet_potato_background {
+  background-image: url("../img/lil_sweet_potato_.png");
+}
+
+#lil_sweet_potato_background:hover{
+  background-image: url("../img/lil_sweet_potato_bw.png");
+  background-repeat: no-repeat;
+}
+
+@media (min-width: 1000px){
+  .veggie_circles {
+    margin-left: -1em;
+  }
+}
 
 
 
@@ -386,75 +468,10 @@ img::-moz-selection {
 body {
   webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
 }
-.tomato_background {
-  background-image: url("../img/tomato_.png");
-  padding-bottom: 5.4em;
-  background-repeat: no-repeat;
-  background-attachment: inherit;
-  background-position: center;
-}
-.tomato_background:hover {
-  background-image: url("../img/tomato_bw.png");
-  background-repeat: no-repeat;
-}
-.tomato_background .tiny{
-  font-size: 10px;
-  letter-spacing: 3px;
-  color: white;
-  padding-top: 8em;
-}
-.mushie_background {
-  background-image: url("../img/mushie_.png");
-  padding-bottom: 5.4em;
-  background-repeat: no-repeat;
-  background-attachment: inherit;
-  background-position: center;
-}
-@media (min-width: 1000px){
-  .mushie_background {
-    margin-left: -1em;
-  }
-  .lil_sweet_potato_background {
-    margin-left: -1em;
-  }
-  .tomato_background {
-    margin-left: -1em;
-  }
 
-}
-.mushie_background:hover {
-  background-image: url("../img/mushie_bw.png");
-  background-repeat: no-repeat;
-}
-.mushie_background .tiny{
-  font-size: 10px;
-  letter-spacing: 3px;
-  color: white;
-  padding-top: 8em;
-}
-.lil_sweet_potato_background {
-  background-image: url("../img/lil_sweet_potato_.png");
-  padding-bottom: 5.4em;
-  background-repeat: no-repeat;
-  background-attachment: inherit;
-  background-position: center;
-}
 
-.lil_sweet_potato_background:hover{
-  background-image: url("../img/lil_sweet_potato_bw.png");
-  background-repeat: no-repeat;
-}
 
-.background_which{
-  background-image: url("../img/whichwich.jpeg");
-  background-repeat: no-repeat;
-}
-.lil_sweet_potato_background .tiny {
-  font-size: 10px;
-  letter-spacing: 3px;
-  color: white;
-  padding-top: 8em;
-}
+
 .veggie_circles_background {
   background-image: url("../img/veggie_circles.png");
   position: fixed;
