@@ -6,7 +6,7 @@
 body {
   width: 100%;
   height: 100%;
-  font-family: "source serif pro";
+  font-family: "brandon grotesque";
   color: black;
   background-color: white;
 
@@ -64,10 +64,10 @@ button {
   background-color: #e1781c;
   text-decoration: none;
   text-transform: uppercase;
-  font-family: "archer";
+  font-family: "brandon grotesque";
   font-size: 15px;
   letter-spacing: 5px;
-  padding: 11px 14px;
+  padding: 12px 50px;
   border: none;
   color: white;
   -webkit-transition: all 0.2s ease-in-out;
@@ -117,7 +117,7 @@ button:hover:before {
 /*--------------LINKS-------------*/
 
 a {
-  color: #e25a38;
+  color: #e1781c;
   text-decoration: none;
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
@@ -126,7 +126,7 @@ a {
 a:hover,
 a:focus {
   text-decoration: none;
-  color: white;
+  color: #f9a44c;
 }
 .light {
   font-weight: 400;
@@ -155,7 +155,7 @@ a:focus {
   text-transform: uppercase;
   font-size: small;
   font-weight: 400;
-  font-family: archer;
+  font-family: 'brandon grotesque';
   letter-spacing: 8px;
   background-color: black;
 }
@@ -260,10 +260,6 @@ a:focus {
   padding-left: 62px;
 }
 
-.intro button {
-  padding: 12px 50px;
-}
-
 #hero {
   padding-top: 6%;
   padding-bottom: 5%;
@@ -313,16 +309,27 @@ a:focus {
   border-bottom: 1px dashed #535353;
 }
 
+.option {
+  text-align: center;
+  padding-bottom: 40px;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.option:hover {
+  box-shadow: 0px 0px 30px rgba(30, 30, 30, 0.3);
+}
+
 .veggie_circles {
-  padding-bottom: 5.4em;
   background-repeat: no-repeat;
   background-attachment: inherit;
   background-position: center;
-  text-align: center;
 }
 
 .veggie_circles h1 {
-  position: absolute;
+  padding: 76px 0px;
+  color: #fafafa;
 }
 
 .veggie_circles h3 {
@@ -334,41 +341,71 @@ a:focus {
   color: white;
 }
 
+.option button {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .tiny {
   font-size: 10px;
   letter-spacing: 3px;
+}
+
+.buy_here {
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.size {
+  /*text-decoration: underline;*/
+  padding-bottom: 1px;
+  border-bottom: 1px dotted #e1781c;
+  /*font-weight: bold;*/
+  /*letter-spacing: 3px;*/
 }
 
 #tomato_background {
   background-image: url("../img/tomato_.png");
 }
 
-#tomato_background:hover {
+/*#tomato_background:hover {
   background-image: url("../img/tomato_bw.png");
   background-repeat: no-repeat;
-}
+}*/
 
 #mushie_background {
   background-image: url("../img/mushie_.png");
 }
 
-#mushie_background:hover {
+/*#mushie_background:hover {
   background-image: url("../img/mushie_bw.png");
   background-repeat: no-repeat;
-}
+}*/
 
 #lil_sweet_potato_background {
   background-image: url("../img/lil_sweet_potato_.png");
 }
 
-#lil_sweet_potato_background:hover{
+/*#lil_sweet_potato_background:hover {
   background-image: url("../img/lil_sweet_potato_bw.png");
   background-repeat: no-repeat;
-}
+}*/
 
-@media (min-width: 1000px){
-  .veggie_circles {
-    margin-left: -1em;
+@media (min-width: 1000px) {
+  #sizes h3 {
+    border-bottom: none;
+  }
+
+  .veggie_circles h1 {
+    padding: 86px 0px;
+  }
+
+  .buy_here {
+    /*border: 1px dashed #535353;*/
+  }
+
+  .margin {
+    margin-left: 12.5%;
   }
 }
 
