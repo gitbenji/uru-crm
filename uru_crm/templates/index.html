@@ -71,7 +71,7 @@
       <h5>We have 3 box sizing options:</h5>
     </div>
     <div class="row">
-          <div class="col-md-3 col-centered option">
+          <div class="col-md-4 col-centered option">
             <a href="{{ url_for('frontend.signup', box_size='single')}}">
               <div id="mushie_background" class="veggie_circles">
                 <h1>01</h1>
@@ -87,7 +87,7 @@
               <button>Select</button>
             </a>
           </div>
-          <div class="col-md-3 col-centered margin option">
+          <div class="col-md-4 col-centered margin option">
             <a href="{{ url_for('frontend.signup', box_size='couple')}}">
               <div id="lil_sweet_potato_background" class="veggie_circles">
                 <h1>02</h1>
@@ -104,7 +104,7 @@
             </a>
         </div>
 
-          <div class="col-md-3 col-centered margin option">
+          <div class="col-md-4 col-centered margin option">
             <a href="{{ url_for('frontend.signup', box_size='family')}}">
               <div id="tomato_background" class="veggie_circles">
                 <h1>04</h1>
@@ -126,11 +126,23 @@
 
     <!-- Download Section -->
     <section id="download" class="content-section text-center">
-        <div class="download-section">
+      <div class="contain">
+        <div id="buy_local" class="col-md-6">
+          <h2>Buy Local</h2>
+        </div>
+        <div id="why_local" class="col-md-7">
+          <h3>Help Our Farmers</h3>
+          <p>Produce picked the same day as eaten is proven to have much more vitamins. More vitamins means more happiness.</p>
+          <h3>Benefit The Community</h3>
+          <p>Produce picked the same day as eaten is proven to have much more vitamins. More vitamins means more happiness.</p>
+          <h3>Increase Happiness</h3>
+          <p>Produce picked the same day as eaten is proven to have much more vitamins. More vitamins means more happiness.</p>
+        </div>
+      </div>
+
+        <!-- <div class="download-section">
             <div class="container">
               <div class="cucumber_background">
-                <div class="col-md-6 cucumber_font">
-                    <h2>Buying Local:</h2>
                     </p>
                   </div>
                     <div class="col-md-6 black_background">
@@ -143,9 +155,7 @@
                       <p>Produce picked the same day as eaten is proven to have much more vitamins.  More vitamins means more happiness. </p>
                       <br><br>We want you to feel <i>grape</i> about what you eat.</p>
                 </div>
-              </div>
-            </div>
-            </div>
+              </div> -->
     </section>
 
 {% endblock %}

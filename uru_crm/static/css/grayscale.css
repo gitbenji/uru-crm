@@ -7,7 +7,7 @@ body {
   width: 100%;
   height: 100%;
   font-family: "brandon grotesque";
-  color: black;
+  color: white;
   background-color: white;
 
 }
@@ -70,9 +70,9 @@ button {
   padding: 12px 50px;
   border: none;
   color: white;
-  -webkit-transition: all 0.2s ease-in-out;
-  -moz-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 button:hover {
@@ -94,7 +94,7 @@ button::before {
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: #d4d4d4;
+  background-color: #f1f1f1;
   visibility: hidden;
   -webkit-transform: scaleX(0);
   transform: scaleX(0);
@@ -119,18 +119,28 @@ button:hover:before {
 a {
   color: #e1781c;
   text-decoration: none;
-  -webkit-transition: all 0.2s ease-in-out;
-  -moz-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
+
 a:hover,
 a:focus {
   text-decoration: none;
   color: #f9a44c;
 }
+
 .light {
   font-weight: 400;
 }
+
+.contain {
+  width: 100%;
+}
+
+
+
+
 /*three option setion*/
 .three_options a {
   color: white;
@@ -164,7 +174,7 @@ a:focus {
 }
 .navbar-custom .navbar-toggle {
   color: white;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.3);
   font-size: 12px;
 }
 .navbar-custom .navbar-toggle:focus,
@@ -368,36 +378,34 @@ a:focus {
   background-image: url("../img/tomato_.png");
 }
 
-/*#tomato_background:hover {
-  background-image: url("../img/tomato_bw.png");
-  background-repeat: no-repeat;
-}*/
-
 #mushie_background {
   background-image: url("../img/mushie_.png");
 }
-
-/*#mushie_background:hover {
-  background-image: url("../img/mushie_bw.png");
-  background-repeat: no-repeat;
-}*/
 
 #lil_sweet_potato_background {
   background-image: url("../img/lil_sweet_potato_.png");
 }
 
-/*#lil_sweet_potato_background:hover {
-  background-image: url("../img/lil_sweet_potato_bw.png");
-  background-repeat: no-repeat;
-}*/
-
 @media (min-width: 1000px) {
+  #sizes {
+    text-align: center;
+  }
+
   #sizes h3 {
     border-bottom: none;
   }
 
+  #sizes h5 {
+    text-align: right;
+    padding-right: 42%;
+  }
+
+  .option button {
+    margin-top: 30px;
+  }
+
   .veggie_circles h1 {
-    padding: 86px 0px;
+    padding: 79px 0px;
   }
 
   .buy_here {
@@ -405,13 +413,49 @@ a:focus {
   }
 
   .margin {
-    margin-left: 12.5%;
+    /*margin-left: 12.5%;*/
   }
+
 }
 
 
+/*-----------------------BENEFITS---------------------------*/
 
+#buy_local {
+  background-image: url(../img/cucumbers.jpeg);
+  background-size: cover;
+  text-align: center;
+  padding: 15px 0px;
+}
 
+#buy_local h2 {
+  font-family: "lavanderia";
+  font-weight: bolder;
+}
+
+#why_local {
+  background-color: #e1781c;
+  padding: 10px 10px;
+}
+
+@media (min-width: 1000px) {
+
+  #buy_local {
+    text-align: left;
+    padding: 10% 100px;
+    margin-top: -3.5%;
+    margin-right: -8.4%;
+  }
+
+  #buy_local h2 {
+    font-size: 150px;
+  }
+
+  #why_local {
+    margin-top: 3.5%;
+  }
+
+}
 
 
 
@@ -503,7 +547,7 @@ img::-moz-selection {
   background: transparent;
 }
 body {
-  webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
+  webkit-tap-highlight-color: rgba(255, 255, 255, 0.3);
 }
 
 
@@ -574,15 +618,19 @@ form {
 }
 
 #contact {
+  color: #535353;
   background-color: white;
   padding-top: 29px;
 }
+
 @media (max-width:550px) {
+
   #contact {
-  background-color: white;
-  padding-top: 74%;
+    padding-top: 74%;
+  }
+
 }
-}
+
 #cvc_number {
   float: right;
   margin-top: -2em;
@@ -678,9 +726,6 @@ table {
   }
 }
 
-.container {
-  width: 100%;
-}
 @media (max-width:400px) {
   button.navbar-toggle {
     display: none;
