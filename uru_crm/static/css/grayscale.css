@@ -756,22 +756,64 @@ table {
 }
 
 /*------about section--------*/
+.aboutSection {
+  box-shadow: black 0px 0px 76px -27px;
+  margin-top: -3em;
+  background-color: white;
+  padding: 0em 0em 0em 0em;
+  height: 30em;
+}
+
+.fidy {
+  height: 15em;
+  padding: 0em 0em 0em;
+  overflow: hidden;
+}
+
+.square {
+  padding: 0em 0em 0em;
+}
+
+.yellow {
+  background-image: url(../img/cucumbers.jpeg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.fidy p {
+  padding: 12px 20px;
+}
+
 
 .about_section {
   padding: 2em;
-  margin: 0em -1em;
-  color: white;
+  /*margin: 0em -1em;*/
+  color: black;
+}
+.feathered {
+  background-image: url(../img/intro-bg.jpg);
+  padding: 1em 1em 1em 1em;
+  margin: -1.6em;
+}
+  .blurred_bg {
+  /*background-image: url(../img/blur_.jpg);*/
+  background-repeat: no-repeat;
+  /*background-position: center;*/
+  background-size: contain;
+  overflow: hidden;
+  width: 100%;
 }
 .about_section img {
-  width: 60%;
+  width: 80%;
 }
 #one_time_subscription {
-  background-color: #648e3e;
+  /*background-color: #648e3e;*/
 }
 #fresh_food {
-  background-color: #e1781c;
-  margin: 0em -1em;
-  padding: 2em;
+  /*background-color: #e1781c;*/
+  /*margin: 0em -1em;
+  padding: 2em;*/
 }
 
 @media (max-width:350) {
@@ -790,7 +832,7 @@ table {
   }
 }
 #to_the_doorstep {
-  background-color: #785F68;
+  /*background-color: #785F68;*/
   margin: 0em -1em;
   padding: 2em;
 }
