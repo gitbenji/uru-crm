@@ -66,44 +66,54 @@
       <h5>We have 3 box sizing options:</h5>
     </div>
     <div class="row">
-          <div class="col-md-4 col-centered">
+          <div class="col-md-3 col-centered option">
             <a href="{{ url_for('frontend.signup', box_size='single')}}">
-              <div id="lil_sweet_potato_background" class="veggie_circles">
-                  <h1>1</h1>
+              <div id="mushie_background" class="veggie_circles">
+                <h1>01</h1>
+              </div>
+              <div class="buy_here">
                 <p class="tiny">a single sprout</p>
-                  <h3>SINGLE</h3>
-                  <p>enough for one person</p>
-                  <h3>$25</h3>
+                <h3>SINGLE</h3>
+                <p>enough for <span class="size">one</span> person</p>
+                <h3>$25</h3>
               </div>
             </a>
             <a href="{{ url_for('frontend.signup', box_size='single')}}">
               <button>Select</button>
             </a>
           </div>
-          <div class="col-md-4 col-centered">
-            <div id="mushie_background" class="veggie_circles">
-              <a href="{{ url_for('frontend.signup', box_size='couple')}}">
-                <h1>2</h1>
-              <p class="tiny">two peas in a pod!</p>
+          <div class="col-md-3 col-centered margin option">
+            <a href="{{ url_for('frontend.signup', box_size='couple')}}">
+              <div id="lil_sweet_potato_background" class="veggie_circles">
+                <h1>02</h1>
+              </div>
+              <div class="buy_here">
+                <p class="tiny">two peas in a pod!</p>
                 <h3>COUPLE</h3>
-                <p>enough for two people</p>
+                <p>enough for <span class="size">two</span> people</p>
                 <h3>$45</h3>
-            </div>
-            <button>Select</button>
-              </a>
+              </div>
+            </a>
+            <a href="{{ url_for('frontend.signup', box_size='couple')}}">
+              <button>Select</button>
+            </a>
         </div>
 
-          <div class="col-md-4 col-centered">
-            <div id="tomato_background" class="veggie_circles">
-              <a href="{{ url_for('frontend.signup', box_size='family')}}">
-                <h1>3</h1>
-              <p class="tiny">a carr[ot]ing family</p>
+          <div class="col-md-3 col-centered margin option">
+            <a href="{{ url_for('frontend.signup', box_size='family')}}">
+              <div id="tomato_background" class="veggie_circles">
+                <h1>04</h1>
+              </div>
+              <div class="buy_here">
+                <p class="tiny">a carr[ot]ing family</p>
                 <h3>FAMILY</h3>
-                <p>enough for four people</p>
+                <p>enough for <span class="size">four</span> people</p>
                 <h3>$75</h3>
               </div>
+            </a>
+            <a href="{{ url_for('frontend.signup', box_size='family')}}">
               <button>Select</button>
-              </a>
+            </a>
           </div>
     </div>
         <!-- </div> -->
