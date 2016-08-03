@@ -498,7 +498,6 @@ a:focus {
   #buy_local {
     text-align: left;
     padding: 10% 100px;
-    margin-top: -3.5%;
     margin-right: -8.4%;
   }
 
@@ -507,7 +506,8 @@ a:focus {
   }
 
   #why_local {
-    margin-top: 3.5%;
+    margin-top: 17.5%;
+    margin-left: -52%;
   }
 
 }
@@ -516,10 +516,22 @@ a:focus {
 /*-----------------------Footer---------------------------*/
 
 #contact {
+  /*border-image: url('../img/carrot-02.png') 30 30 round;;*/
+  width: 100%;
   color: #535353;
+  background-image: url('../img/carrot_border-03.png');
+  background-size: cover;
   background-color: white;
   padding-top: 75px;
 }
+
+/*#contact::before {
+    content: '';
+    display: block;
+    width: 100px; /* example */
+    height: 20px;
+    background: url('../img/carrot-02.png') repeat-x;
+}*/
 
 @media (max-width:550px) {
 
@@ -740,11 +752,6 @@ label {
   margin-top: -2em;
 }
 
-#contact {
-  /*position: absolute;
-  bottom: 0em;*/
-  width: 100%;
-}
 .page-header {
   margin-top: 9%;
 }
