@@ -8,7 +8,7 @@ from uru_crm.extensions import db
 
 # from uru_crm.modules.user import User
 
-stripe.api_key = 'sk_test_y8bIB8jPLaccPy9a7Tt7ZdAb'
+stripe.api_key = os.getenv('STRIPE_KEY')
 
 
 class MyEncoder(json.JSONEncoder):
