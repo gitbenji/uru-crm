@@ -542,14 +542,6 @@ a:focus {
   padding-top: 75px;
 }
 
-/*#contact::before {
-    content: '';
-    display: block;
-    width: 100px; /* example */
-    height: 20px;
-    background: url('../img/carrot-02.png') repeat-x;
-}*/
-
 @media (max-width:550px) {
 
   #contact {
