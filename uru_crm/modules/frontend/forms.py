@@ -56,9 +56,9 @@ class StripeForm(Form):
     # box_size = HiddenField()
 
     card_number = TextField((''), [Required()], description='Card Number', render_kw={'medium':'12', 'row_begin':True, 'row_end':True})
-    exp_month = IntegerField((''), [Required()], description='Expiration (mm)', render_kw={'medium':'3', 'row_begin':True})
-    exp_year = IntegerField((''), [Required()], description='Expiration (yy)', render_kw={'medium':'3'})
-    cvc_number = IntegerField((''), [Required()], description='CVC', render_kw={'medium':'3', 'row_end':True})
+    exp_month = IntegerField((''), [Required()], description='Exp (mm)', render_kw={'medium':'4', 'row_begin':True})
+    exp_year = IntegerField((''), [Required()], description='Exp (yy)', render_kw={'medium':'4'})
+    cvc_number = IntegerField((''), [Required()], description='CVC', render_kw={'medium':'4', 'row_end':True})
     #
     # agree = BooleanField(_('Agree to the ') +
     #     Markup('<a target="blank" href="/terms">' + _('Terms of Service') + '</a>'), [Required()])
@@ -90,7 +90,7 @@ class StripeForm(Form):
         user = User()
         self.populate_obj(user)
         user.customer_id = cid
-        self.address = self.address.data + ', ' + \
+        user.address = self.address.data + ', ' + \
             self.address_2.data + ', ' + \
             self.city.data + ', ' + \
             self.state.data + ' ' + \

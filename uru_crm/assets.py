@@ -10,9 +10,9 @@ from flask_assets import Environment, Bundle
 
 
 #: application css bundle
-css_uru_crm = Bundle("less/style.less",
-                       filters="less", output="css/style.css",
-                       debug=False)
+# css_uru_crm = Bundle("less/style.less",
+#                        filters="less", output="css/style.css",
+#                        debug=False)
 
 #: consolidated css bundle
 css_all = Bundle("vendor/bootstrap/css/bootstrap-theme.css",
@@ -22,6 +22,7 @@ css_all = Bundle("vendor/bootstrap/css/bootstrap-theme.css",
 
 #: vendor js bundle
 js_vendor = Bundle("vendor/bootstrap/js/bootstrap.min.js",
+                   "js/grayscale.js",
                    filters="jsmin", output="js/vendor.min.js")
 
 

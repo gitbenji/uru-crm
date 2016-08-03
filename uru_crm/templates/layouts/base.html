@@ -6,9 +6,10 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>{% block title %}{{ page_title|default(_('Project')) }}{% endblock %}</title>
     <meta name="description" content="Sign up for local farm fresh, local, organic veggies from Uru Tallahassee! We deliver to homes, restaurants, and businesses.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}{{ page_title|default(_('Uru Tallahassee')) }}{% endblock %}</title>
 
     <link rel="Shortcut Icon" href="{{ url_for('static', filename='img/mushie_.png') }}" type="image/x-icon">
 
@@ -19,6 +20,7 @@
     {% endblock %}
 
     {% block css_style %}
+        <link href='https://fonts.googleapis.com/css?family=Source+Serif+Pro' rel='stylesheet' type='text/css'>
     {% endblock %}
 
     {% block js_top %}
@@ -29,108 +31,93 @@
     {% endblock %}
 </head>
 
-<body>
-<!-- <body class="veggie_circles_background"> -->
-    {% include "macros/_ask_user_to_update_ie.html" %}
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
-    {% block topbar %}
-    <!-- <nav class="navbar navbar-fixed-top nav_signup" role="navigation"> -->
-    <!-- <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+{% block topbar %}
+  <!-- Navigation -->
+  <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+      <div class="container">
+          <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                  Menu <i class="fa fa-bars"></i>
+              </button>
+              <a class="navbar-brand page-scroll" href="/">
+                <i class="fa fa-sun-o" aria-hidden="true"></i>
+                  <span class="light">UruTallahassee</span>
+              </a>
+          </div>
 
-        <ul class="nav_center nav navbar-nav col-4 col-offset-3">        <div class="container nav_bar_buttons">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
-                    Menu <i class="fa fa-bars"></i>
-                </button>
-                <a class="navbar-brand page-scroll" href="/">
-                  <i class="fa fa-sun-o" aria-hidden="true"></i>
-                    <span class="light">UruTallahassee</span>
-                </a>
-            </div>
-          </ul> -->
-        {% if current_user.is_authenticated() %}
-        <form class="navbar-form navbar-left navbar-fixed-top nav_signup container centered" role="search">
-            <div class="form-group">
-                <input type='text' class="form-control" name='keywords' value='{{ keywords|default('') }}' placeholder='Search' />
-            </div>
-            <button type="submit" class="btn btn-default">Submit</button>
-        </form>
-        <div class="navbar-collapse">
-            <ul class="nav navbar-nav navbar-fixed-top navbar-right nav_signup">
-                {% if current_user.is_admin() %}
-                <li><a href="{{ url_for('admin.index') }}">{{ current_user.name }}</a></li>
-                <li><a href="{{ url_for('admin.farms') }}">{{_('Farms')}}</a></li>
-                <li><a href="{{ url_for('admin.users') }}">{{_('Users')}}</a></li>
-                <li><a href="{{ url_for('admin.numbers') }}">{{_('Account')}}</a></li>
-                {% else %}
-                <li><a href="{{ url_for('user.index') }}">{{ current_user.name }}</a></li>
-                {% endif %}
-                <li><a href="{{ url_for('settings.profile') }}">{{_('Settings')}}</a></li>
-                <li><a href="{{ url_for('frontend.logout') }}">{{_('Log out')}}</a></li>
-            </ul>
-        </div>
-        {% else %}
-        <div id="navbar" class="collapse navbar-fixed-top navbar-custom1 navbar-collapse">
-          <ul class="nav navbar-nav navbar-left">
-          <li class="black_text_navbar"><a href="/">UruTallahassee</a></li>
-        </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li class="black_text_navbar"><a href="{{ url_for('frontend.signup') }}">{{_('Sign up')}}</a></li>
-            <li class="black_text_navbar"><a href="{{ url_for('frontend.login') }}">{{_('Sign in')}}</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-        {% endif %}
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+
+              <ul class="nav_center nav navbar-nav col-4 col-offset-3">
+                  <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                  {% if current_user.is_authenticated() %}
+                    {% if current_user.is_admin() %}
+                      <li><a href="{{ url_for('admin.index') }}">{{ current_user.name }}</a></li>
+                      <li><a href="{{ url_for('admin.farms') }}">{{_('Farms')}}</a></li>
+                      <li><a href="{{ url_for('admin.users') }}">{{_('Users')}}</a></li>
+                      <li><a href="{{ url_for('admin.numbers') }}">{{_('Account')}}</a></li>
+                    {% else %}
+                      <li><a href="{{ url_for('user.index') }}">{{ current_user.name }}</a></li>
+                    {% endif %}
+                    <li><a href="{{ url_for('settings.profile') }}">{{_('Settings')}}</a></li>
+                    <li><a href="{{ url_for('frontend.logout') }}">{{_('Log out')}}</a></li>
+                  {% else %}
+                  <li class="hidden">
+                      <a href="#page-top"></a>
+                  </li>
+                  <li>
+                      <a class="page-scroll" href="#sizes">Get started</a>
+                  </li>
+                  <li>
+                      <a class="page-scroll" href="#local">Why local?</a>
+                  </li>
+                  <li>
+                      <a class="page-scroll" href="#contact">Contact</a>
+                  </li>
+                  {% endif %}
+              </ul>
+
+              <ul class="nav navbar-nav">
+                <li class="hidden">
+                    <a href="#page-top"></a>
+                </li>
+
+                <li>
+                    <a class="page-scroll" href="/login">Login</a>
+                </li>
+              </ul>
+          </div>
+          <!-- /.navbar-collapse -->
       </div>
-    </nav>
-    {% endblock %}
+      <!-- /.container -->
+  </nav>
+{% endblock %}
 
     {% block container %}
     <!-- <div class="intro"> -->
-    <div class="container">
-        <div class="page-header">
-            {% block body %}
-            {% endblock %}
-        </div>
-      </div>
+        {% block body %}
+        {% endblock %}
     <!-- </div> -->
     {% endblock %}
 
     <!-- Contact Section -->
-    <section id="contact" class="container content-section text-center">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
-                <h2>Contact Uru Tallahassee</h2>
-                <p>We a-peas-ciate you!</p>
-                <p>Comments, questions, concerns?  Feel free to send us an email and we'll get back to you as soon as possible.</p>
-                <p><a href="mailto:hello@urutallahassee.com">hello@urutallahassee.com</a>
-                </p>
-                <ul class="list-inline banner-social-buttons">
-                    <li>
-                        <a href="https://instagram.com/urutallahassee" class="btn btn-default btn-lg"><i class="fa fa-instagram fa-fw"></i> <span class="network-name">Instagram</span></a>
-                    </li>
-                    <li>
-                        <a href="https://facebook.com/urutallahassee" class="btn btn-default btn-lg"><i class="fa fa-facebook fa-fw"></i> <span class="network-name">Facebook</span></a>
-                    </li>
-                    <!-- <li>
-                        <a href="https://plus.google.com/+Startbootstrap/posts" class="btn btn-default btn-lg"><i class="fa fa-google-plus fa-fw"></i> <span class="network-name">Google+</span></a>
-                    </li> -->
-                </ul>
-                <p>Copyright &copy; URUTALLAHASSEE 2016</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- <footer class="footer">
-        <ul class="footer-links">
-            <li>{{_('&copy;')}}</li>
-            <li><a href='https://github.com/frankV/manekineko'>{{_('About')}}</a></li>
-            <li class="muted">&middot;</li>
-            <li><a href='{{ url_for('frontend.help') }}'>{{_('Help')}}</a></li>
-            <li class="muted">&middot;</li>
-            <li><a href='#'>{{_('Terms')}}</a></li>
+    <footer id="contact" class="text-center">
+        <h3>Contact Uru Tallahassee</h3>
+        <p>We a-peas-ciate you!</p>
+        <p>Comments or questions?  Feel free to send us an email and we'll get back to you as soon as possible.</p>
+        <p><a href="mailto:hello@urutallahassee.com">hello@urutallahassee.com</a></p>
+        <ul class="list-inline banner-social-buttons">
+            <li>
+                <a href="https://instagram.com/urutallahassee"><i class="fa fa-instagram fa-fw"></i><span class="network-name"><button>Instagram</button></span></a>
+            </li>
+            <li>
+                <a href="https://facebook.com/urutallahassee"><i class="fa fa-facebook fa-fw"></i> <span class="network-name"><button>Facebook</button></span></a>
+            </li>
         </ul>
-    </footer> -->
-
+        <p>Copyright &copy; URUTALLAHASSEE 2016</p>
+    </footer>
 
 
     {% block js_btm %}
