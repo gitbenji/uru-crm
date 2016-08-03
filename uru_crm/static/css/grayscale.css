@@ -57,6 +57,14 @@ p {
   letter-spacing: 3px;
 }
 
+@media (min-width: 1000px) {
+
+  h5 {
+    font-size: 25px;
+  }
+
+}
+
 /*---------------BUTTON-----------------*/
 
 button {
@@ -94,7 +102,7 @@ button::before {
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: #f1f1f1;
+  background-color: #fbce91;
   visibility: hidden;
   -webkit-transform: scaleX(0);
   transform: scaleX(0);
@@ -110,6 +118,12 @@ button:hover:before {
 
 .row {
   max-width: 87%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contain {
+  min-width: 100vw;
   margin-left: auto;
   margin-right: auto;
 }
@@ -133,13 +147,6 @@ a:focus {
 .light {
   font-weight: 400;
 }
-
-.contain {
-  width: 100%;
-}
-
-
-
 
 /*three option setion*/
 .three_options a {
@@ -308,6 +315,45 @@ a:focus {
   }
 }
 
+
+/*-----------------------How It Works---------------------------*/
+
+#about {
+  /*background-image: url(../img/farm_photo_blur.jpg);*/
+}
+
+.aboutSection {
+  box-shadow: black 0px 0px 76px -27px;
+  margin-top: -3em;
+  background-color: #fbce91;
+  padding: 0em 0em 0em 0em;
+  height: 40em;
+  max-width: 78%;
+}
+
+.fidy {
+  height: 20em;
+  padding: 0em 0em 0em;
+  overflow: hidden;
+}
+
+.square {
+  padding: 0em 0em 0em;
+}
+
+.yellow {
+  background-image: url(../img/cucumbers.jpeg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.fidy p {
+  color: #535353;
+  padding: 16px 22px;
+}
+
+
 /*-----------------------SIZES---------------------------*/
 
 #sizes {
@@ -320,6 +366,7 @@ a:focus {
 }
 
 .option {
+  margin-top: 15px;
   text-align: center;
   padding-bottom: 40px;
   -webkit-transition: all 0.4s ease-in-out;
@@ -332,6 +379,7 @@ a:focus {
 }
 
 .veggie_circles {
+  padding: 55px 0px;
   background-repeat: no-repeat;
   background-attachment: inherit;
   background-position: center;
@@ -396,8 +444,7 @@ a:focus {
   }
 
   #sizes h5 {
-    text-align: right;
-    padding-right: 42%;
+    text-align: center;
   }
 
   .option button {
@@ -419,7 +466,11 @@ a:focus {
 }
 
 
-/*-----------------------BENEFITS---------------------------*/
+/*-----------------------Local---------------------------*/
+
+#local {
+  margin-top: 90px;
+}
 
 #buy_local {
   background-image: url(../img/cucumbers.jpeg);
@@ -435,7 +486,11 @@ a:focus {
 
 #why_local {
   background-color: #e1781c;
-  padding: 10px 10px;
+  padding: 20px 46px;
+}
+
+#why_local h3 {
+  text-align: center;
 }
 
 @media (min-width: 1000px) {
@@ -456,6 +511,33 @@ a:focus {
   }
 
 }
+
+
+/*-----------------------Footer---------------------------*/
+
+#contact {
+  color: #535353;
+  background-color: white;
+  padding-top: 75px;
+}
+
+@media (max-width:550px) {
+
+  #contact {
+    padding-top: 74%;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -617,20 +699,6 @@ form {
   padding-bottom: 1em;
 }
 
-#contact {
-  color: #535353;
-  background-color: white;
-  padding-top: 29px;
-}
-
-@media (max-width:550px) {
-
-  #contact {
-    padding-top: 74%;
-  }
-
-}
-
 #cvc_number {
   float: right;
   margin-top: -2em;
@@ -756,34 +824,6 @@ table {
 }
 
 /*------about section--------*/
-.aboutSection {
-  box-shadow: black 0px 0px 76px -27px;
-  margin-top: -3em;
-  background-color: white;
-  padding: 0em 0em 0em 0em;
-  height: 30em;
-}
-
-.fidy {
-  height: 15em;
-  padding: 0em 0em 0em;
-  overflow: hidden;
-}
-
-.square {
-  padding: 0em 0em 0em;
-}
-
-.yellow {
-  background-image: url(../img/cucumbers.jpeg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.fidy p {
-  padding: 12px 20px;
-}
 
 
 .about_section {

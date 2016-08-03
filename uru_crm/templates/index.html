@@ -30,7 +30,7 @@
   </header>
 
   <!-- 3 row thing -->
-  <section class="container">
+  <section id="about">
       <div class="row aboutSection">
         <div class="col-md-4 square">
           <div class="fidy yellow">
@@ -62,70 +62,70 @@
   <!-- About Section -->
   <section id="sizes">
     <div class="row">
-      <h3>How many veggies do you need?</h3>
+      <h3>How many veggies should we bring you?</h3>
       <h5>We have 3 box sizing options:</h5>
     </div>
     <div class="row">
-          <div class="col-md-4 col-centered option">
-            <a href="{{ url_for('frontend.signup', box_size='single')}}">
-              <div id="mushie_background" class="veggie_circles">
-                <h1>01</h1>
-              </div>
-              <div class="buy_here">
-                <p class="tiny">a single sprout</p>
-                <h3>SINGLE</h3>
-                <p>enough for <span class="size">one</span> person</p>
-                <h3>$25</h3>
-              </div>
-            </a>
-            <a href="{{ url_for('frontend.signup', box_size='single')}}">
-              <button>Select</button>
-            </a>
-          </div>
-          <div class="col-md-4 col-centered margin option">
-            <a href="{{ url_for('frontend.signup', box_size='couple')}}">
-              <div id="lil_sweet_potato_background" class="veggie_circles">
-                <h1>02</h1>
-              </div>
-              <div class="buy_here">
-                <p class="tiny">two peas in a pod!</p>
-                <h3>COUPLE</h3>
-                <p>enough for <span class="size">two</span> people</p>
-                <h3>$45</h3>
-              </div>
-            </a>
-            <a href="{{ url_for('frontend.signup', box_size='couple')}}">
-              <button>Select</button>
-            </a>
+        <div class="col-md-4 col-centered option">
+          <a href="{{ url_for('frontend.signup', box_size='single')}}">
+            <div id="mushie_background" class="veggie_circles">
+              <h1></h1>
+            </div>
+            <div class="buy_here">
+              <p class="tiny">a single sprout</p>
+              <h3>SINGLE</h3>
+              <p>enough for <span class="size">one</span> person</p>
+              <h3>$25</h3>
+            </div>
+          </a>
+          <a href="{{ url_for('frontend.signup', box_size='single')}}">
+            <button>Select</button>
+          </a>
         </div>
-
-          <div class="col-md-4 col-centered margin option">
-            <a href="{{ url_for('frontend.signup', box_size='family')}}">
-              <div id="tomato_background" class="veggie_circles">
-                <h1>04</h1>
-              </div>
-              <div class="buy_here">
-                <p class="tiny">a carr[ot]ing family</p>
-                <h3>FAMILY</h3>
-                <p>enough for <span class="size">four</span> people</p>
-                <h3>$75</h3>
-              </div>
-            </a>
-            <a href="{{ url_for('frontend.signup', box_size='family')}}">
-              <button>Select</button>
-            </a>
+      <div class="col-md-4 col-centered margin option">
+        <a href="{{ url_for('frontend.signup', box_size='couple')}}">
+          <div id="lil_sweet_potato_background" class="veggie_circles">
+            <h1></h1>
           </div>
+          <div class="buy_here">
+            <p class="tiny">two peas in a pod!</p>
+            <h3>COUPLE</h3>
+            <p>enough for <span class="size">two</span> people</p>
+            <h3>$45</h3>
+          </div>
+        </a>
+        <a href="{{ url_for('frontend.signup', box_size='couple')}}">
+          <button>Select</button>
+        </a>
+      </div>
+
+      <div class="col-md-4 col-centered margin option">
+        <a href="{{ url_for('frontend.signup', box_size='family')}}">
+          <div id="tomato_background" class="veggie_circles">
+            <h1></h1>
+          </div>
+          <div class="buy_here">
+            <p class="tiny">a carr[ot]ing family</p>
+            <h3>FAMILY</h3>
+            <p>enough for <span class="size">four</span> people</p>
+            <h3>$75</h3>
+          </div>
+        </a>
+        <a href="{{ url_for('frontend.signup', box_size='family')}}">
+          <button>Select</button>
+        </a>
+      </div>
     </div>
-        <!-- </div> -->
   </section>
 
-    <!-- Download Section -->
-    <section id="download" class="content-section text-center">
-      <div class="contain">
+    <!-- Local Section -->
+    <section id="local">
+      <div class="row contain">
         <div id="buy_local" class="col-md-6">
           <h2>Buy Local</h2>
         </div>
         <div id="why_local" class="col-md-7">
+          <!-- gradient???? -->
           <h3>Help Our Farmers</h3>
           <p>Produce picked the same day as eaten is proven to have much more vitamins. More vitamins means more happiness.</p>
           <h3>Benefit The Community</h3>
@@ -135,22 +135,6 @@
         </div>
       </div>
 
-        <!-- <div class="download-section">
-            <div class="container">
-              <div class="cucumber_background">
-                    </p>
-                  </div>
-                    <div class="col-md-6 black_background">
-                      <p class="black_background_padding"><i>Nut</i> only helps local farmers, but it:
-                      <h1>Reduces emmissions</h1>
-                      <p>Buying local means a lot less transportation, which means a lot less fossil fuels to pollute the air</p>
-                      <h1>Enhances the community</h1>
-                      <p>Bring the community together</p>
-                      <h1>Increases Happiness</h1>
-                      <p>Produce picked the same day as eaten is proven to have much more vitamins.  More vitamins means more happiness. </p>
-                      <br><br>We want you to feel <i>grape</i> about what you eat.</p>
-                </div>
-              </div> -->
     </section>
 
 {% endblock %}
