@@ -10,9 +10,13 @@
   <header class="intro">
     <div class="row">
         <div id="hero" class="col-4 col-offset-3 centered">
-            <div class="brand-heading"><h1>URU</h1><h2>Tallahassee</h2></div>
-            <h6 class="intro-text">Hand-Delivered Produce <strong>{ Farm-To-Doorstep }</strong>
-                <br>Always Organic and Locally Sourced</h6>
+            <div class="brand-heading"><h1>URU</h1><h3>TALLAHASSEE</h3></div>
+            <div class="intro-text">
+              <h4>Hand-Delivered Produce</h4>
+              <h4><strong>{ Farm-To-Doorstep }</strong></h4>
+              <h4>Always Organic</h4>
+              <h4>Always Locally Sourced</h4>
+            </div>
         </div>
     </div>
     <div class="row">
@@ -26,111 +30,109 @@
   </header>
 
   <!-- 3 row thing -->
-  <section class="container">
-    <div class="row centered"><h3>The Process:</h3></div>
-    <div class="about_section" id="one_time_subscription">
-      <div class="row">
-        <div class="col-md-3">
-          <img src="./../static/img/3_sizes-01.svg"/>
+  <!-- <section id="about">
+      <div class="row aboutSection">
+        <div class="col-md-4 square">
+          <div class="fidy yellow" id="step_one">
+          </div>
+          <div class="fidy">
+            <p>Hand picked from the farm. </p>
+          </div>
         </div>
-        <div class="col-md-9">
-          <h3>One time subscription. Choose your size.</h3>
-        </div>
-      </div>
-    </div>
-    <div class="about_section" id="fresh_food">
-      <div class="row">
-        <div class="col-md-9">
-          <h3>Fresh food from local farms, picked the same day.</h3>
-        </div>
-        <div class="col-md-3">
-          <img src="./../static/img/farmland-01.svg"/>
-        </div>
-      </div>
-    </div>
-    <div class="about_section" id="to_the_doorstep">
-      <div class="row">
-        <div class="col-md-3">
-          <img src="./../static/img/box-01.svg"/>
-        </div>
-        <div class="col-md-9">
-          <h3>Delivered to your doorstep every Wednesday.</h3>
+        <div class="col-md-4 square">
+          <div class="fidy">
+            <p>hi these r veggies.</p>
+          </div>
+          <div class="fidy yellow" id="step_two">
+          </div>
+          </div>
+          <div class="col-md-4 square">
+            <div class="fidy yellow" id="step_three">
+            </div>
+            <div class="fidy">
+              <p>hi these r veggies. </p>
+            </div>
         </div>
       </div>
-    </div>
-  </section>
+  </section> -->
 
   <!-- About Section -->
   <section id="sizes">
     <div class="row">
-      <h3>How many veggies do you need?</h3>
+      <h3>How many veggies should we bring you?</h3>
       <h5>We have 3 box sizing options:</h5>
     </div>
-          <div class="col-md-4 col-centered">
-            <div class="lil_sweet_potato_background">
-              <a href="{{ url_for('frontend.signup', box_size='single')}}">
-                <h1>1</h1>
+    <div class="row">
+        <div class="col-md-4 col-centered option">
+          <a href="{{ url_for('frontend.signup', box_size='single')}}">
+            <div id="mushie_background" class="veggie_circles">
+              <h1></h1>
+            </div>
+            <div class="buy_here">
               <p class="tiny">a single sprout</p>
-                <h3>SINGLE</h3>
-                <p>enough for one person</p>
-                <h3>$25</h3>
+              <h3>SINGLE</h3>
+              <p>enough for <span class="size">one</span> person</p>
+              <h3>$25</h3>
             </div>
+          </a>
+          <a href="{{ url_for('frontend.signup', box_size='single')}}">
             <button>Select</button>
-              </a>
-            <!-- </div> -->
-          </div>
-          <div class="col-md-4 col-centered">
-            <div class="mushie_background">
-              <a href="{{ url_for('frontend.signup', box_size='couple')}}">
-                <h1>2</h1>
-              <p class="tiny">two peas in a pod!</p>
-                <h3>COUPLE</h3>
-                <p>enough for two people</p>
-                <h3>$45</h3>
-            </div>
-            <button>Select</button>
-              </a>
+          </a>
         </div>
-
-          <div class="col-md-4 col-centered">
-            <div class="tomato_background">
-              <a href="{{ url_for('frontend.signup', box_size='family')}}">
-                <h1>3</h1>
-              <p class="tiny">a carr[ot]ing family</p>
-                <h3>FAMILY</h3>
-                <p>enough for four people</p>
-                <h3>$75</h3>
-              </div>
-              <button>Select</button>
-              </a>
+      <div class="col-md-4 col-centered margin option">
+        <a href="{{ url_for('frontend.signup', box_size='couple')}}">
+          <div id="lil_sweet_potato_background" class="veggie_circles">
+            <h1></h1>
           </div>
-        </div>
-        <!-- </div> -->
+          <div class="buy_here">
+            <p class="tiny">two peas in a pod!</p>
+            <h3>COUPLE</h3>
+            <p>enough for <span class="size">two</span> people</p>
+            <h3>$45</h3>
+          </div>
+        </a>
+        <a href="{{ url_for('frontend.signup', box_size='couple')}}">
+          <button>Select</button>
+        </a>
       </div>
+
+      <div class="col-md-4 col-centered margin option">
+        <a href="{{ url_for('frontend.signup', box_size='family')}}">
+          <div id="tomato_background" class="veggie_circles">
+            <h1></h1>
+          </div>
+          <div class="buy_here">
+            <p class="tiny">a carr[ot]ing family</p>
+            <h3>FAMILY</h3>
+            <p>enough for <span class="size">four</span> people</p>
+            <h3>$75</h3>
+          </div>
+        </a>
+        <a href="{{ url_for('frontend.signup', box_size='family')}}">
+          <button>Select</button>
+        </a>
+      </div>
+    </div>
   </section>
 
-    <!-- Download Section -->
-    <section id="download" class="content-section text-center">
-        <div class="download-section">
-            <div class="container">
-              <div class="cucumber_background">
-                <div class="col-md-6 cucumber_font">
-                    <h2>Buying Local:</h2>
-                    </p>
-                  </div>
-                    <div class="col-md-6 black_background">
-                      <p class="black_background_padding"><i>Nut</i> only helps local farmers, but it:
-                      <h1>Reduces emmissions</h1>
-                      <p>Buying local means a lot less transportation, which means a lot less fossil fuels to pollute the air</p>
-                      <h1>Enhances the community</h1>
-                      <p>Bring the community together</p>
-                      <h1>Increases Happiness</h1>
-                      <p>Produce picked the same day as eaten is proven to have much more vitamins.  More vitamins means more happiness. </p>
-                      <br><br>We want you to feel <i>grape</i> about what you eat.</p>
-                </div>
-              </div>
-            </div>
-            </div>
+    <!-- Local Section -->
+    <section id="local">
+      <div class="row contain">
+        <div id="buy_local" class="col-md-12">
+          <h2>Buy</h2>
+          <h2>Local</h2>
+        </div>
+        <div id="why_local" class="col-md-7">
+          <!-- gradient???? -->
+          <h3>Help Our Farmers</h3>
+          <p>Produce picked the same day as eaten is proven to have much more vitamins. More vitamins means more happiness.</p>
+          <h3>Benefit The Community</h3>
+          <p>Produce picked the same day as eaten is proven to have much more vitamins. More vitamins means more happiness.</p>
+          <h3>Increase Happiness</h3>
+          <p>Produce picked the same day as eaten is proven to have much more vitamins. More vitamins means more happiness.</p>
+        </div>
+      </div>
+
     </section>
 
 {% endblock %}
