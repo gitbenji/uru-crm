@@ -90,7 +90,7 @@ class StripeForm(Form):
         user = User()
         self.populate_obj(user)
         user.customer_id = cid
-        self.address = self.address.data + ', ' + \
+        user.address = self.address.data + ', ' + \
             self.address_2.data + ', ' + \
             self.city.data + ', ' + \
             self.state.data + ' ' + \
