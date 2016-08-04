@@ -563,7 +563,7 @@ a:focus {
 #buy_local h2 {
   color: #fff0e6;
   text-shadow: 2px 2px 24px #131313;
-  font-family: "lavanderia";
+  font-family: "Lavanderia";
 }
 
 #why_local {
@@ -882,7 +882,7 @@ table {
 }
 .cucumber_font h2 {
   font-size: 10em;
-  font-family: lavanderia;
+  font-family: 'Lavanderia';
   text-transform: capitalize;
 }
 .cucumber_font p {
