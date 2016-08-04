@@ -3,13 +3,55 @@
  * Copyright 2013-2016 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
+
+ @font-face {
+  font-family: 'Brandon-Thin';
+  src: url('../fonts/Brandon_thin.otf');
+  font-weight: normal;
+  font-style: normal;
+ }
+
+@font-face {
+  font-family: 'Brandon-Light';
+  src: url('../fonts/Brandon_light.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Brandon-Regular';
+  src: url('../fonts/Brandon_reg.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Brandon-Bold';
+  src: url('../fonts/Brandon_bld.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Archer';
+  src: url('../fonts/Archer-Medium-Pro.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lavanderia';
+  src: url('../fonts/Lavanderia_Sturdy.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   width: 100%;
   height: 100%;
-  font-family: "brandon grotesque";
   color: #535353;
   background-color: white;
-
+  font-family: "Brandon-Regular";
 }
 
 html {
@@ -20,37 +62,31 @@ html {
 /*-----------FONT------------------*/
 
 h1 {
-  font-family: "playfair display";
-  text-transform: uppercase;
-  font-weight: 500;
   font-size: 157px;
 }
 
 h2 {
-  font-family: "brandon grotesque";
-  font-weight: 100;
-  text-transform: capitalize;
-  color: white;
   font-size: 51px;
 }
 
 h3 {
-  font-family: "brandon grotesque";
   font-size: 43px;
 }
 
 h4 {
-  font-family: "brandon grotesque";
   font-size: 30px;
 }
 
+h5 {
+  font-size: 25px;
+}
+
 h6 {
-  font-family: "brandon grotesque";
   font-size: 16px;
 }
 
 p {
-  font-family: "archer";
+  font-family: "Archer";
   margin: 0 0 25px;
   font-size: 18px;
   line-height: 1.5;
@@ -64,6 +100,15 @@ p {
   }
 
 }
+@media (max-width: 400px) {
+  h4 {
+    font-size: 17px;
+    text-align: center;
+  }
+  .brand-heading h1 {
+    font-size: 128px;
+  }
+}
 
 /*---------------BUTTON-----------------*/
 
@@ -72,9 +117,8 @@ button {
   background-color: #e1781c;
   text-decoration: none;
   text-transform: uppercase;
-  font-family: "brandon grotesque";
+  font-family: "Brandon-Regular";
   font-size: 15px;
-  font-weight: bolder;
   letter-spacing: 5px;
   padding: 12px 50px;
   border: none;
@@ -174,7 +218,7 @@ a:focus {
   text-transform: uppercase;
   font-size: small;
   font-weight: 400;
-  font-family: 'brandon grotesque';
+  font-family: 'Brandon-Regular';
   letter-spacing: 8px;
   background-color: black;
 }
@@ -260,10 +304,22 @@ a:focus {
   -o-background-size: cover;
 }
 
+.brand-heading h1 {
+  font-family: "playfair display";
+  font-weight: 100;
+}
+
 .brand-heading h3 {
+  font-family: 'Brandon-Thin';
   margin-top: -30px;
   letter-spacing: 3px;
-  font-weight: 100;
+  text-shadow: 0px 0px 100px #131313;
+}
+
+.intro-text h5 {
+  text-align: center;
+  font-family: "Brandon-Regular";
+  text-shadow: 0px 0px 100px #131313;
 }
 
 .navbar-brand {
@@ -271,12 +327,13 @@ a:focus {
   letter-spacing: 5px;
 }
 
-.intro-text{
+.intro-text {
   text-align: left;
   letter-spacing: 2px;
-  padding-top: 51px;
+  padding-top: 4px;
   padding-bottom: 10px;
-  padding-left: 62px;
+  padding-left: 31px;
+  padding-right: 31px;
 }
 
 #hero {
@@ -307,13 +364,23 @@ a:focus {
     height: 108vh;
     padding-top: 16%;
   }
+
   .intro .intro-body .brand-heading {
     font-size: 70px;
     font-family: Source Serif Pro;
     align-content: center;
   }
+
   .intro .intro-body {
     font-size: 26px;
+  }
+
+  .intro-text {
+    padding-top: 51px;
+  }
+
+  .intro-text h5 {
+    text-align: left;
   }
 }
 
@@ -497,7 +564,6 @@ a:focus {
   color: #fff0e6;
   text-shadow: 2px 2px 24px #131313;
   font-family: "lavanderia";
-  font-weight: bolder;
 }
 
 #why_local {
@@ -508,6 +574,12 @@ a:focus {
 
 #why_local h3 {
   text-align: center;
+}
+
+@media (min-width: 320px) {
+  #why_local h3 {
+    text-align: left;
+  }
 }
 
 @media (min-width: 1000px) {
@@ -526,7 +598,6 @@ a:focus {
     margin-top: 10.5%;
     margin-left: -52%;
   }
-
 }
 
 
@@ -535,17 +606,17 @@ a:focus {
 #contact {
   /*border-image: url('../img/carrot-02.png') 30 30 round;;*/
   width: 100%;
-  color: #535353;
-  background-image: url('../img/farm_photo_blur.jpg');
+  color: #fff0e6;
+  background-image: url('../img/bbb.jpg');
+  background-position: center right;
   background-size: cover;
-  background-color: white;
   padding-top: 75px;
 }
 
 @media (max-width:550px) {
 
   #contact {
-    padding-top: 74%;
+    padding-top: 24%;
   }
 
 }
@@ -559,7 +630,7 @@ a:focus {
   background-color: #e1781c;
   text-decoration: none;
   text-transform: uppercase;
-  font-family: "brandon grotesque";
+  font-family: "Brandon-Regular";
   font-size: 15px;
   font-weight: bolder;
   letter-spacing: 5px;
@@ -825,11 +896,7 @@ table {
   }
 }
 
-@media (max-width:400px) {
-  button.navbar-toggle {
-    display: none;
-  }
-}
+
 @media (min-width:300) {
   .signup_mobile {
     font-size: 8px !important;
@@ -890,7 +957,7 @@ table {
   padding: 1em 1em 1em 1em;
   margin: -1.6em;
 }
-  .blurred_bg {
+.blurred_bg {
   /*background-image: url(../img/blur_.jpg);*/
   background-repeat: no-repeat;
   /*background-position: center;*/
