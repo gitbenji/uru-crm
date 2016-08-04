@@ -51,7 +51,7 @@ body {
   height: 100%;
   color: #535353;
   background-color: white;
-
+  font-family: "Brandon-Regular";
 }
 
 html {
@@ -166,16 +166,12 @@ button:hover:before {
   max-width: 87%;
   margin-left: auto;
   margin-right: auto;
-  overflow: hidden;
 }
 
 .contain {
   min-width: 100vw;
   margin-left: auto;
   margin-right: auto;
-}
-.container {
-  overflow: hidden;
 }
 
 /*--------------LINKS-------------*/
@@ -334,17 +330,12 @@ a:focus {
 .intro-text {
   text-align: left;
   letter-spacing: 2px;
-  padding-top: 51px;
+  padding-top: 4px;
   padding-bottom: 10px;
   padding-left: 31px;
   padding-right: 31px;
 }
-@media (max-width: 400px) {
-  .intro-text {
-    padding-left: 0px !important;
-    padding-top: 4px !important;
-  }
-}
+
 #hero {
   padding-top: 6%;
   padding-bottom: 5%;
@@ -382,6 +373,10 @@ a:focus {
 
   .intro .intro-body {
     font-size: 26px;
+  }
+
+  .intro-text {
+    padding-top: 51px;
   }
 
   .intro-text h5 {
@@ -569,7 +564,6 @@ a:focus {
   color: #fff0e6;
   text-shadow: 2px 2px 24px #131313;
   font-family: "lavanderia";
-  font-weight: bolder;
 }
 
 #why_local {
@@ -613,9 +607,9 @@ a:focus {
   /*border-image: url('../img/carrot-02.png') 30 30 round;;*/
   width: 100%;
   color: #fff0e6;
-  background-image: url('../img/farm_photo_blur.jpg');
+  background-image: url('../img/bbb.jpg');
+  background-position: center right;
   background-size: cover;
-  background-color: white;
   padding-top: 75px;
 }
 
@@ -963,7 +957,7 @@ table {
   padding: 1em 1em 1em 1em;
   margin: -1.6em;
 }
-  .blurred_bg {
+.blurred_bg {
   /*background-image: url(../img/blur_.jpg);*/
   background-repeat: no-repeat;
   /*background-position: center;*/
