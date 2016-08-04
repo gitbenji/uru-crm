@@ -100,6 +100,15 @@ p {
   }
 
 }
+@media (max-width: 400px) {
+  h4 {
+    font-size: 17px;
+    text-align: center;
+  }
+  .brand-heading h1 {
+    font-size: 128px;
+  }
+}
 
 /*---------------BUTTON-----------------*/
 
@@ -157,12 +166,16 @@ button:hover:before {
   max-width: 87%;
   margin-left: auto;
   margin-right: auto;
+  overflow: hidden;
 }
 
 .contain {
   min-width: 100vw;
   margin-left: auto;
   margin-right: auto;
+}
+.container {
+  overflow: hidden;
 }
 
 /*--------------LINKS-------------*/
@@ -318,7 +331,7 @@ a:focus {
   letter-spacing: 5px;
 }
 
-.intro-text{
+.intro-text {
   text-align: left;
   letter-spacing: 2px;
   padding-top: 51px;
@@ -326,7 +339,12 @@ a:focus {
   padding-left: 31px;
   padding-right: 31px;
 }
-
+@media (max-width: 400px) {
+  .intro-text {
+    padding-left: 0px !important;
+    padding-top: 4px !important;
+  }
+}
 #hero {
   padding-top: 6%;
   padding-bottom: 5%;
@@ -564,6 +582,12 @@ a:focus {
   text-align: center;
 }
 
+@media (min-width: 320px) {
+  #why_local h3 {
+    text-align: left;
+  }
+}
+
 @media (min-width: 1000px) {
 
   #buy_local {
@@ -580,7 +604,6 @@ a:focus {
     margin-top: 10.5%;
     margin-left: -52%;
   }
-
 }
 
 
@@ -589,7 +612,7 @@ a:focus {
 #contact {
   /*border-image: url('../img/carrot-02.png') 30 30 round;;*/
   width: 100%;
-  color: #535353;
+  color: #fff0e6;
   background-image: url('../img/farm_photo_blur.jpg');
   background-size: cover;
   background-color: white;
@@ -599,7 +622,7 @@ a:focus {
 @media (max-width:550px) {
 
   #contact {
-    padding-top: 74%;
+    padding-top: 24%;
   }
 
 }
@@ -879,11 +902,7 @@ table {
   }
 }
 
-@media (max-width:400px) {
-  button.navbar-toggle {
-    display: none;
-  }
-}
+
 @media (min-width:300) {
   .signup_mobile {
     font-size: 8px !important;
