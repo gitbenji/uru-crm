@@ -698,6 +698,7 @@ body {
   background-image: url("../img/veggie_circles.png");
   position: fixed;
   top: 0;
+  background-color: darkseagreen;
   left: 0;
   height: 100vh;
   width: 100vw;
