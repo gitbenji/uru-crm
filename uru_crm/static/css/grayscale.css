@@ -1009,3 +1009,10 @@ table {
 .beet_utiful {
   width: 25%;
 }
+.quote {
+  background-image: url(../img/new_box.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+}
