@@ -388,7 +388,10 @@ a:focus {
 /*-----------------------How It Works---------------------------*/
 
 #about {
-  /*background-image: url(../img/farm_photo_blur.jpg);*/
+  /*background-image: url('../img/patt-01.png');*/
+  /*background-position: center;
+  background-repeat: repeat;
+  background-size: cover;*/
 }
 
 .aboutSection {
@@ -408,10 +411,10 @@ a:focus {
 
 .square {
   padding: 0em 0em 0em;
+  background-color: #91c48c;;
 }
 
 .yellow {
-  background-image: url(../img/cucumbers.jpeg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -423,15 +426,15 @@ a:focus {
 }
 
 #step_one {
-  background-image: url("../img/figs.jpeg");
+  background-image: url("../img/IMG_7778.jpg");
 }
 
 #step_two {
-  background-image: url("../img/new_box.jpg");
+  background-image: url("http://www.bikesandtrailers.com/Components/Images/bike_trailers/intro.jpg");
 }
 
 #step_three {
-  background-image: url();
+  background-image: url("../img/new_box.jpg");
 }
 
 
@@ -442,8 +445,13 @@ a:focus {
   color: #535353;
 }
 
+#sizes row {
+  background-color: white;
+}
+
 #sizes h3 {
   border-bottom: 1px dashed #535353;
+
 }
 
 .option {
@@ -554,7 +562,7 @@ a:focus {
 }
 
 #buy_local {
-  background-image: url(../img/cucumbers.jpeg);
+  background-image: url(../img/IMG_7756.jpg);
   background-size: cover;
   text-align: center;
   padding: 15px 0px;
@@ -607,7 +615,7 @@ a:focus {
   /*border-image: url('../img/carrot-02.png') 30 30 round;;*/
   width: 100%;
   color: #fff0e6;
-  background-image: url('../img/bbb.jpg');
+  background-image: url('../img/patt-01.png');
   background-position: center right;
   background-size: cover;
   padding-top: 75px;
@@ -643,7 +651,21 @@ a:focus {
 }
 
 
+#quote {
+  background-image: url("../img/cucumbers.jpeg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  z-index: -1;
+  margin-top: -1em;
 
+}
+.quote h2 {
+  color: white;
+  font-size: 100px;
+  text-transform: uppercase;
+}
 
 
 
@@ -736,6 +758,7 @@ img::-moz-selection {
   background: transparent;
 }
 body {
+  background-image: url('../img/patt-01.png');
   webkit-tap-highlight-color: rgba(255, 255, 255, 0.3);
 }
 
