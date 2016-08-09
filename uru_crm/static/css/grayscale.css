@@ -652,7 +652,7 @@ a:focus {
 
 
 #quote {
-  background-image: url("../img/cucumbers.jpeg");
+  background-image: url("../img/blueberries.jpeg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -758,7 +758,6 @@ img::-moz-selection {
   background: transparent;
 }
 body {
-  background-image: url('../img/patt-01.png');
   webkit-tap-highlight-color: rgba(255, 255, 255, 0.3);
 }
 
@@ -847,7 +846,6 @@ label {
 
 #last_name, #password, #phone_num, #address_2, #state, #cvc_number {
   float: right;
-  margin-top: -2em;
 }
 
 #box_size-0, #box_size-1, #box_size-2 {
