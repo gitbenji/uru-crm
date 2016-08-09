@@ -845,7 +845,6 @@ label {
   }
 }
 #last_namesignup, #retype_passwordsignup, #phone_numsignup, #address_2signup, #statesignup, #cvc_numbersignup,  #exp_yearsignup, #cvc_numbersignup {
-  margin-top: -2em;
 }
 
 .page-header {
