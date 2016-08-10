@@ -10,6 +10,7 @@
   font-weight: normal;
   font-style: normal;
  }
+@import url(http://db.onlinewebfonts.com/c/caabdd4982555f447615880263cbb4f0?family=AmorieModellaW01-Bold);
 
 @font-face {
   font-family: 'Brandon-Light';
@@ -577,7 +578,7 @@ a:focus {
 #why_local {
   background-color: #4e6330;
   padding: 20px 46px;
-  color: #ffe6d2;
+  color: #7ea87a;
 }
 
 #why_local h3 {
